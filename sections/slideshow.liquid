@@ -2,6 +2,47 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
+{%- style -%}
+  .slideshow__video {
+    object-fit: cover;
+    object-position: center center;
+  }
+{%- endstyle -%}
+
+<script>
+  // The native `autoplay` attribute isn't reliably honored for videos injected
+  // into slideshow slides, so explicitly kick off muted playback once ready.
+  (function () {
+    function playSlideVideos(root) {
+      (root || document).querySelectorAll('.slideshow__video').forEach(function (video) {
+        video.muted = true;
+        video.setAttribute('muted', '');
+        var attempt = function () {
+          var p = video.play();
+          if (p && typeof p.catch === 'function') {
+            p.catch(function () {/* autoplay may be blocked until interaction */});
+          }
+        };
+        if (video.readyState >= 2) {
+          attempt();
+        } else {
+          video.addEventListener('canplay', attempt, { once: true });
+          video.addEventListener('loadeddata', attempt, { once: true });
+        }
+      });
+    }
+    if (document.readyState !== 'loading') {
+      playSlideVideos();
+    } else {
+      document.addEventListener('DOMContentLoaded', function () { playSlideVideos(); });
+    }
+    // Re-attempt when the section is re-rendered in the theme editor.
+    document.addEventListener('shopify:section:load', function (event) {
+      playSlideVideos(event.target);
+    });
+  })();
+</script>
+
 {%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
   {%- style -%}
     @media screen and (max-width: 749px) {
@@ -120,8 +161,27 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-        <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {%- if block.settings.image -%}
+        <div class="slideshow__media banner__media media{% if block.settings.image == blank and block.settings.video_url == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
+          {%- if block.settings.video_url != blank -%}
+            {%- liquid
+              assign video_poster = block.settings.video_poster_url
+              if video_poster == blank and block.settings.image != blank
+                assign video_poster = block.settings.image | image_url: width: 3840
+              endif
+            -%}
+            <video
+              class="slideshow__video banner__media-image"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              {% if video_poster != blank %}poster="{{ video_poster }}"{% endif %}
+              {% if forloop.first %}fetchpriority="high"{% endif %}
+            >
+              <source src="{{ block.settings.video_url }}" type="video/mp4">
+            </video>
+          {%- elsif block.settings.image -%}
             {%- liquid
               assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
               if section.settings.image_behavior == 'ambient'
@@ -394,6 +454,18 @@
           "type": "image_picker",
           "id": "image",
           "label": "t:sections.slideshow.blocks.slide.settings.image.label"
+        },
+        {
+          "type": "text",
+          "id": "video_url",
+          "label": "Video URL (.mp4)",
+          "info": "Plays as the slide background. Leave blank to use the image."
+        },
+        {
+          "type": "text",
+          "id": "video_poster_url",
+          "label": "Video poster image URL",
+          "info": "Shown while the video is loading. Falls back to the image above if blank."
         },
         {
           "type": "range",

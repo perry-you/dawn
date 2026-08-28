@@ -122,6 +122,81 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  {%- if section.settings.transparent_on_index and request.page_type == 'index' -%}
+    /* Transparent overlay at the top of the homepage.
+       Keeps the announcement bar + header in normal flow (no absolute
+       positioning) so the sticky JS and stacking order stay intact, and
+       pulls the first content section up underneath the whole group.
+       NOTE: don't set `position` here — the header section relies on base.css
+       toggling between `relative` (top) and `sticky` (scrolled). Only raise
+       the stacking order so the group floats above the pulled-up content. */
+    #shopify-section-group-header-group,
+    .shopify-section-group-header-group {
+      z-index: 4;
+    }
+
+    .section-header:not(.scrolled-past-header) .header-wrapper {
+      background: transparent;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    }
+
+    .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom {
+      border-bottom-color: transparent;
+    }
+
+    /* Hovering the transparent header reveals the same solid white style as
+       the pinned/scrolled state, then fades back to transparent on mouse out. */
+    .section-header:not(.scrolled-past-header) .header-wrapper:hover {
+      --color-background: 255, 255, 255;
+      --color-foreground: 32, 31, 30;
+      background-color: rgb(var(--color-background));
+      color: rgb(var(--color-foreground));
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    }
+
+    .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom:hover {
+      border-bottom-color: rgba(var(--color-foreground), 0.08);
+    }
+
+    /* Announcement bar sits transparently over the hero at the top too */
+    #shopify-section-group-header-group .utility-bar,
+    .shopify-section-group-header-group .utility-bar {
+      background: transparent;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Pull the page content up so the header group overlays the hero */
+    .content-for-layout {
+      margin-top: calc(-1 * var(--header-group-height, var(--header-height)));
+    }
+
+    /* Opened dropdowns need a solid backdrop while the header is transparent,
+       otherwise the hero shows through and the menu text is unreadable. */
+    .section-header:not(.scrolled-past-header) .header__submenu,
+    .section-header:not(.scrolled-past-header) .mega-menu__content,
+    .section-header:not(.scrolled-past-header) .menu-drawer,
+    .section-header:not(.scrolled-past-header) .header__submenu.global-settings-popup {
+      background-color: rgb(var(--color-background));
+    }
+  {%- endif -%}
+
+  /* Once the header has scrolled off-screen it pins to the top of the viewport
+     with a solid WHITE background (keyed on `scrolled-past-header`, which the
+     StickyHeader JS adds only after the header leaves its original position and
+     removes when scrolled back to the very top). */
+  .scrolled-past-header .header-wrapper {
+    --color-background: 255, 255, 255;
+    --color-foreground: 32, 31, 30;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+
+  .scrolled-past-header .header-wrapper--border-bottom {
+    border-bottom-color: rgba(var(--color-foreground), 0.08);
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -456,6 +531,31 @@
   );
 
   customElements.define('sticky-header', StickyHeader);
+
+  // Expose the full header-group height (announcement bar + header) so the
+  // transparent-overlay layout can pull the page content up by the correct
+  // amount. Dawn's built-in --header-height only covers the header row.
+  (function () {
+    function setHeaderGroupHeight() {
+      // Shopify applies the group class to each section wrapper in the group
+      // (announcement bar + header), and each wrapper also has its own id, so
+      // always sum every member to get the full group height.
+      const members = document.querySelectorAll('.shopify-section-group-header-group');
+      if (!members.length) return;
+      let height = 0;
+      members.forEach((el) => (height += el.offsetHeight));
+      document.documentElement.style.setProperty(
+        '--header-group-height',
+        `${Math.round(height)}px`
+      );
+    }
+
+    setHeaderGroupHeight();
+    window.addEventListener('resize', setHeaderGroupHeight);
+    window.addEventListener('load', setHeaderGroupHeight);
+    document.addEventListener('shopify:section:load', setHeaderGroupHeight);
+    document.addEventListener('shopify:section:unload', setHeaderGroupHeight);
+  })();
 {% endjavascript %}
 
 <script type="application/ld+json">
@@ -594,6 +694,24 @@
       ],
       "default": "on-scroll-up",
       "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
+      "type": "header",
+      "content": "Transparent / sticky style"
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_on_index",
+      "default": false,
+      "label": "Transparent header over hero (homepage)",
+      "info": "Header overlays the first section on the homepage and turns solid when scrolled."
+    },
+    {
+      "type": "color_scheme",
+      "id": "sticky_color_scheme",
+      "default": "scheme-3",
+      "label": "Sticky header color scheme",
+      "info": "Applied to the header once it sticks after scrolling."
     },
     {
       "type": "checkbox",
