@@ -197,6 +197,38 @@
   .scrolled-past-header .header-wrapper--border-bottom {
     border-bottom-color: rgba(var(--color-foreground), 0.08);
   }
+
+  /* Dual logo: show the default (first) logo normally and swap to the
+     alternate (second) logo when the header is hovered OR pinned to the top
+     after scrolling (both use the solid white background, where the alternate
+     logo is the readable one). Both images are rendered; visibility is toggled
+     with CSS so no JS/flash is involved. */
+  .header__logo-alt {
+    display: none;
+  }
+
+  .header-wrapper:hover .header__logo-default,
+  .scrolled-past-header .header__logo-default {
+    display: none;
+  }
+
+  .header-wrapper:hover .header__logo-alt,
+  .scrolled-past-header .header__logo-alt {
+    display: block;
+  }
+
+  /* Render the logos at their natural 170x40 size. Dawn caps the logo via the
+     wrapper's width (tied to settings.logo_width); override it here so the
+     source image isn't shrunk. */
+  .header__heading-logo-wrapper {
+    width: 170px;
+    max-width: 100%;
+  }
+
+  .header__heading-logo {
+    width: 170px;
+    height: 40px;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -260,28 +292,23 @@
         <h1 class="header__heading">
       {%- endif -%}
       <a href="{{ routes.root_url }}" class="header__heading-link link link--text focus-inset">
-        {%- if settings.logo != blank -%}
-          <div class="header__heading-logo-wrapper">
-            {%- assign logo_alt = settings.logo.alt | default: shop.name | escape -%}
-            {%- assign logo_height = settings.logo_width | divided_by: settings.logo.aspect_ratio -%}
-            {% capture sizes %}(max-width: {{ settings.logo_width | times: 2 }}px) 50vw, {{ settings.logo_width }}px{% endcapture %}
-            {% capture widths %}{{ settings.logo_width }}, {{ settings.logo_width | times: 1.5 | round }}, {{ settings.logo_width | times: 2 }}{% endcapture %}
-            {{
-              settings.logo
-              | image_url: width: 600
-              | image_tag:
-                class: 'header__heading-logo motion-reduce',
-                widths: widths,
-                height: logo_height,
-                width: settings.logo_width,
-                alt: logo_alt,
-                sizes: sizes,
-                preload: true
-            }}
-          </div>
-        {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
-        {%- endif -%}
+        {%- assign logo_alt = shop.name | escape -%}
+        <div class="header__heading-logo-wrapper">
+          <img
+            src="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-logo-white-170x40.png?v=1788093656"
+            class="header__heading-logo header__logo-default motion-reduce"
+            width="170"
+            height="40"
+            alt="{{ logo_alt }}"
+          >
+          <img
+            src="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-logo-black-170x40.png?v=1788093651"
+            class="header__heading-logo header__logo-alt motion-reduce"
+            width="170"
+            height="40"
+            alt="{{ logo_alt }}"
+          >
+        </div>
       </a>
       {%- if request.page_type == 'index' -%}
         </h1>
