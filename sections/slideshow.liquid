@@ -3,7 +3,22 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
+  /* Make a video slide fill the hero exactly like an image slide.
+     The <video> is position:absolute (from .media > * base rule) so it adds no
+     height to its parent; ensure the media wrapper stretches to the full slide
+     height and the video covers it, otherwise the media box collapses and the
+     header/hero appear as a split top/bottom stack instead of an overlay. */
+  .slideshow__slide .slideshow__media {
+    height: 100%;
+    width: 100%;
+  }
+
   .slideshow__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
     object-position: center center;
   }
@@ -175,7 +190,7 @@
               muted
               loop
               playsinline
-              preload="auto"
+              preload="metadata"
               {% if video_poster != blank %}poster="{{ video_poster }}"{% endif %}
               {% if forloop.first %}fetchpriority="high"{% endif %}
             >
