@@ -145,20 +145,6 @@
       border-bottom-color: transparent;
     }
 
-    /* Hovering the transparent header reveals the same solid white style as
-       the pinned/scrolled state, then fades back to transparent on mouse out. */
-    .section-header:not(.scrolled-past-header) .header-wrapper:hover {
-      --color-background: 255, 255, 255;
-      --color-foreground: 32, 31, 30;
-      background-color: rgb(var(--color-background));
-      color: rgb(var(--color-foreground));
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-    }
-
-    .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom:hover {
-      border-bottom-color: rgba(var(--color-foreground), 0.08);
-    }
-
     /* Announcement bar sits transparently over the hero at the top too */
     #shopify-section-group-header-group .utility-bar,
     .shopify-section-group-header-group .utility-bar {
@@ -196,6 +182,40 @@
 
   .scrolled-past-header .header-wrapper--border-bottom {
     border-bottom-color: rgba(var(--color-foreground), 0.08);
+  }
+
+  /* Hovering the header reveals the solid white style on ALL pages (not just
+     the transparent homepage overlay). Applies while the header isn't already
+     pinned/scrolled, so hover behaves consistently everywhere. */
+  .section-header:not(.scrolled-past-header) .header-wrapper:hover {
+    --color-background: 255, 255, 255;
+    --color-foreground: 32, 31, 30;
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+
+  .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom:hover {
+    border-bottom-color: rgba(var(--color-foreground), 0.08);
+  }
+
+  /* Open nav dropdowns match the header's hover-white style (solid white
+     background + dark text), overriding the section's menu color scheme so the
+     header bar and its dropdown read as one continuous white surface. */
+  .mega-menu[open] .mega-menu__content,
+  .header__submenu[open],
+  details[open] > .header__submenu {
+    --color-background: 255, 255, 255;
+    --color-foreground: 32, 31, 30;
+    background-color: rgb(255, 255, 255);
+    color: rgb(32, 31, 30);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+  }
+
+  .mega-menu[open] .mega-menu__content .mega-menu__link,
+  .header__submenu[open] .header__menu-item {
+    color: rgb(32, 31, 30);
   }
 
   /* Dual logo: show the default (first) logo normally and swap to the
@@ -582,6 +602,49 @@
     window.addEventListener('load', setHeaderGroupHeight);
     document.addEventListener('shopify:section:load', setHeaderGroupHeight);
     document.addEventListener('shopify:section:unload', setHeaderGroupHeight);
+  })();
+
+  // Open the header nav dropdowns on hover (desktop / fine pointer only).
+  // Reuses the native <details open> attribute so Dawn's existing animation,
+  // focus handling and click behaviour keep working; touch devices fall back
+  // to the default click-to-open. A small close delay avoids flicker when the
+  // pointer travels from the summary down into the dropdown panel.
+  (function () {
+    function supportsHover() {
+      return window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    }
+
+    function bindHoverMenus() {
+      if (!supportsHover()) return;
+      const menus = document.querySelectorAll('header-menu');
+      menus.forEach((menu) => {
+        if (menu.dataset.hoverBound) return;
+        menu.dataset.hoverBound = 'true';
+        const details = menu.querySelector('details');
+        if (!details) return;
+        const summary = details.querySelector('summary');
+        let closeTimer;
+
+        const open = () => {
+          window.clearTimeout(closeTimer);
+          if (!details.open) {
+            details.setAttribute('open', '');
+            if (summary) summary.setAttribute('aria-expanded', 'true');
+          }
+        };
+        const close = () => {
+          closeTimer = window.setTimeout(() => {
+            if (typeof menu.close === 'function') menu.close();
+          }, 150);
+        };
+
+        menu.addEventListener('mouseenter', open);
+        menu.addEventListener('mouseleave', close);
+      });
+    }
+
+    bindHoverMenus();
+    document.addEventListener('shopify:section:load', bindHoverMenus);
   })();
 {% endjavascript %}
 
