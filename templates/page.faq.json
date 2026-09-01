@@ -1,0 +1,359 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "faq-page",
+      "blocks": {
+        "cat_shipping": {
+          "type": "category",
+          "settings": {
+            "title": "Shipping, Tracking & Delivery"
+          }
+        },
+        "q_ship_1": {
+          "type": "question",
+          "settings": {
+            "question": "Do you ship internationally?",
+            "answer": "<p>Yes. Kailash Way ships to almost every country around the world. A small number of destinations are excluded because of shipping and customs restrictions. Orders over US$69.99 (excluding free gift products) qualify for free standard shipping; for orders below that amount a flat shipping fee of US$6 applies. If your country does not appear at checkout, feel free to email us at service@mail.kailashway.com and we will do our best to help.</p>"
+          }
+        },
+        "q_ship_2": {
+          "type": "question",
+          "settings": {
+            "question": "How do I track my order?",
+            "answer": "<p>Once your order has shipped, we will send you a confirmation email that contains your tracking number and a tracking link. You can also find your tracking details in your account page under \"Orders\". Please allow 2\u20135 business days after shipment for the first tracking updates to appear, as it takes time for the carrier to scan the parcel into their system.</p>"
+          }
+        },
+        "q_ship_3": {
+          "type": "question",
+          "settings": {
+            "question": "How long does it take for an order to arrive?",
+            "answer": "<p>Delivery time is made up of two parts: processing time and shipping time. Orders are usually processed within 1\u20133 business days. After dispatch, standard international shipping typically takes 7\u201315 business days, depending on your location and local customs handling. During holidays and major sale periods, delivery may take a little longer. You will receive a tracking number by email so you can follow your parcel at every stage.</p>"
+          }
+        },
+        "q_ship_4": {
+          "type": "question",
+          "settings": {
+            "question": "I received a tracking number but it hasn't been updated \u2013 what should I do?",
+            "answer": "<p>Don't worry\u2014this is normal in the first few days. After a parcel is handed to the carrier, it can take 2\u20135 business days before the tracking status begins to update. Occasionally tracking may also pause while the parcel is in transit between countries or waiting to clear customs. If your tracking has not updated for more than 7 business days, please contact us at service@mail.kailashway.com with your order number and we will investigate for you.</p>"
+          }
+        },
+        "q_ship_5": {
+          "type": "question",
+          "settings": {
+            "question": "Will my order be shipped in one package?",
+            "answer": "<p>In most cases your items are shipped together in one package. However, if your order contains several items, or items stored in different warehouses, they may be split into more than one parcel so that the available items reach you sooner. When this happens each parcel has its own tracking number, so you may receive more than one shipping email.</p>"
+          }
+        },
+        "q_ship_6": {
+          "type": "question",
+          "settings": {
+            "question": "The package is being delivered by the carrier but I wasn't at home \u2013 what should I do?",
+            "answer": "<p>If the carrier attempts delivery while you are away, they will usually leave a notice with instructions, or make another delivery attempt on the next business day. You can often reschedule delivery, arrange pickup from a local depot, or provide delivery instructions directly through the carrier's website using your tracking number. If you need help, email us at service@mail.kailashway.com and we will assist you.</p>"
+          }
+        },
+        "q_ship_7": {
+          "type": "question",
+          "settings": {
+            "question": "I haven't received my items \u2013 whom should I contact?",
+            "answer": "<p>If your tracking shows the parcel as delivered but you have not received it, please first check with members of your household, your mailbox, and any safe drop-off locations, and ask your neighbours. If you still cannot locate it, contact our support team at service@mail.kailashway.com with your order number and we will work with the carrier to resolve the issue as quickly as possible.</p>"
+          }
+        },
+        "q_ship_8": {
+          "type": "question",
+          "settings": {
+            "question": "Why is my order late?",
+            "answer": "<p>Most orders arrive within the estimated time frame, but delays can occasionally happen due to customs clearance, incorrect or incomplete addresses, extreme weather, or high volumes during holidays and sales. If your order has passed the estimated delivery window, please reach out to service@mail.kailashway.com with your order number and we will look into it right away.</p>"
+          }
+        },
+        "cat_payment": {
+          "type": "category",
+          "settings": {
+            "title": "Payment, Billing & Fees"
+          }
+        },
+        "q_pay_1": {
+          "type": "question",
+          "settings": {
+            "question": "What methods of payment do you accept?",
+            "answer": "<p>We accept all major credit and debit cards, including Visa, Mastercard, American Express, Discover, JCB, Diners Club and Maestro, as well as PayPal and other secure payment options shown at checkout. Please note that we do not accept bank cheques, wire transfers, cash on receipt or cash on delivery. All payments are processed securely.</p>"
+          }
+        },
+        "q_pay_2": {
+          "type": "question",
+          "settings": {
+            "question": "Can I get a price adjustment on my item?",
+            "answer": "<p>If an item you purchased goes on sale within a short window after your order, please contact us at service@mail.kailashway.com with your order number and we will be happy to review your request. Price adjustments do not apply to items already purchased with a discount, clearance items, or promotions that have specific terms.</p>"
+          }
+        },
+        "q_pay_3": {
+          "type": "question",
+          "settings": {
+            "question": "Why did the price change at checkout?",
+            "answer": "<p>The price shown on a product page reflects the item's base price. At checkout your total may change once shipping fees, applicable taxes or duties, and any discount codes are applied. Currency conversion rates can also cause small differences if you are shopping in a currency other than the one your bank uses. The final amount you agree to pay is always shown clearly before you complete your order.</p>"
+          }
+        },
+        "q_pay_4": {
+          "type": "question",
+          "settings": {
+            "question": "Do I have to pay import taxes / duties on an international order?",
+            "answer": "<p>Depending on your country's regulations, your order may be subject to import taxes, customs duties or handling fees. These charges are set and collected by your local customs authority and are not included in the product or shipping price. As the recipient, you are responsible for any such fees. If you are unsure, we recommend checking with your local customs office before ordering.</p>"
+          }
+        },
+        "q_pay_5": {
+          "type": "question",
+          "settings": {
+            "question": "Will I be charged sales tax on my order?",
+            "answer": "<p>Sales tax, VAT or GST may be applied to your order depending on your location and local regulations. When tax applies, it is calculated automatically and displayed at checkout before you complete your purchase, so you always see the full amount in advance.</p>"
+          }
+        },
+        "q_pay_6": {
+          "type": "question",
+          "settings": {
+            "question": "My payment was declined \u2013 what should I do?",
+            "answer": "<p>If your payment was declined, please double-check that your card number, expiry date, security code and billing address were entered correctly. Also make sure your card has sufficient funds and is enabled for international or online purchases. If everything looks correct and the payment still fails, try an alternative method such as PayPal, or contact your bank. You are always welcome to email us at service@mail.kailashway.com for help.</p>"
+          }
+        },
+        "cat_shopping": {
+          "type": "category",
+          "settings": {
+            "title": "Shopping & Discounts"
+          }
+        },
+        "q_shop_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I place an order?",
+            "answer": "<p>Placing an order is easy. Browse our collections, select the item and any available options, then click \"Add to cart\". When you are ready, open your cart and click \"Check out\", enter your shipping and payment details, and confirm your order. You will receive a confirmation email once your order has been placed successfully.</p>"
+          }
+        },
+        "q_shop_2": {
+          "type": "question",
+          "settings": {
+            "question": "I tried to use a discount code and it didn't work.",
+            "answer": "<p>Please make sure the code is entered exactly as shown, with no extra spaces, and that it has not expired. Some codes apply only to specific products, minimum order values, or cannot be combined with other offers or sale items. Only one discount code can be used per order. If your valid code still won't apply, contact us at service@mail.kailashway.com and we will gladly help.</p>"
+          }
+        },
+        "q_shop_3": {
+          "type": "question",
+          "settings": {
+            "question": "How do I apply my discount code?",
+            "answer": "<p>At checkout you will see a field labelled \"Discount code\" or \"Gift card\". Enter your code there and click \"Apply\". The discount will be reflected in your order total before you complete payment. Please apply your code before finishing your order, as we are unable to add it afterwards.</p>"
+          }
+        },
+        "q_shop_4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I make changes to my order after placing it?",
+            "answer": "<p>We process orders quickly so they reach you sooner, so the window to make changes is short. If you need to change an item, size or address, please email us at service@mail.kailashway.com as soon as possible with your order number. We will do our best to update your order before it is dispatched, but once it has shipped we are no longer able to make changes.</p>"
+          }
+        },
+        "q_shop_5": {
+          "type": "question",
+          "settings": {
+            "question": "How do I cancel my order?",
+            "answer": "<p>If you wish to cancel, please contact us at service@mail.kailashway.com with your order number as soon as possible. If your order has not yet been processed or shipped, we can cancel it and issue a full refund. Once an order has been dispatched it cannot be cancelled, but you may return it once it arrives in line with our return policy.</p>"
+          }
+        },
+        "q_shop_6": {
+          "type": "question",
+          "settings": {
+            "question": "I made a mistake with my address.",
+            "answer": "<p>Please email us at service@mail.kailashway.com right away with your order number and the correct address. If your order has not yet shipped we can update it for you. If it has already been dispatched to the wrong address we may not be able to change it, so we always recommend double-checking your details before completing your order.</p>"
+          }
+        },
+        "q_shop_7": {
+          "type": "question",
+          "settings": {
+            "question": "Will I receive a confirmation email when I place my order?",
+            "answer": "<p>Yes. As soon as your order is placed you will receive a confirmation email with your order details. If you don't see it within a few minutes, please check your spam or promotions folder. If it still hasn't arrived, contact us at service@mail.kailashway.com and we will confirm that your order was received.</p>"
+          }
+        },
+        "cat_products": {
+          "type": "category",
+          "settings": {
+            "title": "Products & Care Instructions"
+          }
+        },
+        "q_prod_1": {
+          "type": "question",
+          "settings": {
+            "question": "How can I customise engraving products?",
+            "answer": "<p>For products that offer engraving, you will find a personalisation field on the product page where you can enter the text you would like engraved. Please review your spelling and characters carefully before ordering, as engraved and personalised items are made to order. If you have a special request, email us at service@mail.kailashway.com and we will let you know what is possible.</p>"
+          }
+        },
+        "q_prod_2": {
+          "type": "question",
+          "settings": {
+            "question": "If my bracelet broke, can I restring it?",
+            "answer": "<p>Yes, many of our beaded bracelets can be restrung. You can restring a bracelet at home using elastic cord suited to the bead size, or take it to a local jeweller. Keep the beads together after a break so none are lost. If you need guidance, contact us at service@mail.kailashway.com and we will be happy to advise.</p>"
+          }
+        },
+        "q_prod_3": {
+          "type": "question",
+          "settings": {
+            "question": "How do I take care of my jewelry?",
+            "answer": "<p>To keep your jewellery looking its best, avoid contact with water, perfume, lotions and cleaning chemicals, and remove it before showering, swimming or exercising. Store each piece separately in a dry place, ideally a soft pouch or lined box, to prevent scratches and tangling. Gently wipe your jewellery with a soft, dry cloth after wearing. With a little care, your pieces will stay beautiful for years.</p>"
+          }
+        },
+        "q_prod_4": {
+          "type": "question",
+          "settings": {
+            "question": "How can I clean my bracelet?",
+            "answer": "<p>For most bracelets, gently wipe the beads and any metal parts with a soft, slightly damp cloth, then dry immediately with a clean dry cloth. Avoid soaking natural stone, wood or seed beads, and never use harsh chemicals or ultrasonic cleaners, as these can damage the material and the cord. For delicate gemstone pieces, a quick dry wipe is usually all that is needed.</p>"
+          }
+        },
+        "cat_returns": {
+          "type": "category",
+          "settings": {
+            "title": "Returns & Exchanges"
+          }
+        },
+        "q_ret_1": {
+          "type": "question",
+          "settings": {
+            "question": "How do I return my order?",
+            "answer": "<p>To start a return, email us at service@mail.kailashway.com with your order number and the reason for your return. Our team will provide you with return instructions and the return address. Please make sure items are unused, in their original condition and packaging. Once we receive and inspect your return, we will process your refund or exchange.</p>"
+          }
+        },
+        "q_ret_2": {
+          "type": "question",
+          "settings": {
+            "question": "The item I received doesn't look like the picture on the website.",
+            "answer": "<p>Because many of our pieces are made from natural materials such as gemstones, wood and hand-finished metals, slight variations in colour, pattern and grain are normal and make each piece unique. Screen settings can also affect how colours appear. If you feel the item you received is significantly different from what was described, please email us at service@mail.kailashway.com with photos and your order number so we can make it right.</p>"
+          }
+        },
+        "q_ret_3": {
+          "type": "question",
+          "settings": {
+            "question": "My item is broken.",
+            "answer": "<p>We're sorry your item arrived damaged. Please contact us at service@mail.kailashway.com within 7 days of delivery with your order number and clear photos of the damage and the packaging. Once we have reviewed the details, we will arrange a replacement or refund for you as quickly as possible.</p>"
+          }
+        },
+        "q_ret_4": {
+          "type": "question",
+          "settings": {
+            "question": "My tracking shows my package is being returned to sender \u2013 what should I do?",
+            "answer": "<p>Parcels are sometimes returned to sender because of an incomplete or incorrect address, an unsuccessful delivery, or uncollected customs. If you see this status, please contact us at service@mail.kailashway.com with your order number. Once the parcel is back with us, we can arrange to reship it (additional shipping may apply) or issue a refund.</p>"
+          }
+        },
+        "q_ret_5": {
+          "type": "question",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We accept returns within 30 days of delivery. To be eligible, items must be unused, in their original condition and packaging. Personalised or engraved items, and final-sale items, cannot be returned unless they arrive damaged or faulty. Return shipping costs are the customer's responsibility unless the item was faulty or incorrect. Once your return is received and inspected, refunds are issued to your original payment method. To begin a return, email service@mail.kailashway.com.</p>"
+          }
+        },
+        "q_ret_6": {
+          "type": "question",
+          "settings": {
+            "question": "I received the item but I don't like it.",
+            "answer": "<p>That's no problem. If you change your mind, you may return an unused item in its original condition and packaging within 30 days of delivery for a refund or exchange. Simply email us at service@mail.kailashway.com with your order number to get started, and we will guide you through the process.</p>"
+          }
+        },
+        "cat_about": {
+          "type": "category",
+          "settings": {
+            "title": "About Kailash Way & General Questions"
+          }
+        },
+        "q_about_1": {
+          "type": "question",
+          "settings": {
+            "question": "About Kailash Way",
+            "answer": "<p>Kailash Way offers meaningful jewellery and lifestyle pieces inspired by mindfulness and positive energy. Each design is chosen with care, so that wearing our pieces feels as good as it looks. Our goal is to help you carry a sense of calm, intention and beauty with you every day. To stay in touch, follow us on Facebook at Kailash Way, or reach us any time at service@mail.kailashway.com.</p>"
+          }
+        },
+        "q_about_2": {
+          "type": "question",
+          "settings": {
+            "question": "Do you offer wholesale prices?",
+            "answer": "<p>Yes, we welcome wholesale and bulk enquiries. If you are interested in stocking or reselling our products, please email us at service@mail.kailashway.com with details about your business and the items you're interested in, and our team will get back to you with more information.</p>"
+          }
+        },
+        "q_about_3": {
+          "type": "question",
+          "settings": {
+            "question": "How do I use a red string?",
+            "answer": "<p>A red string is traditionally worn as a symbol of protection, good fortune and positive intention. Many people wear it on the wrist and set an intention as they put it on. There is no single \"correct\" way\u2014wear it in the way that feels most meaningful to you. If your string is adjustable, simply tighten it to a comfortable fit.</p>"
+          }
+        },
+        "q_about_4": {
+          "type": "question",
+          "settings": {
+            "question": "Can I wear multiple bracelets on one hand?",
+            "answer": "<p>Absolutely. Layering several bracelets on one wrist is a popular way to style them and to combine the meanings of different stones and symbols. Mix and match textures, colours and bead sizes to create a look that feels right for you\u2014there are no strict rules.</p>"
+          }
+        },
+        "q_about_5": {
+          "type": "question",
+          "settings": {
+            "question": "Should I wear my bracelet on my left hand or my right hand?",
+            "answer": "<p>In many traditions, the left side is associated with receiving energy while the right side is associated with giving energy, so some people choose a wrist based on their intention. Ultimately, though, there is no wrong choice\u2014wear your bracelet on whichever hand feels most comfortable and meaningful to you.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "cat_shipping",
+        "q_ship_1",
+        "q_ship_2",
+        "q_ship_3",
+        "q_ship_4",
+        "q_ship_5",
+        "q_ship_6",
+        "q_ship_7",
+        "q_ship_8",
+        "cat_payment",
+        "q_pay_1",
+        "q_pay_2",
+        "q_pay_3",
+        "q_pay_4",
+        "q_pay_5",
+        "q_pay_6",
+        "cat_shopping",
+        "q_shop_1",
+        "q_shop_2",
+        "q_shop_3",
+        "q_shop_4",
+        "q_shop_5",
+        "q_shop_6",
+        "q_shop_7",
+        "cat_products",
+        "q_prod_1",
+        "q_prod_2",
+        "q_prod_3",
+        "q_prod_4",
+        "cat_returns",
+        "q_ret_1",
+        "q_ret_2",
+        "q_ret_3",
+        "q_ret_4",
+        "q_ret_5",
+        "q_ret_6",
+        "cat_about",
+        "q_about_1",
+        "q_about_2",
+        "q_about_3",
+        "q_about_4",
+        "q_about_5"
+      ],
+      "settings": {
+        "heading": "Frequently Asked Questions",
+        "heading_size": "h1",
+        "category_heading_size": "h2",
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": ["main"]
+}
