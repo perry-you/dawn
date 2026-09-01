@@ -22,6 +22,8 @@
     display: block;
     width: 100%;
     height: auto;
+    aspect-ratio: 21 / 9;
+    object-fit: cover;
   }
 
   /* The entire hub body, including the category cards, is edited in the backend page
@@ -99,7 +101,7 @@
       src="{{ section.settings.banner_image }}"
       alt="{{ section.settings.banner_alt | default: page.title | default: section.settings.heading | escape }}"
       width="{{ section.settings.banner_width | default: 1600 }}"
-      height="{{ section.settings.banner_height | default: 400 }}"
+      height="{{ section.settings.banner_height | default: 686 }}"
       loading="eager"
     >
   </div>
