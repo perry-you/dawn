@@ -13,6 +13,17 @@
     }
   }
 
+  .faq-hub__banner {
+    margin: 0;
+    line-height: 0;
+  }
+
+  .faq-hub__banner img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
   /* The entire hub body, including the category cards, is edited in the backend page
      rich-text editor (page.content) so third-party SEO tools such as Avada can read it.
      Paste card HTML using the classes below; the CSS styles them into a responsive grid. */
@@ -82,6 +93,18 @@
   }
 {%- endstyle -%}
 
+{%- if section.settings.banner_image != blank -%}
+  <div class="faq-hub__banner{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+    <img
+      src="{{ section.settings.banner_image }}"
+      alt="{{ section.settings.banner_alt | default: page.title | default: section.settings.heading | escape }}"
+      width="{{ section.settings.banner_width | default: 1600 }}"
+      height="{{ section.settings.banner_height | default: 400 }}"
+      loading="eager"
+    >
+  </div>
+{%- endif -%}
+
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width section-{{ section.id }}-padding">
     {%- liquid
@@ -122,6 +145,39 @@
     "groups": ["header", "footer"]
   },
   "settings": [
+    {
+      "type": "header",
+      "content": "Banner"
+    },
+    {
+      "type": "text",
+      "id": "banner_image",
+      "label": "Banner image URL",
+      "info": "Full image URL shown at the top of the page. Leave blank to hide.",
+      "default": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-faq-banner.png?v=1788226829"
+    },
+    {
+      "type": "text",
+      "id": "banner_alt",
+      "label": "Banner image alt text",
+      "info": "Describe the image for accessibility and SEO."
+    },
+    {
+      "type": "number",
+      "id": "banner_width",
+      "label": "Banner image width (px)",
+      "info": "The image's actual pixel width. Used to reserve space and prevent layout shift."
+    },
+    {
+      "type": "number",
+      "id": "banner_height",
+      "label": "Banner image height (px)",
+      "info": "The image's actual pixel height. Keep the correct ratio to avoid distortion."
+    },
+    {
+      "type": "header",
+      "content": "Heading"
+    },
     {
       "type": "text",
       "id": "heading",
