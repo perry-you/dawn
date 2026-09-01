@@ -1,0 +1,233 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  .faq-hub__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  @media screen and (min-width: 750px) {
+    .faq-hub__grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.4rem;
+    }
+  }
+
+  .faq-hub__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: center;
+    height: 100%;
+    padding: 3.2rem 2rem;
+    border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+    border-radius: var(--text-boxes-radius, 0);
+    text-decoration: none;
+    color: rgb(var(--color-foreground));
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .faq-hub__card:hover {
+    border-color: rgba(var(--color-foreground), 0.3);
+    transform: translateY(-0.4rem);
+    box-shadow: 0 1rem 2rem rgba(var(--color-foreground), 0.08);
+  }
+
+  .faq-hub__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .faq-hub__icon .icon,
+  .faq-hub__icon svg {
+    width: 100%;
+    height: 100%;
+    fill: rgb(var(--color-foreground));
+  }
+
+  .faq-hub__card-title {
+    margin: 0 0 0.8rem;
+  }
+
+  .faq-hub__card-count {
+    margin: 0;
+    opacity: 0.7;
+    font-size: 1.4rem;
+  }
+{%- endstyle -%}
+
+<div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding">
+    {%- if section.settings.heading != blank -%}
+      <h1 class="faq-hub__heading {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+        {{ section.settings.heading | escape }}
+      </h1>
+    {%- endif -%}
+    {%- if section.settings.subheading != blank -%}
+      <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ section.settings.subheading }}
+      </div>
+    {%- endif -%}
+
+    <ul class="faq-hub__grid{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}" role="list">
+      {%- for block in section.blocks -%}
+        <li {{ block.shopify_attributes }}>
+          <a
+            href="{{ block.settings.link | default: '#' }}"
+            class="faq-hub__card"
+            {% if block.settings.title != blank %}aria-label="{{ block.settings.title | escape }}"{% endif %}
+          >
+            {%- if block.settings.icon != 'none' -%}
+              <span class="faq-hub__icon">
+                {{- 'icon-' | append: block.settings.icon | append: '.svg' | inline_asset_content -}}
+              </span>
+            {%- endif -%}
+            <h2 class="faq-hub__card-title h4">{{ block.settings.title | escape }}</h2>
+            {%- if block.settings.count != blank -%}
+              <p class="faq-hub__card-count">{{ block.settings.count | escape }}</p>
+            {%- endif -%}
+          </a>
+        </li>
+      {%- endfor -%}
+    </ul>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "FAQ hub",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Frequently Asked Questions"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        { "value": "h1", "label": "Medium" },
+        { "value": "h0", "label": "Large" },
+        { "value": "hxl", "label": "Extra large" }
+      ],
+      "default": "h1",
+      "label": "Heading size"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Padding bottom",
+      "default": 36
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Category"
+        },
+        {
+          "type": "text",
+          "id": "count",
+          "label": "Subtitle / count",
+          "info": "Optional line below the title, e.g. \"8 articles\"."
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link to category page"
+        },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "none", "label": "None" },
+            { "value": "truck", "label": "Truck (shipping)" },
+            { "value": "plane", "label": "Plane (delivery)" },
+            { "value": "box", "label": "Box" },
+            { "value": "price-tag", "label": "Price tag (payment)" },
+            { "value": "discount", "label": "Discount" },
+            { "value": "lock", "label": "Lock (secure)" },
+            { "value": "cart", "label": "Cart (shopping)" },
+            { "value": "washing", "label": "Washing (care)" },
+            { "value": "return", "label": "Return (returns)" },
+            { "value": "reset", "label": "Reset (exchange)" },
+            { "value": "question-mark", "label": "Question mark (general)" },
+            { "value": "info", "label": "Info" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "star", "label": "Star" }
+          ],
+          "default": "question-mark"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ hub"
+    }
+  ]
+}
+{% endschema %}
