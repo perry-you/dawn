@@ -17,13 +17,7 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
-    {%- comment -%} Google Fonts: Fraunces (serif heading) + Inter (sans-serif body) {%- endcomment -%}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@100..900&display=swap"
-    >
+    {%- comment -%} Shopify font library: Playfair Display (serif heading) + Assistant (sans-serif body) {%- endcomment -%}
 
     <title>
       {{ page_title }}
@@ -134,12 +128,12 @@
       }
 
       :root {
-        --font-body-family: 'Inter', {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }}, sans-serif;
+        --font-body-family: {{ settings.type_body_font.family }}, {{ settings.type_body_font.fallback_families }}, sans-serif;
         --font-body-style: {{ settings.type_body_font.style }};
         --font-body-weight: {{ settings.type_body_font.weight }};
         --font-body-weight-bold: {{ settings.type_body_font.weight | plus: 300 | at_most: 1000 }};
 
-        --font-heading-family: 'Fraunces', {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}, serif;
+        --font-heading-family: {{ settings.type_header_font.family }}, {{ settings.type_header_font.fallback_families }}, serif;
         --font-heading-style: {{ settings.type_header_font.style }};
         --font-heading-weight: {{ settings.type_header_font.weight }};
 
