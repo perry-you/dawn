@@ -11,73 +11,10 @@
   "sections": {
     "main": {
       "type": "faq-hub",
-      "blocks": {
-        "card_shipping": {
-          "type": "category",
-          "settings": {
-            "title": "Shipping, Tracking & Delivery",
-            "count": "8 articles",
-            "link": "/pages/faq-shipping",
-            "icon": "truck"
-          }
-        },
-        "card_payment": {
-          "type": "category",
-          "settings": {
-            "title": "Payment, Billing & Fees",
-            "count": "6 articles",
-            "link": "/pages/faq-payment",
-            "icon": "price-tag"
-          }
-        },
-        "card_shopping": {
-          "type": "category",
-          "settings": {
-            "title": "Shopping & Discounts",
-            "count": "7 articles",
-            "link": "/pages/faq-shopping",
-            "icon": "discount"
-          }
-        },
-        "card_products": {
-          "type": "category",
-          "settings": {
-            "title": "Products & Care Instructions",
-            "count": "4 articles",
-            "link": "/pages/faq-products",
-            "icon": "washing"
-          }
-        },
-        "card_returns": {
-          "type": "category",
-          "settings": {
-            "title": "Returns & Exchanges",
-            "count": "6 articles",
-            "link": "/pages/faq-returns",
-            "icon": "return"
-          }
-        },
-        "card_about": {
-          "type": "category",
-          "settings": {
-            "title": "About Kailash Way & General Questions",
-            "count": "5 articles",
-            "link": "/pages/faq-about",
-            "icon": "question-mark"
-          }
-        }
-      },
-      "block_order": [
-        "card_shipping",
-        "card_payment",
-        "card_shopping",
-        "card_products",
-        "card_returns",
-        "card_about"
-      ],
       "settings": {
         "heading": "Frequently Asked Questions",
         "heading_size": "h1",
+        "use_page_title": false,
         "color_scheme": "scheme-1",
         "padding_top": 36,
         "padding_bottom": 36
