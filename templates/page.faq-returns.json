@@ -12,8 +12,6 @@
     "main": {
       "type": "faq-category",
       "settings": {
-        "banner_image": "https://cdn.shopify.com/s/files/1/0533/2089/2941/files/placeholder-images-image_large.png",
-        "banner_alt": "Returns & Exchanges",
         "back_link": "/pages/faq",
         "back_label": "Back to FAQ",
         "heading": "Returns & Exchanges",

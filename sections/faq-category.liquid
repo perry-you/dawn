@@ -14,17 +14,6 @@
     }
   }
 
-  .faq-category__banner {
-    margin: 0;
-    line-height: 0;
-  }
-
-  .faq-category__banner img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-
   .faq-category__back {
     display: inline-block;
     margin-bottom: 1.6rem;
@@ -56,18 +45,6 @@
     margin-top: 0;
   }
 {%- endstyle -%}
-
-{%- if section.settings.banner_image != blank -%}
-  <div class="faq-category__banner{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <img
-      src="{{ section.settings.banner_image }}"
-      alt="{{ section.settings.banner_alt | default: page.title | default: section.settings.heading | escape }}"
-      width="{{ section.settings.banner_width | default: 1600 }}"
-      height="{{ section.settings.banner_height | default: 400 }}"
-      loading="eager"
-    >
-  </div>
-{%- endif -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width section-{{ section.id }}-padding">
@@ -113,34 +90,6 @@
     "groups": ["header", "footer"]
   },
   "settings": [
-    {
-      "type": "header",
-      "content": "Banner"
-    },
-    {
-      "type": "text",
-      "id": "banner_image",
-      "label": "Banner image URL",
-      "info": "Full image URL shown at the top of the page. Leave blank to hide."
-    },
-    {
-      "type": "text",
-      "id": "banner_alt",
-      "label": "Banner image alt text",
-      "info": "Describe the image for accessibility and SEO."
-    },
-    {
-      "type": "number",
-      "id": "banner_width",
-      "label": "Banner image width (px)",
-      "info": "The image's actual pixel width. Used to reserve space and prevent layout shift."
-    },
-    {
-      "type": "number",
-      "id": "banner_height",
-      "label": "Banner image height (px)",
-      "info": "The image's actual pixel height. Keep the correct ratio to avoid distortion."
-    },
     {
       "type": "header",
       "content": "Navigation"
