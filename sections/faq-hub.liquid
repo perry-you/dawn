@@ -75,18 +75,43 @@
     opacity: 0.7;
     font-size: 1.4rem;
   }
+
+  .faq-hub__content {
+    margin-bottom: 3rem;
+  }
+
+  .faq-hub__content--below {
+    margin-bottom: 0;
+    margin-top: 3rem;
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
   <div class="page-width section-{{ section.id }}-padding">
-    {%- if section.settings.heading != blank -%}
+    {%- liquid
+      assign hub_heading = section.settings.heading
+      if section.settings.use_page_title
+        assign hub_heading = page.title | default: section.settings.heading
+      endif
+    -%}
+    {%- if hub_heading != blank -%}
       <h1 class="faq-hub__heading {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-        {{ section.settings.heading | escape }}
+        {{ hub_heading | escape }}
       </h1>
     {%- endif -%}
     {%- if section.settings.subheading != blank -%}
       <div class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.subheading }}
+      </div>
+    {%- endif -%}
+
+    {%- comment -%}
+      The intro copy lives in the page's rich-text body (page.content) so third-party SEO
+      tools such as Avada can read and score the hub page. Position it above or below the cards.
+    {%- endcomment -%}
+    {%- if page.content != blank and section.settings.content_position == 'above' -%}
+      <div class="faq-hub__content rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ page.content }}
       </div>
     {%- endif -%}
 
@@ -111,6 +136,12 @@
         </li>
       {%- endfor -%}
     </ul>
+
+    {%- if page.content != blank and section.settings.content_position == 'below' -%}
+      <div class="faq-hub__content faq-hub__content--below rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+        {{ page.content }}
+      </div>
+    {%- endif -%}
   </div>
 </div>
 
@@ -144,6 +175,28 @@
       "type": "richtext",
       "id": "subheading",
       "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Page content (SEO)"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_page_title",
+      "label": "Use page title as heading",
+      "info": "Show the page's title instead of the heading above.",
+      "default": false
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Page body position",
+      "info": "Where to show the page's rich-text body (from the backend page editor).",
+      "options": [
+        { "value": "above", "label": "Above the cards" },
+        { "value": "below", "label": "Below the cards" }
+      ],
+      "default": "above"
     },
     {
       "type": "color_scheme",
