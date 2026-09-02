@@ -287,10 +287,10 @@
     }
 
     .mega-menu:has(.mega-menu__list--condensed) > .mega-menu__content {
-      left: 50%;
-      right: auto;
+      left: 50% !important;
+      right: auto !important;
       transform: translateX(-50%) translateY(-1.5rem);
-      width: max-content;
+      width: max-content !important;
       max-width: 90vw;
       min-width: 0;
       padding: 2rem 2.4rem;
@@ -298,6 +298,15 @@
 
     .mega-menu:has(.mega-menu__list--condensed)[open] > .mega-menu__content {
       transform: translateX(-50%) translateY(0);
+    }
+
+    /* Neutralise the page-width constraint on the condensed list so the
+       panel shrinks to its content and centers correctly. */
+    .mega-menu .mega-menu__list--condensed.page-width {
+      padding-left: 0;
+      padding-right: 0;
+      max-width: none;
+      margin: 0;
     }
 
     .mega-menu .mega-menu__list--condensed {
