@@ -270,6 +270,42 @@
   .header__inline-menu .header__menu-item {
     font-size: 1.6rem;
   }
+
+  /* Single-level mega menu (e.g. HELP): render as a compact dropdown centered
+     directly below its parent item instead of a full-width panel.
+     The list flows top-to-bottom with a max of 10 items per column; items
+     beyond 10 automatically spill into additional columns. */
+  @media screen and (min-width: 990px) {
+    .mega-menu:has(.mega-menu__list--condensed) {
+      position: relative;
+    }
+
+    .mega-menu:has(.mega-menu__list--condensed) > .mega-menu__content {
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%) translateY(-1.5rem);
+      width: max-content;
+      max-width: 90vw;
+      min-width: 20rem;
+      padding: 2rem 2.4rem;
+    }
+
+    .mega-menu:has(.mega-menu__list--condensed)[open] > .mega-menu__content {
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .mega-menu .mega-menu__list--condensed {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(10, auto);
+      grid-auto-columns: max-content;
+      gap: 0.2rem 4rem;
+      width: auto;
+      max-width: none;
+      margin: 0;
+      padding: 0;
+    }
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
