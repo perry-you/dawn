@@ -280,13 +280,19 @@
       position: relative;
     }
 
+    /* Anchor centering to the parent item's width: the summary (HELP label)
+       defines the reference box, so left:50% sits under the label's center. */
+    .mega-menu:has(.mega-menu__list--condensed) > summary {
+      display: inline-flex;
+    }
+
     .mega-menu:has(.mega-menu__list--condensed) > .mega-menu__content {
       left: 50%;
       right: auto;
       transform: translateX(-50%) translateY(-1.5rem);
       width: max-content;
       max-width: 90vw;
-      min-width: 20rem;
+      min-width: 0;
       padding: 2rem 2.4rem;
     }
 
