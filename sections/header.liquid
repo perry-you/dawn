@@ -249,6 +249,22 @@
     width: 170px;
     height: 40px;
   }
+
+  /* Two-row layout (matches buddhastoneshop.com):
+     Row 1 = logo (center) · localization/account/cart (right, with search
+             placed just left of the currency/language selector)
+     Row 2 = full-width primary navigation.
+     Search lives inside the right icon group (before the localization
+     wrapper), so hide Dawn's far-left search slot on desktop. */
+  @media screen and (min-width: 990px) {
+    .header--top-center.header--has-account > .header__search {
+      display: none;
+    }
+
+    .header--top-center.header--has-account .header__icons > .header__search {
+      display: inline-flex;
+    }
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
@@ -379,6 +395,8 @@
     {%- endif -%}
 
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
+      {% render 'header-search', input_id: 'Search-In-Modal' %}
+
       <div class="desktop-localization-wrapper">
         {%- if section.settings.enable_country_selector and localization.available_countries.size > 1 -%}
           <localization-form class="small-hide medium-hide" data-prevent-hide>
@@ -402,7 +420,6 @@
           </localization-form>
         {%- endif -%}
       </div>
-      {% render 'header-search', input_id: 'Search-In-Modal' %}
 
       {%- if shop.customer_accounts_enabled -%}
         <shopify-account
