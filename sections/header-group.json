@@ -41,7 +41,7 @@
         "logo_position": "top-center",
         "mobile_logo_position": "center",
         "menu": "main-menu",
-        "menu_type_desktop": "mega",
+        "menu_type_desktop": "dropdown",
         "sticky_header_type": "always",
         "transparent_on_index": true,
         "sticky_color_scheme": "scheme-3",

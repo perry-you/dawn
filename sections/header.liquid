@@ -271,63 +271,44 @@
     font-size: 1.6rem;
   }
 
-  /* Single-level mega menu (e.g. HELP): render as a compact dropdown centered
-     directly below its parent item instead of a full-width panel.
+  /* Dropdown submenu (e.g. HELP): centered directly below its parent item.
      The list flows top-to-bottom with a max of 10 items per column; items
-     beyond 10 automatically spill into additional columns. */
+     beyond 10 automatically spill into additional columns, and the panel
+     widens to fit its content. */
   @media screen and (min-width: 990px) {
-    .mega-menu--single {
+    .header__inline-menu > .list-menu--inline > li > header-menu > details {
       position: relative;
     }
 
-    /* Anchor centering to the parent item's width: the summary (HELP label)
-       defines the reference box, so left:50% sits under the label's center. */
-    .mega-menu--single > summary {
-      display: inline-flex;
-    }
-
-    .mega-menu--single > .mega-menu__content--single {
-      left: 50% !important;
-      right: auto !important;
+    .header__inline-menu .header__submenu.list-menu--disclosure {
+      left: 50%;
       transform: translateX(-50%) translateY(-1.5rem);
-      width: max-content !important;
-      max-width: 90vw !important;
-      min-width: 0 !important;
-      padding: 2rem 2.4rem;
+      width: max-content;
+      min-width: 16rem;
+      max-width: 90vw;
     }
 
-    .mega-menu--single[open] > .mega-menu__content--single {
+    /* Dawn's animateMenuOpen keyframe only animates translateY, which would
+       wipe our translateX centering; disable it and rely on the transition. */
+    .header__inline-menu details[open] > .header__submenu.list-menu--disclosure {
+      animation: none;
+      opacity: 1;
       transform: translateX(-50%) translateY(0);
+      transition: opacity var(--duration-default) ease, transform var(--duration-default) ease;
     }
 
-    /* Neutralise the page-width constraint on the condensed list so the
-       panel shrinks to its content and centers correctly. */
-    .mega-menu__content--single .mega-menu__list--condensed.page-width {
-      padding-left: 0;
-      padding-right: 0;
-      max-width: none;
-      margin: 0;
-    }
-
-    .mega-menu__content--single .mega-menu__list--condensed {
+    /* Lay the first-level submenu items out in columns of at most 10; extra
+       items open a new column. */
+    .header__inline-menu > .list-menu--inline > li > header-menu > details > .header__submenu.list-menu--disclosure {
       display: grid;
       grid-auto-flow: column;
       grid-template-rows: repeat(10, auto);
       grid-auto-columns: max-content;
-      gap: 0.2rem 4rem;
-      width: auto;
-      max-width: none;
-      margin: 0;
-      padding: 0;
+      column-gap: 1.6rem;
     }
 
-    /* Keep each submenu label on a single line (Dawn's default
-       word-wrap:break-word collapses to one letter per line inside a
-       shrink-to-fit column). */
-    .mega-menu__content--single .mega-menu__link {
+    .header__inline-menu .header__submenu.list-menu--disclosure .header__menu-item {
       white-space: nowrap;
-      word-wrap: normal;
-      word-break: normal;
     }
   }
 {%- endstyle -%}
