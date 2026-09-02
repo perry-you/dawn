@@ -305,6 +305,15 @@
       margin: 0;
       padding: 0;
     }
+
+    /* Keep each submenu label on a single line (Dawn's default
+       word-wrap:break-word collapses to one letter per line inside a
+       shrink-to-fit column). */
+    .mega-menu .mega-menu__list--condensed .mega-menu__link {
+      white-space: nowrap;
+      word-wrap: normal;
+      word-break: normal;
+    }
   }
 {%- endstyle -%}
 
