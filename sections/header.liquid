@@ -276,40 +276,40 @@
      The list flows top-to-bottom with a max of 10 items per column; items
      beyond 10 automatically spill into additional columns. */
   @media screen and (min-width: 990px) {
-    .mega-menu:has(.mega-menu__list--condensed) {
+    .mega-menu--single {
       position: relative;
     }
 
     /* Anchor centering to the parent item's width: the summary (HELP label)
        defines the reference box, so left:50% sits under the label's center. */
-    .mega-menu:has(.mega-menu__list--condensed) > summary {
+    .mega-menu--single > summary {
       display: inline-flex;
     }
 
-    .mega-menu:has(.mega-menu__list--condensed) > .mega-menu__content {
-      left: 50% !important;
-      right: auto !important;
+    .mega-menu--single > .mega-menu__content--single {
+      left: 50%;
+      right: auto;
       transform: translateX(-50%) translateY(-1.5rem);
-      width: max-content !important;
+      width: max-content;
       max-width: 90vw;
       min-width: 0;
       padding: 2rem 2.4rem;
     }
 
-    .mega-menu:has(.mega-menu__list--condensed)[open] > .mega-menu__content {
+    .mega-menu--single[open] > .mega-menu__content--single {
       transform: translateX(-50%) translateY(0);
     }
 
     /* Neutralise the page-width constraint on the condensed list so the
        panel shrinks to its content and centers correctly. */
-    .mega-menu .mega-menu__list--condensed.page-width {
+    .mega-menu__content--single .mega-menu__list--condensed.page-width {
       padding-left: 0;
       padding-right: 0;
       max-width: none;
       margin: 0;
     }
 
-    .mega-menu .mega-menu__list--condensed {
+    .mega-menu__content--single .mega-menu__list--condensed {
       display: grid;
       grid-auto-flow: column;
       grid-template-rows: repeat(10, auto);
@@ -324,7 +324,7 @@
     /* Keep each submenu label on a single line (Dawn's default
        word-wrap:break-word collapses to one letter per line inside a
        shrink-to-fit column). */
-    .mega-menu .mega-menu__list--condensed .mega-menu__link {
+    .mega-menu__content--single .mega-menu__link {
       white-space: nowrap;
       word-wrap: normal;
       word-break: normal;
