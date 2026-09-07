@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template" style="--article-page-width: {{ section.settings.page_width }}rem;">
+<article class="article-template">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -92,6 +92,29 @@
       {{ 'blogs.article.back_to_blog' | t: title: blog.title | escape }}
     </a>
   </div>
+
+  {%- if article.metafields.custom.related_articles != blank -%}
+    <div class="related-articles page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <h3 class="related-articles__title">{{ 'blogs.article.related_articles' | t }}</h3>
+      <div class="related-articles__grid">
+        {%- for related_article in article.metafields.custom.related_articles.value -%}
+          <div class="related-articles__item">
+            {% render 'article-card',
+              blog: blog,
+              article: related_article,
+              media_aspect_ratio: 1.66,
+              show_image: true,
+              show_date: true,
+              show_author: false,
+              show_excerpt: true,
+              lazy_load: true
+            %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
+
   {%- if blog.comments_enabled? -%}
     <div class="article-template__comment-wrapper background-secondary">
       <div

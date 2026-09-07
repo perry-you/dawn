@@ -95,6 +95,7 @@
       "message": "评论",
       "post": "发布评论",
       "back_to_blog": "返回博客",
+      "related_articles": "相关文章",
       "share": "分享此文章",
       "success": "您的评论已成功发布！谢谢！",
       "success_moderated": "您的评论已成功发布。由于我们的博客要经过审核，我们会在稍后将其发布。"
