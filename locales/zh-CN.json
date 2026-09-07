@@ -180,7 +180,8 @@
       },
       "taxes_included": "已含税费。",
       "duties_included": "已含关税。",
-      "duties_and_taxes_included": "已含关税和税费。"
+      "duties_and_taxes_included": "已含关税和税费。",
+      "related_blogs": "相关阅读"
     },
     "modal": {
       "label": "媒体图库"

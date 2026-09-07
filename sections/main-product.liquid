@@ -751,6 +751,28 @@
       </script>
     </div>
   </product-component>
+
+  {%- if product.metafields.custom.related_blogs != blank -%}
+    <div class="related-blogs page-width{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <h3 class="related-blogs__title">{{ 'products.product.related_blogs' | t }}</h3>
+      <div class="related-blogs__grid">
+        {%- for article in product.metafields.custom.related_blogs.value -%}
+          <div class="related-blogs__item">
+            {% render 'article-card',
+              blog: article.blog,
+              article: article,
+              media_aspect_ratio: 1.66,
+              show_image: true,
+              show_date: true,
+              show_author: false,
+              show_excerpt: true,
+              lazy_load: true
+            %}
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  {%- endif -%}
 </product-info>
 
 {% schema %}
