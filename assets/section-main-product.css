@@ -91,6 +91,15 @@ product-info {
 
 /* Dynamic checkout */
 
+.shopify-payment-button {
+  border-radius: var(--buttons-radius-outset);
+  overflow: hidden;
+}
+
+.shopify-payment-button__button iframe {
+  background-color: transparent !important;
+}
+
 .shopify-payment-button__button {
   font-family: inherit;
   min-height: 4.6rem;
