@@ -1,6 +1,6 @@
 {{ 'section-blog-post.css' | asset_url | stylesheet_tag }}
 
-<article class="article-template">
+<article class="article-template" style="--article-page-width: {{ section.settings.page_width }}rem;">
   {%- for block in section.blocks -%}
     {%- case block.type -%}
       {%- when '@app' -%}
@@ -297,6 +297,18 @@
   "name": "t:sections.main-article.name",
   "tag": "section",
   "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "page_width",
+      "min": 800,
+      "max": 1600,
+      "step": 100,
+      "unit": "px",
+      "label": "页面宽度",
+      "default": 1200
+    }
+  ],
   "blocks": [
     {
       "type": "@app"
