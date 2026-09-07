@@ -28,16 +28,21 @@
         "content": {
           "type": "content",
           "settings": {}
+        },
+        "featured_image_JPd9zQ": {
+          "type": "featured_image",
+          "settings": {
+            "image_height": "adapt"
+          }
         }
       },
       "block_order": [
         "title",
         "share",
-        "content"
+        "content",
+        "featured_image_JPd9zQ"
       ],
-      "settings": {
-        "page_width": 900
-      }
+      "settings": {}
     }
   },
   "order": [
