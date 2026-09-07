@@ -9,7 +9,7 @@
 }
 
 .article-template .page-width--narrow {
-  max-width: var(--article-page-width, 72.6rem);
+  max-width: 80%;
 }
 
 .article-template__hero-container {
