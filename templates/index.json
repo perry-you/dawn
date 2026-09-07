@@ -73,6 +73,7 @@
         "products_to_show": 8,
         "title": "{{ section.settings.collection.title }}",
         "heading_size": "h1",
+        "heading_alignment": "left",
         "description": "",
         "show_description": true,
         "description_style": "body",
