@@ -28,19 +28,12 @@
         "content": {
           "type": "content",
           "settings": {}
-        },
-        "featured_image_JPd9zQ": {
-          "type": "featured_image",
-          "settings": {
-            "image_height": "adapt"
-          }
         }
       },
       "block_order": [
         "title",
         "share",
-        "content",
-        "featured_image_JPd9zQ"
+        "content"
       ],
       "settings": {}
     }
