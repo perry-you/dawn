@@ -159,7 +159,7 @@
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
       "settings": {
-        "blog": "kailashway",
+        "blog": "the-path",
         "post_limit": 3,
         "heading": "LATEST FROM THE PATH",
         "heading_size": "h1",
