@@ -30,30 +30,10 @@
             "text_alignment_mobile": "left",
             "color_scheme": "scheme-1"
           }
-        },
-        "slide_2": {
-          "type": "slide",
-          "settings": {
-            "video_url": "",
-            "video_poster_url": "",
-            "image_overlay_opacity": 20,
-            "heading": "Timeless Sacred Craft",
-            "heading_size": "h1",
-            "subheading": "Meaningful pieces for every journey.",
-            "button_label": "Latest Collection",
-            "link": "shopify://collections/all",
-            "button_style_secondary": true,
-            "show_text_box": false,
-            "box_align": "middle-left",
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "color_scheme": "scheme-1"
-          }
         }
       },
       "block_order": [
-        "slide_1",
-        "slide_2"
+        "slide_1"
       ],
       "settings": {
         "layout": "full_bleed",
