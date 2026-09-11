@@ -242,6 +242,13 @@
     white-space: nowrap;
   }
 
+  /* Mobile: hide the text, show only the icon */
+  @media screen and (max-width: 989px) {
+    .header__logo-text {
+      display: none;
+    }
+  }
+
   /* Dual icon: show the light (white) icon over the transparent/hero header,
      and swap to the dark (black) icon when the header goes solid white
      (on hover or after scrolling). Text color follows --color-foreground,
