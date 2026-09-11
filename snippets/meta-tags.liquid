@@ -8,6 +8,12 @@
     assign og_type = 'product'
   elsif request.page_type == 'article'
     assign og_type = 'article'
+    if article.metafields.seo.title.value != blank
+      assign og_title = article.metafields.seo.title.value
+    endif
+    if article.metafields.seo.description.value != blank
+      assign og_description = article.metafields.seo.description.value
+    endif
   elsif request.page_type == 'password'
     assign og_url = request.origin
   endif

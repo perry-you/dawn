@@ -28,15 +28,26 @@
 
     {%- comment -%} Shopify font library: Playfair Display (serif heading) + Assistant (sans-serif body) {%- endcomment -%}
 
-    <title>
-      {{ page_title }}
-      {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
-      {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
-      {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
-    </title>
+    {%- if request.page_type == 'article' and article.metafields.seo.title.value != blank -%}
+      {%- assign article_seo_title = article.metafields.seo.title.value -%}
+      <title>{{ article_seo_title | escape }}{%- unless article_seo_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}</title>
+    {%- else -%}
+      <title>
+        {{ page_title }}
+        {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+        {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+        {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+      </title>
+    {%- endif -%}
 
-    {% if page_description %}
-      <meta name="description" content="{{ page_description | escape }}">
+    {%- liquid
+      assign kailash_seo_description = page_description
+      if request.page_type == 'article' and article.metafields.seo.description.value != blank
+        assign kailash_seo_description = article.metafields.seo.description.value
+      endif
+    -%}
+    {% if kailash_seo_description %}
+      <meta name="description" content="{{ kailash_seo_description | escape }}">
     {% endif %}
 
     {% render 'meta-tags' %}
