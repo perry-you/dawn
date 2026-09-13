@@ -18,6 +18,11 @@
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+      <!-- Google requires favicons to be a multiple of 48px; smaller icons are
+           rejected and replaced with a generic placeholder in search results. -->
+      <link rel="icon" type="image/png" sizes="48x48" href="{{ settings.favicon | image_url: width: 48, height: 48 }}">
+      <link rel="icon" type="image/png" sizes="96x96" href="{{ settings.favicon | image_url: width: 96, height: 96 }}">
+      <link rel="icon" type="image/png" sizes="192x192" href="{{ settings.favicon | image_url: width: 192, height: 192 }}">
     {%- else -%}
       <link rel="icon" type="image/x-icon" href="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/favicon.ico?v=1788095177">
     {%- endif -%}
