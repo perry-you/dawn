@@ -99,13 +99,12 @@
     height: 4.4rem;
   }
 
-  /* Keep the account icon the same rendered size as the cart icon (44px box).
-     The <shopify-account> web component slots this span into its shadow DOM,
-     which bypasses `.header__icon .svg-wrapper` sizing — so enforce it here. */
-  shopify-account.header__icon .svg-wrapper,
-  shopify-account.header__icon .svg-wrapper > svg {
-    width: 4.4rem;
-    height: 4.4rem;
+  /* Normalize the cart icon to the same 2rem box as other header icons
+     (base.css enlarges only the cart icon to 4.4rem via
+     `.header__icon--cart .icon`). */
+  .header__icon--cart .icon {
+    width: 2rem;
+    height: 2rem;
   }
 </style>
 
@@ -495,7 +494,7 @@
           menu="{{ settings.customer_account_menu | default: 'customer-account-main-menu' }}"
           class="header__icon header__icon--account link focus-inset"
         >
-          <span slot="signed-out-avatar" class="svg-wrapper" style="width: 4.4rem; height: 4.4rem;">{{ 'icon-account.svg' | inline_asset_content | replace: '<svg ', '<svg style="width: 100%; height: 100%;" ' }}</span>
+          <span slot="signed-out-avatar" class="svg-wrapper">{{ 'icon-account.svg' | inline_asset_content }}</span>
           <span slot="signed-out-avatar" class="visually-hidden">{{ 'customer.log_in' | t }}</span>
         </shopify-account>
       {%- endif -%}
