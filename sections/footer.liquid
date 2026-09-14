@@ -60,6 +60,17 @@
   .footer-block--newsletter-social .footer__list-social {
     justify-content: flex-start;
   }
+
+  /* Full-width decorative illustration band between top and bottom footer */
+  .footer__illustration {
+    margin-top: 4rem;
+  }
+
+  .footer__illustration img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 {%- endstyle -%}
 
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
@@ -239,6 +250,17 @@
         {%- endif -%}
       </div>
     </div>
+  </div>
+
+  {%- comment -%} Decorative full-width illustration band {%- endcomment -%}
+  <div class="footer__illustration" aria-hidden="true">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-footer-background.png?v=1789360183"
+      alt=""
+      width="2268"
+      height="972"
+      loading="lazy"
+    >
   </div>
 
   {%- comment -%} Bottom section: payment, copyright, policies — keep as is {%- endcomment -%}
