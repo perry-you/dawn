@@ -61,9 +61,18 @@
     justify-content: flex-start;
   }
 
-  /* Decorative illustration band between top and bottom footer, page-width aligned */
+  /* Full-width decorative illustration band at the very bottom of the footer.
+     Negative bottom margin cancels the footer section padding so the image
+     sits flush against the viewport bottom. */
   .footer__illustration {
     margin-top: 4rem;
+    margin-bottom: calc(-1 * {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px);
+  }
+
+  @media screen and (min-width: 750px) {
+    .footer__illustration {
+      margin-bottom: calc(-1 * {{ section.settings.padding_bottom }}px);
+    }
   }
 
   .footer__illustration img {
@@ -252,17 +261,6 @@
     </div>
   </div>
 
-  {%- comment -%} Decorative illustration band (page-width aligned) {%- endcomment -%}
-  <div class="footer__illustration page-width" aria-hidden="true">
-    <img
-      src="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-footer-background.png?v=1789360183"
-      alt=""
-      width="2268"
-      height="972"
-      loading="lazy"
-    >
-  </div>
-
   {%- comment -%} Bottom section: payment, copyright, policies — keep as is {%- endcomment -%}
   <div
     class="footer__content-bottom{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -332,6 +330,17 @@
         {%- endif -%}
       </div>
     </div>
+  </div>
+
+  {%- comment -%} Decorative full-width illustration band at the very bottom {%- endcomment -%}
+  <div class="footer__illustration" aria-hidden="true">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0826/0799/7161/files/kailashway-footer-background.png?v=1789360183"
+      alt=""
+      width="2268"
+      height="972"
+      loading="lazy"
+    >
   </div>
 </footer>
 
