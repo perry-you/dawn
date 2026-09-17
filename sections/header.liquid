@@ -335,6 +335,33 @@
       white-space: nowrap;
     }
   }
+
+  /* Mega menu (ref: buddhapowerstore.com): hovering a top-level item expands a
+     full-width panel below the header. One column per second-level item — bold
+     heading link on top, its third-level links underneath — with the columns
+     spread evenly across the page width. */
+  @media screen and (min-width: 990px) {
+    .header .mega-menu__list:not(.mega-menu__list--condensed) {
+      display: flex;
+      column-gap: 4rem;
+    }
+
+    .header .mega-menu__list:not(.mega-menu__list--condensed) > li {
+      flex: 1 1 0;
+      width: auto;
+      padding-right: 0;
+    }
+  }
+
+  /* Reference nav shows plain text labels: hide the caret on mega-menu
+     parents and restore the summary's symmetric 1.2rem side padding. */
+  .header__inline-menu details.mega-menu > summary .icon-caret {
+    display: none;
+  }
+
+  .header__inline-menu details.mega-menu > summary.list-menu__item {
+    padding-right: 1.2rem;
+  }
 {%- endstyle -%}
 
 <script src="{{ 'cart-notification.js' | asset_url }}" defer="defer"></script>
