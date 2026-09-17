@@ -300,7 +300,9 @@
      beyond 10 automatically spill into additional columns, and the panel
      widens to fit its content. */
   @media screen and (min-width: 990px) {
-    .header__inline-menu > .list-menu--inline > li > header-menu > details {
+    /* :not(.mega-menu) — mega panels must keep their <details> static so they
+       position against the full-width header wrapper, not the nav item. */
+    .header__inline-menu > .list-menu--inline > li > header-menu > details:not(.mega-menu) {
       position: relative;
     }
 
