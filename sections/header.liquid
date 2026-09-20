@@ -174,55 +174,15 @@
     }
   {%- endif -%}
 
-  /* Once the header has scrolled off-screen it pins to the top of the viewport
-     with a solid WHITE background (keyed on `scrolled-past-header`, which the
-     StickyHeader JS adds only after the header leaves its original position and
-     removes when scrolled back to the very top). */
+  /* Sticky header on scroll: keep the scheme-1 solid background,
+     add a subtle shadow so it reads as pinned above the page content. */
   .scrolled-past-header .header-wrapper {
-    --color-background: 255, 255, 255;
-    --color-foreground: 32, 31, 30;
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   }
 
+  /* Sticky header also closes border shadow for a clean edge while pinned */
   .scrolled-past-header .header-wrapper--border-bottom {
     border-bottom-color: rgba(var(--color-foreground), 0.08);
-  }
-
-  /* Hovering the header reveals the solid white style on ALL pages (not just
-     the transparent homepage overlay). Applies while the header isn't already
-     pinned/scrolled, so hover behaves consistently everywhere. */
-  .section-header:not(.scrolled-past-header) .header-wrapper:hover {
-    --color-background: 255, 255, 255;
-    --color-foreground: 32, 31, 30;
-    background-color: rgb(var(--color-background));
-    color: rgb(var(--color-foreground));
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
-  }
-
-  .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom:hover {
-    border-bottom-color: rgba(var(--color-foreground), 0.08);
-  }
-
-  /* Open nav dropdowns match the header's hover-white style (solid white
-     background + dark text), overriding the section's menu color scheme so the
-     header bar and its dropdown read as one continuous white surface. */
-  .mega-menu[open] .mega-menu__content,
-  .header__submenu[open],
-  details[open] > .header__submenu {
-    --color-background: 255, 255, 255;
-    --color-foreground: 32, 31, 30;
-    background-color: rgb(255, 255, 255);
-    color: rgb(32, 31, 30);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
-  }
-
-  .mega-menu[open] .mega-menu__content .mega-menu__link,
-  .header__submenu[open] .header__menu-item {
-    color: rgb(32, 31, 30);
   }
 
   /* Logo split into two blocks: icon image + text "KAILASH WAY".
@@ -256,33 +216,14 @@
     }
   }
 
-  /* Dual icon: show the light (white) icon over the transparent/hero header,
-     and swap to the dark (black) icon when the header goes solid white
-     (on hover or after scrolling). Text color follows --color-foreground,
-     which flips in the same states, so no extra text rule is needed. */
-  .header__logo-alt {
-    display: none;
-  }
-
-  .header-wrapper:hover .header__logo-default,
-  .scrolled-past-header .header__logo-default {
-    display: none;
-  }
-
-  .header-wrapper:hover .header__logo-alt,
-  .scrolled-past-header .header__logo-alt {
-    display: block;
-  }
-
-  {%- unless request.page_type == 'index' and section.settings.transparent_on_index -%}
-  /* Solid header (non-homepage or transparency off): dark logo by default */
+  /* Single logo: always use dark version (alt) on solid warm-white header.
+     No hover/scroll swap needed — header never turns transparent. */
   .header__logo-default {
     display: none;
   }
   .header__logo-alt {
     display: block;
   }
-  {%- endunless -%}
 
   /* Two-row layout (matches buddhastoneshop.com):
      Row 1 = logo (center) · localization/account/cart (right, with search

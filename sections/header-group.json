@@ -43,7 +43,7 @@
         "menu": "main-menu",
         "menu_type_desktop": "mega",
         "sticky_header_type": "always",
-        "transparent_on_index": true,
+        "transparent_on_index": false,
         "sticky_color_scheme": "scheme-1",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
