@@ -45,7 +45,7 @@
         "sticky_header_type": "always",
         "transparent_on_index": false,
         "sticky_color_scheme": "scheme-1",
-        "show_line_separator": true,
+        "show_line_separator": false,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "scheme-1",
         "enable_country_selector": true,
