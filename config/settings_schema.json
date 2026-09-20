@@ -1466,5 +1466,64 @@
         "label": "t:settings_schema.customer_accounts.settings.customer_account_menu.label"
       }
     ]
+  },
+  {
+    "name": "Brand Colors - Earth Healing",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary / 陶土金棕",
+        "default": "#B8956A"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary / 草木绿",
+        "default": "#8A9A7B"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent / 柔化藤紫",
+        "default": "#7B6B8D"
+      },
+      {
+        "type": "color",
+        "id": "color_bg_page",
+        "label": "Page Background / 暖米象牙白",
+        "default": "#F5F1EA"
+      },
+      {
+        "type": "color",
+        "id": "color_text_main",
+        "label": "Main Text / 深炭棕黑",
+        "default": "#2D2A26"
+      },
+      {
+        "type": "color",
+        "id": "color_text_light",
+        "label": "Light Text / 浅灰褐色",
+        "default": "#6B6357"
+      },
+      {
+        "type": "color",
+        "id": "color_border",
+        "label": "Border / 浅砂米色",
+        "default": "#E8E2D5"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_bg",
+        "label": "Footer Background / 深炭棕黑",
+        "default": "#2D2A26"
+      },
+      {
+        "type": "color",
+        "id": "color_footer_text",
+        "label": "Footer Text / 暖米象牙白",
+        "default": "#F5F1EA"
+      }
+    ]
   }
 ]

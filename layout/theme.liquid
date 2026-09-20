@@ -277,6 +277,24 @@
         --variant-pills-shadow-blur-radius: {{ settings.variant_pills_shadow_blur }}px;
       }
 
+      /* === Brand Color Bridge — Earth Healing 大地疗愈 === */
+      :root {
+        --brand-primary: {{ settings.color_primary }};
+        --brand-secondary: {{ settings.color_secondary }};
+        --brand-accent: {{ settings.color_accent }};
+        --brand-bg-page: {{ settings.color_bg_page }};
+        --brand-text-main: {{ settings.color_text_main }};
+        --brand-text-light: {{ settings.color_text_light }};
+        --brand-border: {{ settings.color_border }};
+        --brand-footer-bg: {{ settings.color_footer_bg }};
+        --brand-footer-text: {{ settings.color_footer_text }};
+
+        /* === 统一圆角规范 === */
+        --radius-sm: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+      }
+
       *,
       *::before,
       *::after {
