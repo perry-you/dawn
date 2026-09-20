@@ -11,7 +11,7 @@
   "current": {
     "logo": "shopify://shop_images/logo-black-with-kailashway.png",
     "logo_width": 90,
-    "favicon": "shopify://shop_images/kailashway-logo-black-170x40.png",
+    "favicon": "shopify://shop_images/logo-icon-512.png",
     "type_header_font": "figtree_n6",
     "heading_scale": 115,
     "type_body_font": "figtree_n4",
@@ -129,6 +129,15 @@
     "cart_drawer_collection": "",
     "cart_color_scheme": "scheme-1",
     "customer_account_menu": "customer-account-main-menu",
+    "color_primary": "#B8956A",
+    "color_secondary": "#8A9A7B",
+    "color_accent": "#7B6B8D",
+    "color_bg_page": "#F5F1EA",
+    "color_text_main": "#2D2A26",
+    "color_text_light": "#6B6357",
+    "color_border": "#E8E2D5",
+    "color_footer_bg": "#2D2A26",
+    "color_footer_text": "#F5F1EA",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
@@ -161,68 +170,59 @@
         "settings": {}
       }
     },
-    "color_primary": "#B8956A",
-    "color_secondary": "#8A9A7B",
-    "color_accent": "#7B6B8D",
-    "color_bg_page": "#F5F1EA",
-    "color_text_main": "#2D2A26",
-    "color_text_light": "#6B6357",
-    "color_border": "#E8E2D5",
-    "color_footer_bg": "#2D2A26",
-    "color_footer_text": "#F5F1EA",
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#F5F1EA",
+          "background": "#f5f1ea",
           "background_gradient": "",
-          "text": "#2D2A26",
-          "button": "#B8956A",
-          "button_label": "#F5F1EA",
-          "secondary_button_label": "#2D2A26",
-          "shadow": "#2D2A26"
+          "text": "#2d2a26",
+          "button": "#b8956a",
+          "button_label": "#f5f1ea",
+          "secondary_button_label": "#2d2a26",
+          "shadow": "#2d2a26"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#F5F1EA",
+          "background": "#f5f1ea",
           "background_gradient": "",
-          "text": "#2D2A26",
-          "button": "#B8956A",
-          "button_label": "#F5F1EA",
-          "secondary_button_label": "#2D2A26",
-          "shadow": "#2D2A26"
+          "text": "#2d2a26",
+          "button": "#b8956a",
+          "button_label": "#f5f1ea",
+          "secondary_button_label": "#2d2a26",
+          "shadow": "#2d2a26"
         }
       },
       "scheme-3": {
         "settings": {
-          "background": "#2D2A26",
+          "background": "#2d2a26",
           "background_gradient": "",
-          "text": "#F5F1EA",
-          "button": "#B8956A",
-          "button_label": "#2D2A26",
-          "secondary_button_label": "#F5F1EA",
+          "text": "#f5f1ea",
+          "button": "#b8956a",
+          "button_label": "#2d2a26",
+          "secondary_button_label": "#f5f1ea",
           "shadow": "#000000"
         }
       },
       "scheme-4": {
         "settings": {
-          "background": "#7B6B8D",
+          "background": "#7b6b8d",
           "background_gradient": "",
-          "text": "#F5F1EA",
-          "button": "#2D2A26",
-          "button_label": "#F5F1EA",
-          "secondary_button_label": "#F5F1EA",
+          "text": "#f5f1ea",
+          "button": "#2d2a26",
+          "button_label": "#f5f1ea",
+          "secondary_button_label": "#f5f1ea",
           "shadow": "#000000"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#B8956A",
+          "background": "#b8956a",
           "background_gradient": "",
-          "text": "#2D2A26",
-          "button": "#2D2A26",
-          "button_label": "#F5F1EA",
-          "secondary_button_label": "#2D2A26",
+          "text": "#2d2a26",
+          "button": "#2d2a26",
+          "button_label": "#f5f1ea",
+          "secondary_button_label": "#2d2a26",
           "shadow": "#000000"
         }
       }
