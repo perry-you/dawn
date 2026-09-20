@@ -16,6 +16,8 @@
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/kailashway_hero_01.webp",
+            "video_url": "",
+            "video_poster_url": "",
             "image_overlay_opacity": 20,
             "heading": "Receive Blessings From The Sacred Mount Kailash.",
             "heading_size": "h1",
@@ -38,9 +40,9 @@
         "layout": "full_bleed",
         "slide_height": "large",
         "slider_visual": "dots",
-        "auto_rotate": false,
+        "auto_rotate": true,
         "change_slides_speed": 5,
-        "image_behavior": "none",
+        "image_behavior": "ambient",
         "show_text_below": false,
         "accessibility_info": "Slideshow about our brand"
       }
