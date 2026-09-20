@@ -12,6 +12,26 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "slide_AXrEVD": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/18098acc5b5e499ab89a584eb86ad726_tplv-tb4s082cfz-aigc_resize_2400_2400.webp",
+            "video_url": "",
+            "video_poster_url": "",
+            "image_overlay_opacity": 0,
+            "heading": "Spirit & Healing",
+            "heading_size": "h1",
+            "subheading": "Handcrafted Natural Crystal Mala Beads for Meditation & Inner Calm",
+            "button_label": "Shop Crystal Malas",
+            "link": "shopify://collections/bestsellers",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": "scheme-1"
+          }
+        },
         "slide_1": {
           "type": "slide",
           "settings": {
@@ -34,6 +54,7 @@
         }
       },
       "block_order": [
+        "slide_AXrEVD",
         "slide_1"
       ],
       "settings": {
