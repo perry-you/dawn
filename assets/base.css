@@ -3773,6 +3773,11 @@ a:not(.button):not(.underlined-link):hover {
   color: var(--brand-footer-text);
 }
 
+/* 页脚内浮动标签（视觉 placeholder）：深底上用米白 */
+.footer .field__label {
+  color: var(--brand-footer-text);
+}
+
 /* --- 标签（badge）--- */
 .badge {
   border-radius: var(--radius-md);
