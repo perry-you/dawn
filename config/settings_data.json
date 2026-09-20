@@ -12,9 +12,9 @@
     "logo": "shopify://shop_images/logo-black-with-kailashway.png",
     "logo_width": 90,
     "favicon": "shopify://shop_images/kailashway-logo-black-170x40.png",
-    "type_header_font": "figtree_n4",
+    "type_header_font": "figtree_n6",
     "heading_scale": 115,
-    "type_body_font": "inter_n4",
+    "type_body_font": "figtree_n4",
     "body_scale": 100,
     "page_width": 1600,
     "spacing_sections": 0,
@@ -289,9 +289,9 @@
           }
         }
       },
-      "type_header_font": "figtree_n4",
+      "type_header_font": "figtree_n6",
       "heading_scale": 115,
-      "type_body_font": "inter_n4",
+      "type_body_font": "figtree_n4",
       "body_scale": 100,
       "page_width": 1600,
       "spacing_sections": 0,
