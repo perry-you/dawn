@@ -274,6 +274,16 @@
     display: block;
   }
 
+  {%- unless request.page_type == 'index' and section.settings.transparent_on_index -%}
+  /* Solid header (non-homepage or transparency off): dark logo by default */
+  .header__logo-default {
+    display: none;
+  }
+  .header__logo-alt {
+    display: block;
+  }
+  {%- endunless -%}
+
   /* Two-row layout (matches buddhastoneshop.com):
      Row 1 = logo (center) · localization/account/cart (right, with search
              placed just left of the currency/language selector)
