@@ -3767,6 +3767,12 @@ a:not(.button):not(.underlined-link):hover {
   color: var(--brand-footer-text);
 }
 
+/* 页脚内输入框：覆盖全局深色文字规则（深底输入框必须用米白） */
+.footer .field__input,
+.footer .select__select {
+  color: var(--brand-footer-text);
+}
+
 /* --- 标签（badge）--- */
 .badge {
   border-radius: var(--radius-md);
