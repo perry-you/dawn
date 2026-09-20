@@ -3759,6 +3759,14 @@ a:not(.button):not(.underlined-link):hover {
   color: var(--brand-footer-text);
 }
 
+/* 页脚内标题：覆盖全局 h2 深色规则（深底上必须用米白） */
+.footer h1,
+.footer h2,
+.footer h3,
+.footer h4 {
+  color: var(--brand-footer-text);
+}
+
 /* --- 标签（badge）--- */
 .badge {
   border-radius: var(--radius-md);
