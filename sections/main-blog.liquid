@@ -1,4 +1,4 @@
-{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+﻿{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
 {{ 'section-main-blog.css' | asset_url | stylesheet_tag }}
 
@@ -256,8 +256,9 @@
 
 {%- paginate blog.articles by 8 -%}
   <div class="main-blog page-width section-{{ section.id }}-padding">
-
-    {# ===== 板块1: Hero 标题区（所有博客页都显示） ===== #}
+{% comment %}
+  ===== 板块1: Hero 标题区（所有博客页都显示） =====
+{% endcomment %}
     <div class="blog-hero">
       <h1 class="title--primary">{{ blog.title | escape }}</h1>
       {%- if current_tag == nil and paginate.current_offset == 0 -%}
@@ -266,8 +267,9 @@
         <p class="blog-hero__sub">Browsing: {{ current_tag | replace: '-', ' ' | capitalize }}</p>
       {%- endif -%}
     </div>
-
-    {# ===== 板块2: 话题集群入口（首页第一页专属） ===== #}
+{% comment %}
+  ===== 板块2: 话题集群入口（首页第一页专属） =====
+{% endcomment %}
     {%- if current_tag == nil and paginate.current_offset == 0 -%}
       <div class="blog-clusters">
         <a href="/blogs/{{ blog_slug }}/tagged/mala-beads" class="blog-cluster-card" style="--card-accent: #B8956A;">
@@ -290,8 +292,9 @@
         </a>
       </div>
     {%- endif -%}
-
-    {# ===== 板块3: 精选热门文章（首页第一页专属） ===== #}
+{% comment %}
+  ===== 板块3: 精选热门文章（首页第一页专属） =====
+{% endcomment %}
     {%- if current_tag == nil and paginate.current_offset == 0 -%}
       <div class="blog-featured">
         <h2 class="blog-section-title">Most Read</h2>
@@ -315,8 +318,9 @@
         {%- if featured_count < 4 -%}</div>{%- endif -%}
       </div>
     {%- endif -%}
-
-    {# ===== 板块4: 标签筛选栏（所有博客页都显示） ===== #}
+{% comment %}
+  ===== 板块4: 标签筛选栏（所有博客页都显示） =====
+{% endcomment %}
     {%- capture _blog_tags_raw -%}
       {%- for _a in blog.articles -%}
         {%- for _t in _a.tags -%}{{ _t }},{%- endfor -%}
@@ -333,8 +337,9 @@
         {%- endfor -%}
       </div>
     {%- endif -%}
-
-    {# ===== 板块5: 文章列表 ===== #}
+{% comment %}
+  ===== 板块5: 文章列表 =====
+{% endcomment %}
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -356,15 +361,17 @@
         </div>
       {%- endfor -%}
     </div>
-
-    {# ===== 分页 ===== #}
+{% comment %}
+  ===== 分页 =====
+{% endcomment %}
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
 
   </div>
-
-  {# ===== 板块6: 产品推荐区（首页第一页专属） ===== #}
+{% comment %}
+  ===== 板块6: 产品推荐区（首页第一页专属） =====
+{% endcomment %}
   {%- if current_tag == nil and paginate.current_offset == 0 -%}
     <div class="blog-shop">
       <h2 class="blog-section-title">Shop by Topic</h2>
