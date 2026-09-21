@@ -322,12 +322,12 @@
 {% comment %}
   ===== 板块4: 标签筛选栏（所有博客页都显示） =====
 {% endcomment %}
-    {%- capture _blog_tags_raw -%}
-      {%- for _a in blog.articles -%}
-        {%- for _t in _a.tags -%}{{ _t }},{%- endfor -%}
+    {%- capture blog_tags_raw -%}
+      {%- for article in blog.articles -%}
+        {%- for tag in article.tags -%}{{ tag }},{%- endfor -%}
       {%- endfor -%}
     {%- endcapture -%}
-    {%- assign all_tags = _blog_tags_raw | split: ',' | uniq | sort -%}
+    {%- assign all_tags = blog_tags_raw | split: ',' | uniq | sort -%}
     {%- if all_tags.size > 0 -%}
       <div class="blog-filter-bar">
         <a href="/blogs/{{ blog_slug }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
