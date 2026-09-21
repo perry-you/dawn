@@ -40,39 +40,6 @@
     line-height: 1.7;
   }
 
-  /* 话题集群入口 — 3 卡片 */
-  .blog-clusters {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-    margin-bottom: 4rem;
-  }
-  .blog-cluster-card {
-    border: 1px solid var(--brand-border, #E8E2D5);
-    border-top: 3px solid var(--card-accent, var(--brand-primary, #B8956A));
-    border-radius: 0.8rem;
-    padding: 2.4rem 1.6rem;
-    text-align: center;
-    background: #fff;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .blog-cluster-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(45, 42, 38, 0.08);
-  }
-  .blog-cluster-card__icon { font-size: 3.2rem; line-height: 1; margin-bottom: 0.6rem; }
-  .blog-cluster-card__name { font-weight: 700; font-size: 1.6rem; margin: 0.4rem 0; color: var(--brand-text-main, #2D2A26); }
-  .blog-cluster-card__count { font-size: 1.3rem; color: #8C8378; }
-  .blog-cluster-card__link {
-    font-size: 1.3rem;
-    color: var(--brand-primary, #B8956A);
-    font-weight: 600;
-    margin-top: 1rem;
-    display: inline-block;
-  }
-
   /* 精选热门文章 — 2×2 网格 */
   .blog-featured { margin-bottom: 4rem; }
   .blog-section-title {
@@ -168,38 +135,6 @@
   }
   .article-card__info .blog-tag-chip::before { content: none; }
 
-  /* 产品推荐区 */
-  .blog-shop {
-    padding: 3.2rem 0;
-    background: #F5F1ED;
-    border-radius: 0.8rem;
-    margin-top: 4rem;
-  }
-  .blog-shop__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.6rem;
-    max-width: 80rem;
-    margin: 0 auto;
-  }
-  .blog-shop__card {
-    border: 1px solid var(--brand-border, #E8E2D5);
-    border-top: 3px solid var(--card-accent, var(--brand-primary, #B8956A));
-    border-radius: 0.8rem;
-    padding: 2rem 1.6rem;
-    text-align: center;
-    background: #fff;
-    text-decoration: none;
-    color: inherit;
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  .blog-shop__card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(45, 42, 38, 0.08);
-  }
-  .blog-shop__name { font-weight: 600; font-size: 1.5rem; color: var(--brand-text-main, #2D2A26); }
-  .blog-shop__link { font-size: 1.3rem; color: var(--brand-primary, #B8956A); margin-top: 0.6rem; display: block; font-weight: 600; }
-
   /* 邮件订阅区 — 独立 Newsletter section 已由 Dawn 原生支持；这里用自定义轻量 fallback */
   .blog-newsletter-fallback {
     text-align: center;
@@ -234,7 +169,6 @@
 
   /* 响应式 */
   @media screen and (max-width: 749px) {
-    .blog-clusters, .blog-shop__grid { grid-template-columns: 1fr; }
     .blog-featured-grid { grid-template-columns: 1fr; }
     .blog-hero { padding: 4rem 0 2.4rem; }
     .blog-filter-bar { gap: 0.6rem; }
@@ -242,15 +176,6 @@
     .blog-newsletter-fallback form { flex-direction: column; }
   }
 {%- endstyle -%}
-
-{%- assign mala_count = 0 -%}
-{%- assign crystal_count = 0 -%}
-{%- assign symbols_count = 0 -%}
-{%- for a in blog.articles -%}
-  {%- if a.tags contains 'mala-beads' -%}{%- assign mala_count = mala_count | plus: 1 -%}{%- endif -%}
-  {%- if a.tags contains 'crystal-meanings' -%}{%- assign crystal_count = crystal_count | plus: 1 -%}{%- endif -%}
-  {%- if a.tags contains 'spiritual-symbols' -%}{%- assign symbols_count = symbols_count | plus: 1 -%}{%- endif -%}
-{%- endfor -%}
 
 {%- paginate blog.articles by 8 -%}
   {%- assign current_tag = current_tag | default: nil -%}
@@ -267,32 +192,7 @@
       {%- endif -%}
     </div>
 {% comment %}
-  ===== 板块2: 话题集群入口（首页第一页专属） =====
-{% endcomment %}
-    {%- if current_tag == nil and paginate.current_offset == 0 -%}
-      <div class="blog-clusters">
-        <a href="/blogs/{{ blog.handle }}/tagged/mala-beads" class="blog-cluster-card" style="--card-accent: #B8956A;">
-          <div class="blog-cluster-card__icon">&#128079;</div>
-          <div class="blog-cluster-card__name">Mala Beads</div>
-          <div class="blog-cluster-card__count">{{ mala_count }} articles</div>
-          <div class="blog-cluster-card__link">View all &rarr;</div>
-        </a>
-        <a href="/blogs/{{ blog.handle }}/tagged/crystal-meanings" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
-          <div class="blog-cluster-card__icon">&#128142;</div>
-          <div class="blog-cluster-card__name">Crystal Jewelry</div>
-          <div class="blog-cluster-card__count">{{ crystal_count }} articles</div>
-          <div class="blog-cluster-card__link">View all &rarr;</div>
-        </a>
-        <a href="/blogs/{{ blog.handle }}/tagged/spiritual-symbols" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
-          <div class="blog-cluster-card__icon">&#128391;</div>
-          <div class="blog-cluster-card__name">Spiritual Symbols</div>
-          <div class="blog-cluster-card__count">{{ symbols_count }} articles</div>
-          <div class="blog-cluster-card__link">View all &rarr;</div>
-        </a>
-      </div>
-    {%- endif -%}
-{% comment %}
-  ===== 板块3: 精选热门文章（首页第一页专属） =====
+  ===== 板块2: 精选热门文章（首页第一页专属） =====
 {% endcomment %}
     {%- if current_tag == nil and paginate.current_offset == 0 -%}
       <div class="blog-featured">
@@ -318,7 +218,7 @@
       </div>
     {%- endif -%}
 {% comment %}
-  ===== 板块4: 标签筛选栏（所有博客页都显示） =====
+  ===== 板块3: 标签筛选栏（所有博客页都显示） =====
 {% endcomment %}
     {%- capture blog_tags_raw -%}
       {%- for article in blog.articles -%}
@@ -337,7 +237,7 @@
       </div>
     {%- endif -%}
 {% comment %}
-  ===== 板块5: 文章列表 =====
+  ===== 板块4: 文章列表 =====
 {% endcomment %}
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
@@ -368,28 +268,6 @@
     {%- endif -%}
 
   </div>
-{% comment %}
-  ===== 板块6: 产品推荐区（首页第一页专属） =====
-{% endcomment %}
-  {%- if current_tag == nil and paginate.current_offset == 0 -%}
-    <div class="blog-shop">
-      <h2 class="blog-section-title">Shop by Topic</h2>
-      <div class="blog-shop__grid">
-        <a href="{{ routes.collections_url }}/mala-beads" class="blog-shop__card" style="--card-accent: #B8956A;">
-          <div class="blog-shop__name">Mala Beads Collection</div>
-          <div class="blog-shop__link">Shop now &rarr;</div>
-        </a>
-        <a href="{{ routes.collections_url }}/crystal-jewelry" class="blog-shop__card" style="--card-accent: #8A9A7B;">
-          <div class="blog-shop__name">Crystal Jewelry Collection</div>
-          <div class="blog-shop__link">Shop now &rarr;</div>
-        </a>
-        <a href="{{ routes.collections_url }}/red-string-bracelets" class="blog-shop__card" style="--card-accent: #7B6B8D;">
-          <div class="blog-shop__name">Red String Bracelets</div>
-          <div class="blog-shop__link">Shop now &rarr;</div>
-        </a>
-      </div>
-    </div>
-  {%- endif -%}
 {%- endpaginate -%}
 
 {% schema %}
