@@ -87,6 +87,9 @@
               {%- if show_author -%}
                 <span>{{ article.author }}</span>
               {%- endif -%}
+              {%- if article.tags.size > 0 -%}
+                <span class="blog-tag-chip">{{ article.tags.first | replace: '-', ' ' }}</span>
+              {%- endif -%}
             </div>
             {%- if show_excerpt -%}
               {%- if article.excerpt.size > 0 or article.content.size > 0 -%}
@@ -125,6 +128,9 @@
             {%- endif -%}
             {%- if show_author -%}
               <span>{{ article.author }}</span>
+            {%- endif -%}
+            {%- if article.tags.size > 0 -%}
+              <span class="blog-tag-chip">{{ article.tags.first | replace: '-', ' ' }}</span>
             {%- endif -%}
           </div>
           {%- if show_excerpt -%}

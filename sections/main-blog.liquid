@@ -14,14 +14,328 @@
       padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
+
+  /* ===== Blog homepage redesign (大地疗愈配色) ===== */
+
+  /* Hero 标题区 */
+  .blog-hero {
+    text-align: center;
+    padding: 6rem 0 3rem;
+    background: linear-gradient(135deg, #F5F1ED 0%, var(--brand-bg-page, #F5F1EA) 100%);
+    border-radius: 1.2rem;
+    margin-bottom: 3.2rem;
+  }
+  .blog-hero h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--brand-text-main, #2D2A26);
+    margin-bottom: 1.2rem;
+  }
+  .blog-hero__sub {
+    font-size: 1.5rem;
+    color: #6B6460;
+    max-width: 70ch;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* 话题集群入口 — 3 卡片 */
+  .blog-clusters {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    margin-bottom: 4rem;
+  }
+  .blog-cluster-card {
+    border: 1px solid var(--brand-border, #E8E2D5);
+    border-top: 3px solid var(--card-accent, var(--brand-primary, #B8956A));
+    border-radius: 0.8rem;
+    padding: 2.4rem 1.6rem;
+    text-align: center;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .blog-cluster-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 42, 38, 0.08);
+  }
+  .blog-cluster-card__icon { font-size: 3.2rem; line-height: 1; margin-bottom: 0.6rem; }
+  .blog-cluster-card__name { font-weight: 700; font-size: 1.6rem; margin: 0.4rem 0; color: var(--brand-text-main, #2D2A26); }
+  .blog-cluster-card__count { font-size: 1.3rem; color: #8C8378; }
+  .blog-cluster-card__link {
+    font-size: 1.3rem;
+    color: var(--brand-primary, #B8956A);
+    font-weight: 600;
+    margin-top: 1rem;
+    display: inline-block;
+  }
+
+  /* 精选热门文章 — 2×2 网格 */
+  .blog-featured { margin-bottom: 4rem; }
+  .blog-section-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    margin-bottom: 2.4rem;
+    color: var(--brand-text-main, #2D2A26);
+  }
+  .blog-featured-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+  }
+  .blog-featured-card {
+    border: 1px solid var(--brand-border, #E8E2D5);
+    border-radius: 0.8rem;
+    overflow: hidden;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .blog-featured-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 42, 38, 0.08);
+  }
+  .blog-featured-card__img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    display: block;
+  }
+  .blog-featured-card__body { padding: 1.6rem; }
+  .blog-featured-card__tag {
+    font-size: 1.2rem;
+    color: var(--brand-primary, #B8956A);
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .blog-featured-card__title {
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-top: 0.4rem;
+    color: var(--brand-text-main, #2D2A26);
+  }
+
+  /* 标签筛选栏 */
+  .blog-filter-bar {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    background: #F5F1ED;
+    border-radius: 0.8rem;
+    margin: 2.4rem 0;
+  }
+  .blog-filter-bar__tag {
+    padding: 0.6rem 1.6rem;
+    border-radius: 999px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    border: 1px solid var(--brand-border, #E8E2D5);
+    background: #fff;
+    color: var(--brand-text-main, #2D2A26);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+  .blog-filter-bar__tag:hover {
+    border-color: var(--brand-primary, #B8956A);
+    color: var(--brand-primary, #B8956A);
+  }
+  .blog-filter-bar__tag.is-active {
+    background: var(--brand-primary, #B8956A);
+    color: #fff;
+    border-color: var(--brand-primary, #B8956A);
+  }
+
+  /* 文章卡片标签 chip — 小尺寸圆角 chip */
+  .blog-tag-chip {
+    display: inline-block;
+    font-size: 1.1rem;
+    padding: 0.15rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(184, 149, 106, 0.12);
+    color: var(--brand-primary, #B8956A);
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+  }
+  .article-card__info .blog-tag-chip::before { content: none; }
+
+  /* 产品推荐区 */
+  .blog-shop {
+    padding: 3.2rem 0;
+    background: #F5F1ED;
+    border-radius: 0.8rem;
+    margin-top: 4rem;
+  }
+  .blog-shop__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    max-width: 80rem;
+    margin: 0 auto;
+  }
+  .blog-shop__card {
+    border: 1px solid var(--brand-border, #E8E2D5);
+    border-top: 3px solid var(--card-accent, var(--brand-primary, #B8956A));
+    border-radius: 0.8rem;
+    padding: 2rem 1.6rem;
+    text-align: center;
+    background: #fff;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .blog-shop__card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(45, 42, 38, 0.08);
+  }
+  .blog-shop__name { font-weight: 600; font-size: 1.5rem; color: var(--brand-text-main, #2D2A26); }
+  .blog-shop__link { font-size: 1.3rem; color: var(--brand-primary, #B8956A); margin-top: 0.6rem; display: block; font-weight: 600; }
+
+  /* 邮件订阅区 — 独立 Newsletter section 已由 Dawn 原生支持；这里用自定义轻量 fallback */
+  .blog-newsletter-fallback {
+    text-align: center;
+    padding: 3.2rem 1.6rem;
+    background: #F5F1ED;
+    border-radius: 1.2rem;
+    margin-top: 4rem;
+  }
+  .blog-newsletter-fallback h2 { font-size: 2.2rem; margin-bottom: 0.6rem; color: var(--brand-text-main, #2D2A26); }
+  .blog-newsletter-fallback p { color: #6B6460; margin-bottom: 1.6rem; }
+  .blog-newsletter-fallback form {
+    display: flex; gap: 0.6rem; max-width: 48rem; margin: 0 auto;
+  }
+  .blog-newsletter-fallback input[type="email"] {
+    flex: 1;
+    padding: 1rem 1.4rem;
+    border: 1px solid var(--brand-border, #E8E2D5);
+    border-radius: 0.8rem;
+    font-size: 1.4rem;
+  }
+  .blog-newsletter-fallback button {
+    background: var(--brand-primary, #B8956A);
+    color: #fff;
+    border: none;
+    border-radius: 0.8rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+  .blog-newsletter-fallback button:hover { background: #A6845A; }
+
+  /* 响应式 */
+  @media screen and (max-width: 749px) {
+    .blog-clusters, .blog-shop__grid { grid-template-columns: 1fr; }
+    .blog-featured-grid { grid-template-columns: 1fr; }
+    .blog-hero { padding: 4rem 0 2.4rem; }
+    .blog-filter-bar { gap: 0.6rem; }
+    .blog-filter-bar__tag { padding: 0.4rem 1rem; font-size: 1.2rem; }
+    .blog-newsletter-fallback form { flex-direction: column; }
+  }
 {%- endstyle -%}
 
-{%- paginate blog.articles by 6 -%}
-  <div class="main-blog page-width section-{{ section.id }}-padding">
-    <h1 class="title--primary{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      {{ blog.title | escape }}
-    </h1>
+{%- assign blog_slug = blog.handle | default: 'the-path' -%}
 
+{%- assign mala_count = 0 -%}
+{%- assign crystal_count = 0 -%}
+{%- assign symbols_count = 0 -%}
+{%- for a in blog.articles -%}
+  {%- if a.tags contains 'mala-beads' -%}{%- assign mala_count = mala_count | plus: 1 -%}{%- endif -%}
+  {%- if a.tags contains 'crystal-meanings' -%}{%- assign crystal_count = crystal_count | plus: 1 -%}{%- endif -%}
+  {%- if a.tags contains 'spiritual-symbols' -%}{%- assign symbols_count = symbols_count | plus: 1 -%}{%- endif -%}
+{%- endfor -%}
+
+{%- paginate blog.articles by 8 -%}
+  <div class="main-blog page-width section-{{ section.id }}-padding">
+
+    {# ===== 板块1: Hero 标题区（所有博客页都显示） ===== #}
+    <div class="blog-hero">
+      <h1 class="title--primary">{{ blog.title | escape }}</h1>
+      {%- if current_tag == nil and paginate.current_offset == 0 -%}
+        <p class="blog-hero__sub">Your guide to spiritual jewelry, crystal meanings, and sacred symbols from traditions around the world.</p>
+      {%- elsif current_tag -%}
+        <p class="blog-hero__sub">Browsing: {{ current_tag | replace: '-', ' ' | capitalize }}</p>
+      {%- endif -%}
+    </div>
+
+    {# ===== 板块2: 话题集群入口（首页第一页专属） ===== #}
+    {%- if current_tag == nil and paginate.current_offset == 0 -%}
+      <div class="blog-clusters">
+        <a href="/blogs/{{ blog_slug }}/tagged/mala-beads" class="blog-cluster-card" style="--card-accent: #B8956A;">
+          <div class="blog-cluster-card__icon">&#128079;</div>
+          <div class="blog-cluster-card__name">Mala Beads</div>
+          <div class="blog-cluster-card__count">{{ mala_count }} articles</div>
+          <div class="blog-cluster-card__link">View all &rarr;</div>
+        </a>
+        <a href="/blogs/{{ blog_slug }}/tagged/crystal-meanings" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
+          <div class="blog-cluster-card__icon">&#128142;</div>
+          <div class="blog-cluster-card__name">Crystal Jewelry</div>
+          <div class="blog-cluster-card__count">{{ crystal_count }} articles</div>
+          <div class="blog-cluster-card__link">View all &rarr;</div>
+        </a>
+        <a href="/blogs/{{ blog_slug }}/tagged/spiritual-symbols" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
+          <div class="blog-cluster-card__icon">&#128391;</div>
+          <div class="blog-cluster-card__name">Spiritual Symbols</div>
+          <div class="blog-cluster-card__count">{{ symbols_count }} articles</div>
+          <div class="blog-cluster-card__link">View all &rarr;</div>
+        </a>
+      </div>
+    {%- endif -%}
+
+    {# ===== 板块3: 精选热门文章（首页第一页专属） ===== #}
+    {%- if current_tag == nil and paginate.current_offset == 0 -%}
+      <div class="blog-featured">
+        <h2 class="blog-section-title">Most Read</h2>
+        {%- assign featured_count = 0 -%}
+        {%- for article in blog.articles -%}
+          {%- if featured_count < 4 and article.image -%}
+            {%- assign featured_count = featured_count | plus: 1 -%}
+            {%- if featured_count == 1 -%}<div class="blog-featured-grid">{%- endif -%}
+            <a href="{{ article.url }}" class="blog-featured-card">
+              <img src="{{ article.image.src | image_url: width: 800 }}" alt="{{ article.image.alt | default: article.title | escape }}" class="blog-featured-card__img" loading="lazy">
+              <div class="blog-featured-card__body">
+                {%- if article.tags.size > 0 -%}
+                  <div class="blog-featured-card__tag">{{ article.tags.first | replace: '-', ' ' | upcase }}</div>
+                {%- endif -%}
+                <div class="blog-featured-card__title">{{ article.title | escape }}</div>
+              </div>
+            </a>
+            {%- if featured_count == 4 -%}</div>{%- endif -%}
+          {%- endif -%}
+        {%- endfor -%}
+        {%- if featured_count < 4 -%}</div>{%- endif -%}
+      </div>
+    {%- endif -%}
+
+    {# ===== 板块4: 标签筛选栏（所有博客页都显示） ===== #}
+    {%- assign all_tags = '' | split: '' -%}
+    {%- for article in blog.articles -%}
+      {%- for tag in article.tags -%}
+        {%- unless all_tags contains tag -%}
+          {%- assign all_tags = all_tags | push: tag -%}
+        {%- endunless -%}
+      {%- endfor -%}
+    {%- endfor -%}
+    {%- assign all_tags = all_tags | sort -%}
+    {%- if all_tags.size > 0 -%}
+      <div class="blog-filter-bar">
+        <a href="/blogs/{{ blog_slug }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
+        {%- for tag in all_tags -%}
+          <a href="/blogs/{{ blog_slug }}/tagged/{{ tag }}" class="blog-filter-bar__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag | replace: '-', ' ' }}</a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {# ===== 板块5: 文章列表 ===== #}
     <div class="blog-articles {% if section.settings.layout == 'collage' %}blog-articles--collage{% endif %}">
       {%- for article in blog.articles -%}
         <div
@@ -44,10 +358,33 @@
       {%- endfor -%}
     </div>
 
+    {# ===== 分页 ===== #}
     {%- if paginate.pages > 1 -%}
       {%- render 'pagination', paginate: paginate -%}
     {%- endif -%}
+
   </div>
+
+  {# ===== 板块6: 产品推荐区（首页第一页专属） ===== #}
+  {%- if current_tag == nil and paginate.current_offset == 0 -%}
+    <div class="blog-shop">
+      <h2 class="blog-section-title">Shop by Topic</h2>
+      <div class="blog-shop__grid">
+        <a href="/collections/mala-beads" class="blog-shop__card" style="--card-accent: #B8956A;">
+          <div class="blog-shop__name">Mala Beads Collection</div>
+          <div class="blog-shop__link">Shop now &rarr;</div>
+        </a>
+        <a href="/collections/crystal-jewelry" class="blog-shop__card" style="--card-accent: #8A9A7B;">
+          <div class="blog-shop__name">Crystal Jewelry Collection</div>
+          <div class="blog-shop__link">Shop now &rarr;</div>
+        </a>
+        <a href="/collections/red-string-bracelets" class="blog-shop__card" style="--card-accent: #7B6B8D;">
+          <div class="blog-shop__name">Red String Bracelets</div>
+          <div class="blog-shop__link">Shop now &rarr;</div>
+        </a>
+      </div>
+    </div>
+  {%- endif -%}
 {%- endpaginate -%}
 
 {% schema %}
@@ -69,7 +406,7 @@
           "label": "t:sections.main-blog.settings.layout.options__2.label"
         }
       ],
-      "default": "collage",
+      "default": "grid",
       "label": "t:sections.main-blog.settings.layout.label"
     },
     {
