@@ -3705,7 +3705,6 @@ h1 {
 
 .card-wrapper:hover .card,
 .card-wrapper:hover .card--standard .card__inner {
-  border-color: var(--brand-primary);
   box-shadow: none;
   transform: none;
 }
