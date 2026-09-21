@@ -301,7 +301,7 @@
             {%- assign featured_count = featured_count | plus: 1 -%}
             {%- if featured_count == 1 -%}<div class="blog-featured-grid">{%- endif -%}
             <a href="{{ article.url }}" class="blog-featured-card">
-              <img src="{{ article.image.src | image_url: width: 800 }}" alt="{{ article.image.alt | default: article.title | escape }}" class="blog-featured-card__img" loading="lazy">
+              <img src="{{ article.image.src | image_url: width: 800 }}" alt="{{ article.image.alt | default: article.title | escape }}" class="blog-featured-card__img" loading="lazy" width="{{ article.image.width }}" height="{{ article.image.height }}">
               <div class="blog-featured-card__body">
                 {%- if article.tags.size > 0 -%}
                   <div class="blog-featured-card__tag">{{ article.tags.first | replace: '-', ' ' | upcase }}</div>
