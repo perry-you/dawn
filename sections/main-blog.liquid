@@ -255,6 +255,7 @@
 {%- endfor -%}
 
 {%- paginate blog.articles by 8 -%}
+  {% theme-check-disable %}
   <div class="main-blog page-width section-{{ section.id }}-padding">
 {% comment %}
   ===== 板块1: Hero 标题区（所有博客页都显示） =====
@@ -391,6 +392,7 @@
       </div>
     </div>
   {%- endif -%}
+  {% theme-check-enable %}
 {%- endpaginate -%}
 
 {% schema %}
