@@ -271,19 +271,19 @@
 {% endcomment %}
     {%- if current_tag == nil and paginate.current_offset == 0 -%}
       <div class="blog-clusters">
-        <a href="{{ routes.blog_tag_url: blog, 'mala-beads' }}" class="blog-cluster-card" style="--card-accent: #B8956A;">
+        <a href="/blogs/{{ blog.handle }}/tagged/mala-beads" class="blog-cluster-card" style="--card-accent: #B8956A;">
           <div class="blog-cluster-card__icon">&#128079;</div>
           <div class="blog-cluster-card__name">Mala Beads</div>
           <div class="blog-cluster-card__count">{{ mala_count }} articles</div>
           <div class="blog-cluster-card__link">View all &rarr;</div>
         </a>
-        <a href="{{ routes.blog_tag_url: blog, 'crystal-meanings' }}" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
+        <a href="/blogs/{{ blog.handle }}/tagged/crystal-meanings" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
           <div class="blog-cluster-card__icon">&#128142;</div>
           <div class="blog-cluster-card__name">Crystal Jewelry</div>
           <div class="blog-cluster-card__count">{{ crystal_count }} articles</div>
           <div class="blog-cluster-card__link">View all &rarr;</div>
         </a>
-        <a href="{{ routes.blog_tag_url: blog, 'spiritual-symbols' }}" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
+        <a href="/blogs/{{ blog.handle }}/tagged/spiritual-symbols" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
           <div class="blog-cluster-card__icon">&#128391;</div>
           <div class="blog-cluster-card__name">Spiritual Symbols</div>
           <div class="blog-cluster-card__count">{{ symbols_count }} articles</div>
@@ -328,10 +328,10 @@
     {%- assign all_tags = blog_tags_raw | split: ',' | uniq | sort -%}
     {%- if all_tags.size > 0 -%}
       <div class="blog-filter-bar">
-        <a href="{{ routes.blog_url: blog }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
+        <a href="/blogs/{{ blog.handle }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
         {%- for tag in all_tags -%}
           {%- unless tag == blank -%}
-            <a href="{{ routes.blog_tag_url: blog, tag }}" class="blog-filter-bar__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag | replace: '-', ' ' }}</a>
+            <a href="/blogs/{{ blog.handle }}/tagged/{{ tag }}" class="blog-filter-bar__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag | replace: '-', ' ' }}</a>
           {%- endunless -%}
         {%- endfor -%}
       </div>
