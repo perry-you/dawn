@@ -243,8 +243,6 @@
   }
 {%- endstyle -%}
 
-{%- assign blog_slug = blog.handle | default: 'the-path' -%}
-
 {%- assign mala_count = 0 -%}
 {%- assign crystal_count = 0 -%}
 {%- assign symbols_count = 0 -%}
@@ -273,19 +271,19 @@
 {% endcomment %}
     {%- if current_tag == nil and paginate.current_offset == 0 -%}
       <div class="blog-clusters">
-        <a href="/blogs/{{ blog_slug }}/tagged/mala-beads" class="blog-cluster-card" style="--card-accent: #B8956A;">
+        <a href="{{ routes.blog_tag_url: blog, 'mala-beads' }}" class="blog-cluster-card" style="--card-accent: #B8956A;">
           <div class="blog-cluster-card__icon">&#128079;</div>
           <div class="blog-cluster-card__name">Mala Beads</div>
           <div class="blog-cluster-card__count">{{ mala_count }} articles</div>
           <div class="blog-cluster-card__link">View all &rarr;</div>
         </a>
-        <a href="/blogs/{{ blog_slug }}/tagged/crystal-meanings" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
+        <a href="{{ routes.blog_tag_url: blog, 'crystal-meanings' }}" class="blog-cluster-card" style="--card-accent: #8A9A7B;">
           <div class="blog-cluster-card__icon">&#128142;</div>
           <div class="blog-cluster-card__name">Crystal Jewelry</div>
           <div class="blog-cluster-card__count">{{ crystal_count }} articles</div>
           <div class="blog-cluster-card__link">View all &rarr;</div>
         </a>
-        <a href="/blogs/{{ blog_slug }}/tagged/spiritual-symbols" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
+        <a href="{{ routes.blog_tag_url: blog, 'spiritual-symbols' }}" class="blog-cluster-card" style="--card-accent: #7B6B8D;">
           <div class="blog-cluster-card__icon">&#128391;</div>
           <div class="blog-cluster-card__name">Spiritual Symbols</div>
           <div class="blog-cluster-card__count">{{ symbols_count }} articles</div>
@@ -330,10 +328,10 @@
     {%- assign all_tags = blog_tags_raw | split: ',' | uniq | sort -%}
     {%- if all_tags.size > 0 -%}
       <div class="blog-filter-bar">
-        <a href="/blogs/{{ blog_slug }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
+        <a href="{{ routes.blog_url: blog }}" class="blog-filter-bar__tag {% if current_tag == nil %}is-active{% endif %}">All</a>
         {%- for tag in all_tags -%}
           {%- unless tag == blank -%}
-            <a href="/blogs/{{ blog_slug }}/tagged/{{ tag }}" class="blog-filter-bar__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag | replace: '-', ' ' }}</a>
+            <a href="{{ routes.blog_tag_url: blog, tag }}" class="blog-filter-bar__tag {% if current_tag == tag %}is-active{% endif %}">{{ tag | replace: '-', ' ' }}</a>
           {%- endunless -%}
         {%- endfor -%}
       </div>
@@ -377,15 +375,15 @@
     <div class="blog-shop">
       <h2 class="blog-section-title">Shop by Topic</h2>
       <div class="blog-shop__grid">
-        <a href="/collections/mala-beads" class="blog-shop__card" style="--card-accent: #B8956A;">
+        <a href="{{ routes.collections_url }}/mala-beads" class="blog-shop__card" style="--card-accent: #B8956A;">
           <div class="blog-shop__name">Mala Beads Collection</div>
           <div class="blog-shop__link">Shop now &rarr;</div>
         </a>
-        <a href="/collections/crystal-jewelry" class="blog-shop__card" style="--card-accent: #8A9A7B;">
+        <a href="{{ routes.collections_url }}/crystal-jewelry" class="blog-shop__card" style="--card-accent: #8A9A7B;">
           <div class="blog-shop__name">Crystal Jewelry Collection</div>
           <div class="blog-shop__link">Shop now &rarr;</div>
         </a>
-        <a href="/collections/red-string-bracelets" class="blog-shop__card" style="--card-accent: #7B6B8D;">
+        <a href="{{ routes.collections_url }}/red-string-bracelets" class="blog-shop__card" style="--card-accent: #7B6B8D;">
           <div class="blog-shop__name">Red String Bracelets</div>
           <div class="blog-shop__link">Shop now &rarr;</div>
         </a>
