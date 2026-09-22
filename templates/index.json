@@ -121,15 +121,27 @@
       "blocks": {
         "logo_1": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/featuredon5.webp",
+            "logo_name": "",
+            "link": ""
+          }
         },
         "logo_2": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/featuredon3_2ee7e2ce-20d6-45e9-9a50-2364b3278cd4.avif",
+            "logo_name": "",
+            "link": ""
+          }
         },
         "logo_3": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "image": "shopify://shop_images/featuredon3_7948114e-ac99-43e7-a690-c3388088d336.avif",
+            "logo_name": "",
+            "link": ""
+          }
         }
       },
       "block_order": [
