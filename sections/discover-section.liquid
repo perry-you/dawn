@@ -24,8 +24,8 @@
         <div class="discover-card__img">
           {% if block.settings.image != blank %}
             <img
-              src="{{ block.settings.image | image_url: width: 140 }}"
-              srcset="{{ block.settings.image | image_url: width: 100 }} 100w, {{ block.settings.image | image_url: width: 120 }} 120w, {{ block.settings.image | image_url: width: 140 }} 140w, {{ block.settings.image | image_url: width: 240 }} 240w"
+              src="{{ block.settings.image }}&width=140"
+              srcset="{{ block.settings.image }}&width=100 100w, {{ block.settings.image }}&width=120 120w, {{ block.settings.image }}&width=140 140w, {{ block.settings.image }}&width=240 240w"
               sizes="(max-width: 600px) 100px, (max-width: 900px) 120px, 140px"
               alt="{{ block.settings.label | default: 'Category image' | escape }}"
               width="140"
@@ -60,20 +60,17 @@
     {
       "type": "text",
       "id": "heading",
-      "label": "Heading",
-      "default": "Discover What Moves You"
+      "label": "Heading"
     },
     {
       "type": "richtext",
       "id": "subheading",
-      "label": "Subheading",
-      "default": "<p>Browse our collection by category to discover intentional items that fit your lifestyle.</p>"
+      "label": "Subheading"
     },
     {
       "type": "checkbox",
       "id": "full_width",
-      "label": "Full width",
-      "default": false
+      "label": "Full width"
     }
   ],
   "blocks": [
@@ -82,16 +79,14 @@
       "name": "Category Card",
       "settings": [
         {
-          "type": "text",
+          "type": "image_picker",
           "id": "image",
-          "label": "Image URL",
-          "info": "220x220px recommended"
+          "label": "Image"
         },
         {
           "type": "text",
           "id": "label",
-          "label": "Label",
-          "default": "Category"
+          "label": "Label"
         },
         {
           "type": "url",

@@ -1,4 +1,4 @@
-﻿/*
+/*
  * ------------------------------------------------------------
  * IMPORTANT: The contents of this file are auto-generated.
  *
@@ -74,108 +74,108 @@
         "card_1": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982401253609",
-            "label": "Mala Beads",
-            "link": "/collections/mala-beads",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_2": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982404759785",
-            "label": "Crystal Jewelry",
-            "link": "/collections/crystal-jewelry",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_3": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982405611753",
-            "label": "Red String",
-            "link": "/collections/red-string-bracelets",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_4": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982406955241",
-            "label": "Bracelets",
-            "link": "/collections/bracelets",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_5": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982408560873",
-            "label": "Necklaces",
-            "link": "/collections/necklaces",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_6": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982410526953",
-            "label": "Rings",
-            "link": "/collections/rings",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_7": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982414295273",
-            "label": "Tiger's Eye",
-            "link": "/collections/tigers-eye",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_8": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982417342697",
-            "label": "Rose Quartz",
-            "link": "/collections/rose-quartz",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_9": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982419603689",
-            "label": "Amethyst",
-            "link": "/collections/amethyst",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_10": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982421537001",
-            "label": "Lotus",
-            "link": "/collections/lotus-flower",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_11": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982424387817",
-            "label": "Pixiu",
-            "link": "/collections/pixiu",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         },
         "card_12": {
           "type": "category_card",
           "settings": {
-            "image": "shopify://files/40982427304169",
-            "label": "Hamsa Hand",
-            "link": "/collections/hamsa-hand",
+            "image": "",
+            "label": "",
+            "link": "",
             "badge_text": ""
           }
         }
@@ -195,8 +195,8 @@
         "card_12"
       ],
       "settings": {
-        "heading": "Discover What Moves You",
-        "subheading": "<p>Browse our collection by category to discover intentional items that fit your lifestyle.</p>",
+        "heading": "",
+        "subheading": "",
         "full_width": false
       }
     },
