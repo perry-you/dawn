@@ -68,6 +68,138 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "discover": {
+      "type": "discover-section",
+      "blocks": {
+        "card_1": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-mala-beads_c4576236-c544-4834-9ded-b1562769f74c.jpg?v=1790046397",
+            "label": "Mala Beads",
+            "link": "/collections/mala-beads",
+            "badge_text": ""
+          }
+        },
+        "card_2": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-crystal-jewelry_be78fe57-0e76-44ee-b79a-0c85496a7673.jpg?v=1790046414",
+            "label": "Crystal Jewelry",
+            "link": "/collections/crystal-jewelry",
+            "badge_text": ""
+          }
+        },
+        "card_3": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-red-string-bracelets_d7586757-7454-4df3-b949-d352f6503179.jpg?v=1790046433",
+            "label": "Red String",
+            "link": "/collections/red-string-bracelets",
+            "badge_text": ""
+          }
+        },
+        "card_4": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-bracelets_1df0bd53-6b74-42e6-b0d2-ac8849ecc794.jpg?v=1790046452",
+            "label": "Bracelets",
+            "link": "/collections/bracelets",
+            "badge_text": ""
+          }
+        },
+        "card_5": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-necklaces_2a2624d9-9f0b-4e77-ba26-fad6f820b3c3.jpg?v=1790046470",
+            "label": "Necklaces",
+            "link": "/collections/necklaces",
+            "badge_text": ""
+          }
+        },
+        "card_6": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-rings_abc10bbe-64b7-4aa7-8fc6-45d5102250ba.jpg?v=1790046496",
+            "label": "Rings",
+            "link": "/collections/rings",
+            "badge_text": ""
+          }
+        },
+        "card_7": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-tiger-eye-jewelry_3cb06466-b4ac-46fe-879e-48ac8bc1b253.jpg?v=1790046527",
+            "label": "Tiger's Eye",
+            "link": "/collections/tigers-eye",
+            "badge_text": ""
+          }
+        },
+        "card_8": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-rose-quartz-jewelry_154f648a-78e8-44ce-a406-1eef43bc1bf3.jpg?v=1790046549",
+            "label": "Rose Quartz",
+            "link": "/collections/rose-quartz",
+            "badge_text": ""
+          }
+        },
+        "card_9": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-amethyst-jewelry_cb35633e-5953-41a4-9214-637f74b672c1.jpg?v=1790046574",
+            "label": "Amethyst",
+            "link": "/collections/amethyst",
+            "badge_text": ""
+          }
+        },
+        "card_10": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-lotus-flower-jewelry_c456f432-19e3-4e32-8bfb-7bdc3b2f0579.jpg?v=1790046602",
+            "label": "Lotus",
+            "link": "/collections/lotus-flower",
+            "badge_text": ""
+          }
+        },
+        "card_11": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-pixiu-jewelry_5d52a91d-0a4b-4b8d-852f-2c96fc6d7d11.jpg?v=1790046625",
+            "label": "Pixiu",
+            "link": "/collections/pixiu",
+            "badge_text": ""
+          }
+        },
+        "card_12": {
+          "type": "category_card",
+          "settings": {
+            "image": "https://cdn.shopify.com/s/files/1/0826/0799/7161/files/discover-hamsa-hand-jewelry_603efef6-ea84-4545-8733-583c7bc4dec5.jpg?v=1790046649",
+            "label": "Hamsa Hand",
+            "link": "/collections/hamsa-hand",
+            "badge_text": ""
+          }
+        }
+      },
+      "block_order": [
+        "card_1",
+        "card_2",
+        "card_3",
+        "card_4",
+        "card_5",
+        "card_6",
+        "card_7",
+        "card_8",
+        "card_9",
+        "card_10",
+        "card_11",
+        "card_12"
+      ],
+      "settings": {
+        "heading": "Discover What Moves You",
+        "subheading": "<p>Browse our collection by category to discover intentional items that fit your lifestyle.</p>",
+        "full_width": false
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -161,6 +293,7 @@
   },
   "order": [
     "slideshow",
+    "discover",
     "featured_collection",
     "featured_blog_tx7bzd",
     "as_featured_on"
