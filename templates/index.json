@@ -74,16 +74,15 @@
         "card_1": {
           "type": "category_card",
           "settings": {
-            "image": "",
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-mala-beads_c4576236-c544-4834-9ded-b1562769f74c.jpg",
+            "label": "Mala Beads",
+            "link": "shopify://collections/mala-beads",
             "badge_text": ""
           }
         },
         "card_2": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -92,7 +91,6 @@
         "card_3": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -101,7 +99,6 @@
         "card_4": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -110,7 +107,6 @@
         "card_5": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -119,7 +115,6 @@
         "card_6": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -128,7 +123,6 @@
         "card_7": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -137,7 +131,6 @@
         "card_8": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -146,7 +139,6 @@
         "card_9": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -155,7 +147,6 @@
         "card_10": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -164,7 +155,6 @@
         "card_11": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
@@ -173,7 +163,6 @@
         "card_12": {
           "type": "category_card",
           "settings": {
-            "image": "",
             "label": "",
             "link": "",
             "badge_text": ""
