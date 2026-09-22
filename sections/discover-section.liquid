@@ -24,8 +24,8 @@
         <div class="discover-card__img">
           {% if block.settings.image != blank %}
             <img
-              src="{{ block.settings.image }}&width=140"
-              srcset="{{ block.settings.image }}&width=100 100w, {{ block.settings.image }}&width=120 120w, {{ block.settings.image }}&width=140 140w, {{ block.settings.image }}&width=240 240w"
+              src="{{ block.settings.image | image_url: width: 140 }}"
+              srcset="{{ block.settings.image | image_url: width: 100 }} 100w, {{ block.settings.image | image_url: width: 120 }} 120w, {{ block.settings.image | image_url: width: 140 }} 140w, {{ block.settings.image | image_url: width: 240 }} 240w"
               sizes="(max-width: 600px) 100px, (max-width: 900px) 120px, 140px"
               alt="{{ block.settings.label | default: 'Category image' | escape }}"
               width="140"
@@ -246,6 +246,9 @@
 @media screen and (max-width: 599px) {
   .discover-section {
     padding: 3.2rem 1.2rem;
+  }
+  .discover-title {
+    font-size: 1.8rem;
   }
   .discover-grid {
     grid-template-columns: repeat(3, 1fr);
