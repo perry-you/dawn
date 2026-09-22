@@ -83,88 +83,99 @@
         "card_2": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-crystal-jewelry_be78fe57-0e76-44ee-b79a-0c85496a7673.jpg",
+            "label": "Crystal Jewelry",
+            "link": "shopify://collections/crystal-jewelry",
             "badge_text": ""
           }
         },
         "card_3": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-red-string-bracelets_d7586757-7454-4df3-b949-d352f6503179.jpg",
+            "label": "Red String",
+            "link": "shopify://collections/red-string-bracelets",
             "badge_text": ""
           }
         },
         "card_4": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-bracelets_1df0bd53-6b74-42e6-b0d2-ac8849ecc794.jpg",
+            "label": "Bracelets",
+            "link": "shopify://collections/bracelets",
             "badge_text": ""
           }
         },
         "card_5": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-necklaces_2a2624d9-9f0b-4e77-ba26-fad6f820b3c3.jpg",
+            "label": "Necklaces",
+            "link": "shopify://collections/necklaces",
             "badge_text": ""
           }
         },
         "card_6": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-rings_abc10bbe-64b7-4aa7-8fc6-45d5102250ba.jpg",
+            "label": "Rings",
+            "link": "shopify://collections/rings",
             "badge_text": ""
           }
         },
         "card_7": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-tiger-eye-jewelry_3cb06466-b4ac-46fe-879e-48ac8bc1b253.jpg",
+            "label": "Tiger's Eye",
+            "link": "shopify://collections/tigers-eye",
             "badge_text": ""
           }
         },
         "card_8": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-rose-quartz-jewelry_154f648a-78e8-44ce-a406-1eef43bc1bf3.jpg",
+            "label": "Rose Quartz",
+            "link": "shopify://collections/rose-quartz",
             "badge_text": ""
           }
         },
         "card_9": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-amethyst-jewelry_cb35633e-5953-41a4-9214-637f74b672c1.jpg",
+            "label": "Amethyst",
+            "link": "shopify://collections/amethyst",
             "badge_text": ""
           }
         },
         "card_10": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-lotus-flower-jewelry_c456f432-19e3-4e32-8bfb-7bdc3b2f0579.jpg",
+            "label": "Lotus",
+            "link": "shopify://collections/lotus-flower",
             "badge_text": ""
           }
         },
         "card_11": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-pixiu-jewelry_5d52a91d-0a4b-4b8d-852f-2c96fc6d7d11.jpg",
+            "label": "Pixiu",
+            "link": "shopify://collections/pixiu",
             "badge_text": ""
           }
         },
         "card_12": {
           "type": "category_card",
           "settings": {
-            "label": "",
-            "link": "",
+            "image": "shopify://shop_images/discover-hamsa-hand-jewelry_603efef6-ea84-4545-8733-583c7bc4dec5.jpg",
+            "label": "Hamsa Hand",
+            "link": "shopify://collections/hamsa-hand",
             "badge_text": ""
           }
         }
@@ -184,8 +195,8 @@
         "card_12"
       ],
       "settings": {
-        "heading": "",
-        "subheading": "",
+        "heading": "Discover What Moves You",
+        "subheading": "<p>Browse our collection by category to discover intentional items that fit your lifestyle.</p>",
         "full_width": false
       }
     },
