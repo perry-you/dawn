@@ -1,6 +1,28 @@
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
+<style>
+  /* Swap announcement bar background ↔ text color */
+  .utility-bar.utility-bar {
+    background: rgb(var(--color-foreground)) !important;
+    color: rgb(var(--color-background)) !important;
+  }
+  .utility-bar.utility-bar .announcement-bar__message,
+  .utility-bar.utility-bar .announcement-bar__link,
+  .utility-bar.utility-bar .link--text,
+  .utility-bar.utility-bar .localization-form__toggle,
+  .utility-bar.utility-bar .localization-form__currency,
+  .utility-bar.utility-bar .localization-form__language,
+  .utility-bar.utility-bar .social-links .link {
+    color: rgb(var(--color-background)) !important;
+  }
+  .utility-bar.utility-bar .localization-form__toggle .icon,
+  .utility-bar.utility-bar .social-links svg,
+  .utility-bar.utility-bar .icon-arrow {
+    fill: rgb(var(--color-background)) !important;
+  }
+</style>
+
 {%- liquid
   assign social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
