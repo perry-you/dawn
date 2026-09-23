@@ -14,15 +14,23 @@
     "announcement-bar": {
       "type": "announcement-bar",
       "blocks": {
+        "announcement_Vcr6tg": {
+          "type": "announcement",
+          "settings": {
+            "text": "Buy 2 Get 1 Free (CODE:B3)(Add 3 items to the cart)",
+            "link": ""
+          }
+        },
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Free Shipping On All Orders Over $59",
+            "text": "Orders over $69.99 Get FREE SHIPPING✈️ *30-day money-back guarantee*",
             "link": ""
           }
         }
       },
       "block_order": [
+        "announcement_Vcr6tg",
         "announcement-bar-0"
       ],
       "settings": {
