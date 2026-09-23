@@ -229,6 +229,81 @@
         "padding_bottom": 36
       }
     },
+    "reviews_carousel": {
+      "type": "reviews-carousel",
+      "blocks": {
+        "review_1": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-mala-beads_c4576236-c544-4834-9ded-b1562769f74c.jpg",
+            "name": "Sarah M.",
+            "text": "My mala beads arrived beautifully packaged with a handwritten note. The energy I feel during morning meditation is unlike anything else I've tried."
+          }
+        },
+        "review_2": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-pixiu-jewelry_5d52a91d-0a4b-4b8d-852f-2c96fc6d7d11.jpg",
+            "name": "David K.",
+            "text": "The Pixiu bracelet is stunning in person. Craftsmanship is top notch and it has already become part of my daily routine. Feels protective and grounding."
+          }
+        },
+        "review_3": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-crystal-jewelry_be78fe57-0e76-44ee-b79a-0c85496a7673.jpg",
+            "name": "Emily R.",
+            "text": "I've bought crystal jewelry before but nothing compares to this. The stones are genuine, the string is durable, and shipping was fast."
+          }
+        },
+        "review_4": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-red-string-bracelets_d7586757-7454-4df3-b949-d352f6503179.jpg",
+            "name": "Michael T.",
+            "text": "Bought the red string bracelet for protection during a stressful period at work. Three months in and it still looks brand new. Ordering another for my sister."
+          }
+        },
+        "review_5": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-tiger-eye-jewelry_3cb06466-b4ac-46fe-879e-48ac8bc1b253.jpg",
+            "name": "Jessica L.",
+            "text": "The tiger's eye piece gives me so much confidence. Every time I wear it people ask where I got it. Absolutely worth every penny."
+          }
+        },
+        "review_6": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-rose-quartz-jewelry_154f648a-78e8-44ce-a406-1eef43bc1bf3.jpg",
+            "name": "Amanda W.",
+            "text": "Such a beautiful, loving energy from the rose quartz. It came with a blessing card which made the whole experience feel so personal and sacred."
+          }
+        },
+        "review_7": {
+          "type": "review",
+          "settings": {
+            "image": "shopify://shop_images/discover-amethyst-jewelry_cb35633e-5953-41a4-9214-637f74b672c1.jpg",
+            "name": "Rachel P.",
+            "text": "My amethyst necklace helps me sleep so much better. The quality exceeded my expectations and customer service answered all my questions within hours."
+          }
+        }
+      },
+      "block_order": [
+        "review_1",
+        "review_2",
+        "review_3",
+        "review_4",
+        "review_5",
+        "review_6",
+        "review_7"
+      ],
+      "settings": {
+        "heading": "Loved by thousands of Users worldwide",
+        "rating_score": "4.9",
+        "rating_count": "2,356"
+      }
+    },
     "featured_blog_tx7bzd": {
       "type": "featured-blog",
       "name": "t:sections.featured-blog.presets.name",
@@ -295,6 +370,7 @@
     "slideshow",
     "discover",
     "featured_collection",
+    "reviews_carousel",
     "featured_blog_tx7bzd",
     "as_featured_on"
   ]
