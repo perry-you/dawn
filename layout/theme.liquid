@@ -25,9 +25,9 @@
 
     {%- comment -%} Preconnect to cdn.shopify.com for Shopify CDN assets + app-injected fonts (GTStandard via shoplift) {%- endcomment -%}
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-    <link rel="preload" as="font" href="https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MMedium.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2" type="font/woff2" crossorigin>
-    <link rel="preload" as="font" href="https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MSemibold.woff2" type="font/woff2" crossorigin>
+    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MMedium.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
+    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MSemibold.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
 
     {%- comment -%} Shopify font library: Playfair Display (serif heading) + Assistant (sans-serif body) {%- endcomment -%}
 
