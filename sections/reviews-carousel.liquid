@@ -178,10 +178,10 @@
   }
 </style>
 
-<section class="reviews-section">
+<section class="reviews-section" {% if section.settings.heading != blank %}aria-labelledby="reviews-heading-{{ section.id }}"{% else %}aria-label="Customer reviews"{% endif %}>
   <div class="reviews-header">
     {% if section.settings.heading != blank %}
-      <h2 class="reviews-title">{{ section.settings.heading | escape }}</h2>
+      <h2 id="reviews-heading-{{ section.id }}" class="reviews-title">{{ section.settings.heading | escape }}</h2>
     {% endif %}
     <div class="reviews-rating">
       <svg class="reviews-stars" viewBox="0 0 140 24" fill="#b8956a" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="5 star rating">
