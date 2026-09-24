@@ -52,6 +52,10 @@
               {%- liquid
                 assign article_img_widths = '165, 360, 450, 550, 720, 1000, 1500, 2000'
                 assign article_img_sizes = '(min-width: ' | append: settings.page_width | append: 'px) ' | append: settings.page_width | minus: 100 | divided_by: 2 | append: 'px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 40px) / 2)'
+                assign article_img_loading = 'lazy'
+                if lazy_load == false
+                  assign article_img_loading = 'eager'
+                endif
               -%}
               {{
                 article.image.src
@@ -59,7 +63,7 @@
                 | image_tag:
                   sizes: article_img_sizes,
                   widths: article_img_widths,
-                  loading: lazy_load == false ? 'eager' : 'lazy',
+                  loading: article_img_loading,
                   class: 'motion-reduce'
               }}
               {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
