@@ -2,21 +2,6 @@
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 {{ 'component-slideshow.css' | asset_url | stylesheet_tag }}
 
-{%- if section.index == 1 and request.page_type == 'index' and section.blocks.first.settings.image != blank -%}
-  {%- liquid
-    assign first_image = section.blocks.first.settings.image
-    assign preload_widths = '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840'
-    assign preload_srcset = ''
-    for w in preload_widths
-      assign preload_srcset = preload_srcset | append: first_image | image_url: width: w | append: ' ' | append: w | append: 'w'
-      unless forloop.last
-        assign preload_srcset = preload_srcset | append: ', '
-      endunless
-    endfor
-  -%}
-  <link rel="preload" as="image" href="{{ first_image | image_url: width: 1500 }}" imagesrcset="{{ preload_srcset }}" imagesizes="100vw" fetchpriority="high">
-{%- endif -%}
-
 {%- style -%}
   /* Make a video slide fill the hero exactly like an image slide.
      The <video> is position:absolute (from .media > * base rule) so it adds no
@@ -230,7 +215,7 @@
               {{
                 block.settings.image
                 | image_url: width: 3840
-                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority
+                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority, preload: true
               }}
             {%- else -%}
               {{
