@@ -94,7 +94,13 @@
               <a href="{{ block.settings.link }}" class="as-featured-on__link">
             {%- endif -%}
             {%- if block.settings.image != blank -%}
-              {%- assign logo_alt = block.settings.logo_name | default: block.settings.image.alt -%}
+              {%- assign logo_alt = block.settings.logo_name -%}
+              {%- if logo_alt == blank -%}
+                {%- assign logo_alt = block.settings.image.alt -%}
+              {%- endif -%}
+              {%- if logo_alt == blank -%}
+                {%- assign logo_alt = 'Featured in the press' -%}
+              {%- endif -%}
               {{
                 block.settings.image
                 | image_url: width: 360
