@@ -18,6 +18,16 @@
     object-fit: cover;
     object-position: center center;
   }
+
+  /* Wide screens: let the hero text box span the full page width. Dawn caps
+     .banner__box at 71rem/90rem, which wraps large headings too early on
+     desktop. Higher specificity overrides every Dawn breakpoint; below 990px
+     the mobile layout keeps its default sizing. */
+  @media screen and (min-width: 990px) {
+    .slideshow .banner__box {
+      max-width: 100%;
+    }
+  }
 {%- endstyle -%}
 
 <script>
