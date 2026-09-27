@@ -22,8 +22,8 @@
             "heading": "Handmade jewelry inspired by Tibetan culture",
             "heading_size": "h1",
             "subheading": "&nbsp; KAILASH WAY&nbsp;",
-            "heading_color": "#F1C18B",
-            "subheading_color": "#F1C18B",
+            "heading_color": "#f1c18b",
+            "subheading_color": "#f1c18b",
             "subheading_size": "h0",
             "button_label": "",
             "link": "",
@@ -38,17 +38,17 @@
         "slide_8feFP6": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/6081d99ad1ad441a94dbf62fb3756af1_tplv-tb4s082cfz-aigc_resize_2400_2400.webp",
+            "image": "shopify://shop_images/4190aae437b94616aac734cf5b2a6480_tplv-tb4s082cfz-aigc_resize_2400_2400_10580db3-3fb6-4d1e-958c-3d78911d0dcf.webp",
             "video_url": "",
             "video_poster_url": "",
             "image_overlay_opacity": 0,
-            "heading": "Mala Beads & Crystal Jewelry",
+            "heading": "Assembled by a professional macrame maker&nbsp;",
             "heading_size": "h1",
-            "subheading": "Handcrafted spiritual treasures inspired by Mount Kailash",
-            "heading_color": "",
-            "subheading_color": "",
+            "subheading": "KAILASH WAY",
+            "heading_color": "#F1C18B",
+            "subheading_color": "#F1C18B",
             "subheading_size": "h1",
-            "button_label": "Explore Collection",
+            "button_label": "",
             "link": "shopify://collections/bestsellers",
             "button_style_secondary": false,
             "show_text_box": false,
@@ -57,35 +57,11 @@
             "text_alignment_mobile": "center",
             "color_scheme": "scheme-1"
           }
-        },
-        "slide_AXrEVD": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/18098acc5b5e499ab89a584eb86ad726_tplv-tb4s082cfz-aigc_resize_2400_2400.webp",
-            "video_url": "",
-            "video_poster_url": "",
-            "image_overlay_opacity": 0,
-            "heading": "Spirit & Healing",
-            "heading_size": "h0",
-            "subheading": "Handcrafted Natural Crystal Mala Beads for Meditation & Inner Calm",
-            "heading_color": "",
-            "subheading_color": "",
-            "subheading_size": "h1",
-            "button_label": "Shop Crystal Malas",
-            "link": "shopify://collections/mala-beads",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-left",
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "color_scheme": "scheme-1"
-          }
         }
       },
       "block_order": [
         "slide_FRDhkn",
-        "slide_8feFP6",
-        "slide_AXrEVD"
+        "slide_8feFP6"
       ],
       "settings": {
         "layout": "full_bleed",
