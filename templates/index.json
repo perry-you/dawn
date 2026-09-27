@@ -12,6 +12,26 @@
     "slideshow": {
       "type": "slideshow",
       "blocks": {
+        "slide_FRDhkn": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/4d4c808a8a85493daf9f6449984f02ef_tplv-tb4s082cfz-aigc_resize_2400_2400.webp",
+            "video_url": "",
+            "video_poster_url": "",
+            "image_overlay_opacity": 0,
+            "heading": "KAILASH WAY",
+            "heading_size": "hxl",
+            "subheading": "&nbsp;Handmade jewelry inspired by Tibetan culture&nbsp;",
+            "button_label": "",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-right",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-1"
+          }
+        },
         "slide_8feFP6": {
           "type": "slide",
           "settings": {
@@ -54,17 +74,18 @@
         }
       },
       "block_order": [
+        "slide_FRDhkn",
         "slide_8feFP6",
         "slide_AXrEVD"
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "dots",
+        "slide_height": "medium",
+        "slider_visual": "counter",
         "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
-        "show_text_below": false,
+        "show_text_below": true,
         "accessibility_info": "Slideshow about our brand"
       }
     },
