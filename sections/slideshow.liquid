@@ -172,6 +172,10 @@
             color: {{ block.settings.subheading_color }};
           }
         {%- endif -%}
+        #Slide-{{ section.id }}-{{ forloop.index }} .banner__text,
+        #Slide-{{ section.id }}-{{ forloop.index }} .banner__text p {
+          font-size: {{ block.settings.subheading_font_size | divided_by: 10.0 }}rem;
+        }
       </style>
       <div
         class="slideshow__slide grid__item grid--1-col slider__slide"
@@ -553,6 +557,16 @@
           "id": "subheading_color",
           "label": "Subheading color",
           "info": "Leave blank to use the slide color scheme."
+        },
+        {
+          "type": "range",
+          "id": "subheading_font_size",
+          "min": 12,
+          "max": 32,
+          "step": 1,
+          "unit": "px",
+          "label": "Subheading font size",
+          "default": 15
         },
         {
           "type": "header",
