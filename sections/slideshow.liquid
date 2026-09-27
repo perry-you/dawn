@@ -162,6 +162,16 @@
         #Slide-{{ section.id }}-{{ forloop.index }} .banner__media::after {
           opacity: {{ block.settings.image_overlay_opacity | divided_by: 100.0 }};
         }
+        {%- if block.settings.heading_color != blank -%}
+          #Slide-{{ section.id }}-{{ forloop.index }} .banner__heading {
+            color: {{ block.settings.heading_color }};
+          }
+        {%- endif -%}
+        {%- if block.settings.subheading_color != blank -%}
+          #Slide-{{ section.id }}-{{ forloop.index }} .banner__text {
+            color: {{ block.settings.subheading_color }};
+          }
+        {%- endif -%}
       </style>
       <div
         class="slideshow__slide grid__item grid--1-col slider__slide"
@@ -531,6 +541,18 @@
           "id": "subheading",
           "default": "t:sections.slideshow.blocks.slide.settings.subheading.default",
           "label": "t:sections.slideshow.blocks.slide.settings.subheading.label"
+        },
+        {
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading color",
+          "info": "Leave blank to use the slide color scheme."
+        },
+        {
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading color",
+          "info": "Leave blank to use the slide color scheme."
         },
         {
           "type": "header",
