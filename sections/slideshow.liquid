@@ -30,6 +30,43 @@
       max-width: 100%;
     }
   }
+
+  /* Mobile (≤749px): show the full slide image — the short edge (width)
+     fills the screen while the long edge (height) follows the image's
+     natural aspect ratio, instead of Dawn's fixed-height cover crop.
+     Desktop keeps the fixed-height cover layout. */
+  @media screen and (max-width: 749px) {
+    .slideshow.banner .slideshow__media.banner__media {
+      position: relative;
+      height: auto;
+    }
+
+    /* adapt_image mode uses aspect-ratio spacer pseudo-elements; the
+       natural-height media now provides the height. */
+    .slideshow.banner .slideshow__media::before,
+    .slideshow.banner:not(.banner--mobile-bottom) .banner__content::before {
+      display: none;
+    }
+
+    .slideshow.banner .slideshow__media > img,
+    .slideshow.banner .slideshow__media > video {
+      /* !important also overrides the zoom-in animation rule
+         (position: fixed) so the image stays in flow. */
+      position: relative !important;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    /* Default layout: keep the text layer overlaid on the natural-height
+       image. Skipped for show_text_below, which stacks text under the image. */
+    .slideshow.banner:not(.banner--mobile-bottom) .slideshow__text-wrapper.banner__content {
+      position: absolute;
+      inset: 0;
+      min-height: 0;
+    }
+  }
 {%- endstyle -%}
 
 <script>
