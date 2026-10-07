@@ -19,12 +19,7 @@
       <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | file_url }}">
     {%- endif -%}
 
-    {%- unless settings.type_header_font.system? and settings.type_body_font.system? -%}
-      <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
-    {%- endunless -%}
-
-    {%- comment -%} Preconnect to cdn.shopify.com for Shopify CDN assets + app-injected fonts (GTStandard via shoplift) {%- endcomment -%}
-    <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+   
     {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MMedium.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
     {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
     {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MSemibold.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
