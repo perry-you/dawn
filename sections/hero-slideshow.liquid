@@ -387,10 +387,10 @@
       var index = 0;
       var timer = null;
       var userPaused = false;
-      var hovered = false;
+      var focused = false;
 
       function playing() {
-        return canAutoplay && !userPaused && !hovered;
+        return canAutoplay && !userPaused && !focused;
       }
 
       // Restart the active dot's fill animation on every slide change
@@ -484,21 +484,16 @@
         });
       }
 
-      hero.addEventListener('mouseenter', function () {
-        hovered = true;
-        pause();
-      });
-      hero.addEventListener('mouseleave', function () {
-        hovered = false;
-        resume();
-      });
+      // Hover deliberately does NOT pause the countdown: the timer and the
+      // progress-bar fill keep running while the pointer is over the hero.
+      // Keyboard focus still pauses it (WCAG 2.2.2).
       hero.addEventListener('focusin', function () {
-        hovered = true;
+        focused = true;
         pause();
       });
       hero.addEventListener('focusout', function (event) {
         if (!hero.contains(event.relatedTarget)) {
-          hovered = false;
+          focused = false;
           resume();
         }
       });
