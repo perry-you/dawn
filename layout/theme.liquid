@@ -19,11 +19,6 @@
       <link rel="icon" type="image/x-icon" href="{{ 'favicon.ico' | file_url }}">
     {%- endif -%}
 
-   
-    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MMedium.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MRegular.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-    {{ 'https://cdn.shopify.com/shop-assets/static_uploads/shoplift/GTStandard-MSemibold.woff2' | preload_tag: as: 'font', type: 'font/woff2', crossorigin: true }}
-
     {%- comment -%} Shopify font library: Playfair Display (serif heading) + Assistant (sans-serif body) {%- endcomment -%}
 
     {%- if request.page_type == 'article' and article.metafields.seo.title.value != blank -%}
