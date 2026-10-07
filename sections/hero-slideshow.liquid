@@ -312,6 +312,15 @@
           {%- liquid
             assign slide_ratio = block.settings.image.aspect_ratio
             assign slide_height = 3840 | divided_by: slide_ratio | round
+            comment
+              Only tag the image as "desktop" when a dedicated mobile image
+              exists — otherwise it must render on every breakpoint (the
+              mobile CSS hides .hero-bz__img--desktop for the swap).
+            endcomment
+            assign slide_img_class = 'hero-bz__img'
+            if block.settings.mobile_image != blank
+              assign slide_img_class = slide_img_class | append: ' hero-bz__img--desktop'
+            endif
           -%}
           {{
             block.settings.image
@@ -324,7 +333,7 @@
               width: 3840,
               height: slide_height,
               alt: slide_alt,
-              class: 'hero-bz__img hero-bz__img--desktop'
+              class: slide_img_class
           }}
           {%- if block.settings.mobile_image != blank -%}
             {%- liquid
