@@ -36,7 +36,6 @@
       "settings": {
         "autoplay": true,
         "autoplay_speed": 7,
-        "mobile_height": 500,
         "transparent_header": true,
         "aria_label": "Slideshow about our brand"
       }

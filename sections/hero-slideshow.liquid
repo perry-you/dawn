@@ -22,7 +22,6 @@
     assign hero_transparent_header = true
   endif
 
-  assign hero_mobile_height = section.settings.mobile_height | divided_by: 10.0
 -%}
 
 {%- style -%}
@@ -100,13 +99,8 @@
     object-position: center center;
   }
 
-  /* Mobile: fixed height (1rem = 10px baseline). */
+  /* Mobile: same 16:9 ratio as desktop (aspect-ratio is inherited above). */
   @media screen and (max-width: 749px) {
-    .hero-bz__viewport {
-      aspect-ratio: auto;
-      height: {{ hero_mobile_height }}rem;
-    }
-
     /* Optional per-slide mobile image: CSS swap at Dawn's breakpoint. */
     .hero-bz__img--desktop {
       display: none;
@@ -544,16 +538,6 @@
       "unit": "s",
       "label": "Change slides every",
       "default": 7
-    },
-    {
-      "type": "range",
-      "id": "mobile_height",
-      "min": 350,
-      "max": 750,
-      "step": 10,
-      "unit": "px",
-      "label": "Mobile hero height",
-      "default": 500
     },
     {
       "type": "checkbox",
