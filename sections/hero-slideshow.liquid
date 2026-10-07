@@ -227,6 +227,24 @@
     border-bottom-color: transparent;
   }
 
+  /* All nav items (with or without submenu) share the same solid white in
+     the transparent hero state. Dawn's base.css makes .header__menu-item
+     normally 0.75 alpha and fully opaque only on hover — causing plain links
+     to look different from expanded dropdown parents. Override so every item
+     is fully opaque at rest, with a subtle 0.85 on hover for feedback. */
+  .section-header:not(.scrolled-past-header) .header__menu-item {
+    color: rgb(var(--color-foreground));
+  }
+  .section-header:not(.scrolled-past-header) .header__menu-item:hover,
+  .section-header:not(.scrolled-past-header) .header__menu-item:focus,
+  .section-header:not(.scrolled-past-header) details[open] > .header__menu-item {
+    color: rgba(var(--color-foreground), 0.85);
+  }
+  .section-header:not(.scrolled-past-header) .header__menu-item:hover span,
+  .section-header:not(.scrolled-past-header) .header__menu-item:focus span {
+    text-decoration: underline;
+  }
+
   /* Recolor the logo image to white while transparent; menu text and icons
      follow --color-foreground. Scrolled state restores the original colors. */
   .section-header:not(.scrolled-past-header) .header__heading-logo {
