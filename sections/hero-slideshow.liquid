@@ -257,12 +257,24 @@
     );
   }
 
-  /* Dropdowns need a solid backdrop while the header is transparent. */
+  /* Dropdowns and popout panels need a solid backdrop while the header is
+     transparent, AND must restore the scheme's dark text: the white
+     --color-foreground set on .header-wrapper inherits into every descendant,
+     including these panels, leaving light text unreadable on light panels. */
   .section-header:not(.scrolled-past-header) .header__submenu,
   .section-header:not(.scrolled-past-header) .mega-menu__content,
   .section-header:not(.scrolled-past-header) .menu-drawer,
-  .section-header:not(.scrolled-past-header) .header__submenu.global-settings-popup {
+  .section-header:not(.scrolled-past-header) .header__submenu.global-settings-popup,
+  .section-header:not(.scrolled-past-header) .disclosure__list-wrapper,
+  .section-header:not(.scrolled-past-header) .search-modal__content {
     background-color: rgb(var(--color-background));
+    --color-foreground: 45, 42, 38;
+  }
+
+  /* Hide the country/currency selector while the header floats over the
+     hero; it comes back once the header turns solid on scroll. */
+  .section-header:not(.scrolled-past-header) .desktop-localization-wrapper {
+    display: none;
   }
   {%- endif -%}
 {%- endstyle -%}
