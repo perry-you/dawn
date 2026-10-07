@@ -1,0 +1,614 @@
+{%- comment -%}
+  Hero Slideshow — buddhastoneshop-style full-bleed "pure image" hero.
+  - Text is baked into the slide images; SEO mitigated via per-slide alt text.
+  - No scrim/overlay. Whole slide is a single link (blank link = no anchor).
+  - Bottom-center progress-bar dots only (fill duration == autoplay duration).
+  - ALL slides load eagerly (first: fetchpriority high) so an autoplay swap
+    never produces a late LCP candidate.
+  - Transparent header: reuses the repo's existing header mechanism classes
+    (.section-header, .scrolled-past-header, .header-wrapper,
+    .shopify-section-group-header-group, .content-for-layout,
+    --header-group-height), gated on this section being first on the index.
+{%- endcomment -%}
+
+{%- liquid
+  assign hero_first_on_index = false
+  if section.index == 1 and request.page_type == 'index'
+    assign hero_first_on_index = true
+  endif
+
+  assign hero_transparent_header = false
+  if hero_first_on_index and section.settings.transparent_header
+    assign hero_transparent_header = true
+  endif
+
+  assign hero_mobile_height = section.settings.mobile_height | divided_by: 10.0
+-%}
+
+{%- style -%}
+  .hero-bz {
+    position: relative;
+  }
+
+  .hero-bz__viewport {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.08);
+  }
+
+  /* Loading bar — visible until the first slide image is ready. */
+  .hero-bz__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14rem;
+    height: 0.3rem;
+    transform: translate(-50%, -50%);
+    border-radius: 0.3rem;
+    background: rgba(255, 255, 255, 0.35);
+    overflow: hidden;
+    z-index: 3;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+  }
+
+  .hero-bz__loader-fill {
+    display: block;
+    width: 40%;
+    height: 100%;
+    border-radius: inherit;
+    background: #ffffff;
+    animation: hero-bz-loading 1.2s ease-in-out infinite;
+  }
+
+  .hero-bz.is-loaded .hero-bz__loader {
+    opacity: 0;
+  }
+
+  @keyframes hero-bz-loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(350%);
+    }
+  }
+
+  .hero-bz__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease, visibility 0s 0.5s;
+  }
+
+  .hero-bz__slide.is-active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+    transition: opacity 0.5s ease;
+  }
+
+  .hero-bz__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  /* Mobile: fixed height (1rem = 10px baseline). */
+  @media screen and (max-width: 749px) {
+    .hero-bz__viewport {
+      aspect-ratio: auto;
+      height: {{ hero_mobile_height }}rem;
+    }
+
+    /* Optional per-slide mobile image: CSS swap at Dawn's breakpoint. */
+    .hero-bz__img--desktop {
+      display: none;
+    }
+
+    .hero-bz__img--mobile {
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .hero-bz__img--mobile {
+      display: none;
+    }
+  }
+
+  /* Whole-slide link overlays the image; dots sit above it. */
+  .hero-bz__link {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+  }
+
+  .hero-bz__dots {
+    position: absolute;
+    left: 50%;
+    bottom: 1.5rem;
+    transform: translateX(-50%);
+    z-index: 3;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hero-bz__dot {
+    appearance: none;
+    background: none;
+    border: 0;
+    margin: 0;
+    padding: 0.8rem 0;
+    cursor: pointer;
+  }
+
+  .hero-bz__dot-track {
+    display: block;
+    width: 4rem;
+    height: 0.3rem;
+    border-radius: 0.3rem;
+    background: rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+  }
+
+  .hero-bz__dot-fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    border-radius: inherit;
+    background: #ffffff;
+  }
+
+  .hero-bz__dot.is-active .hero-bz__dot-fill {
+    width: 100%;
+  }
+
+  /* Fill animation duration == autoplay duration (--hero-bz-speed). */
+  .hero-bz__dot.is-animating .hero-bz__dot-fill {
+    animation: hero-bz-progress var(--hero-bz-speed, 7s) linear forwards;
+  }
+
+  .hero-bz--paused .hero-bz__dot.is-animating .hero-bz__dot-fill {
+    animation-play-state: paused;
+  }
+
+  @keyframes hero-bz-progress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @media screen and (prefers-reduced-motion: reduce) {
+    .hero-bz__slide {
+      transition: none;
+    }
+
+    .hero-bz__loader-fill {
+      animation: none;
+      width: 100%;
+      opacity: 0.6;
+    }
+
+    .hero-bz__dot.is-animating .hero-bz__dot-fill {
+      animation: none;
+    }
+  }
+
+  {%- if hero_transparent_header -%}
+  /* Transparent header over the hero (first section on the homepage only).
+     Same classes/mechanism as the header section's transparent_on_index:
+     header group stays in normal flow, page content is pulled up under it,
+     and Dawn's sticky JS toggles the solid state via .scrolled-past-header. */
+  .shopify-section-group-header-group {
+    z-index: 4;
+  }
+
+  .section-header:not(.scrolled-past-header) .header-wrapper {
+    background: transparent;
+    border-bottom-color: transparent;
+    --color-foreground: 255,255,255;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+
+  .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom {
+    border-bottom-color: transparent;
+  }
+
+  .shopify-section-group-header-group .utility-bar {
+    background: transparent;
+    --color-foreground: 255,255,255;
+    transition: background-color 0.3s ease;
+  }
+
+  /* Recolor the logo image to white while transparent; menu text and icons
+     follow --color-foreground. Scrolled state restores the original colors. */
+  .section-header:not(.scrolled-past-header) .header__heading-logo {
+    filter: brightness(0) invert(1);
+  }
+
+  .content-for-layout {
+    margin-top: calc(-1 * var(--header-group-height, var(--header-height)));
+  }
+
+  /* Dropdowns need a solid backdrop while the header is transparent. */
+  .section-header:not(.scrolled-past-header) .header__submenu,
+  .section-header:not(.scrolled-past-header) .mega-menu__content,
+  .section-header:not(.scrolled-past-header) .menu-drawer,
+  .section-header:not(.scrolled-past-header) .header__submenu.global-settings-popup {
+    background-color: rgb(var(--color-background));
+  }
+  {%- endif -%}
+{%- endstyle -%}
+
+<div
+  class="hero-bz"
+  data-autoplay="{{ section.settings.autoplay }}"
+  data-speed="{{ section.settings.autoplay_speed | times: 1000 }}"
+  style="--hero-bz-speed: {{ section.settings.autoplay_speed }}s;"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="{{ section.settings.aria_label | escape }}"
+>
+  <div class="hero-bz__viewport">
+    {%- for block in section.blocks -%}
+      {%- liquid
+        assign slide_alt = block.settings.image_alt
+        if slide_alt == blank and block.settings.image != blank
+          assign slide_alt = block.settings.image.alt
+        endif
+        if forloop.first
+          assign slide_fetchpriority = 'high'
+        else
+          assign slide_fetchpriority = 'low'
+        endif
+      -%}
+      <div
+        class="hero-bz__slide{% if forloop.first %} is-active{% endif %}"
+        {{ block.shopify_attributes }}
+        role="group"
+        aria-roledescription="slide"
+        aria-label="{{ forloop.index }} of {{ forloop.length }}"
+      >
+        {%- if block.settings.image != blank -%}
+          {%- liquid
+            assign slide_ratio = block.settings.image.aspect_ratio
+            assign slide_height = 3840 | divided_by: slide_ratio | round
+          -%}
+          {{
+            block.settings.image
+            | image_url: width: 3840
+            | image_tag:
+              loading: 'eager',
+              fetchpriority: slide_fetchpriority,
+              sizes: '100vw',
+              widths: '750,1100,1500,1780,2000,3000,3840',
+              width: 3840,
+              height: slide_height,
+              alt: slide_alt,
+              class: 'hero-bz__img hero-bz__img--desktop'
+          }}
+          {%- if block.settings.mobile_image != blank -%}
+            {%- liquid
+              assign mobile_ratio = block.settings.mobile_image.aspect_ratio
+              assign mobile_height = 1980 | divided_by: mobile_ratio | round
+              assign mobile_alt = block.settings.image_alt
+              if mobile_alt == blank
+                assign mobile_alt = block.settings.mobile_image.alt
+              endif
+            -%}
+            {{
+              block.settings.mobile_image
+              | image_url: width: 1980
+              | image_tag:
+                loading: 'eager',
+                fetchpriority: slide_fetchpriority,
+                sizes: '100vw',
+                widths: '750,1100,1500,1980',
+                width: 1980,
+                height: mobile_height,
+                alt: mobile_alt,
+                class: 'hero-bz__img hero-bz__img--mobile'
+            }}
+          {%- endif -%}
+        {%- else -%}
+          {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-bz__img placeholder-svg' }}
+        {%- endif -%}
+        {%- if block.settings.link != blank -%}
+          <a class="hero-bz__link" href="{{ block.settings.link }}" aria-label="{{ slide_alt | escape }}"></a>
+        {%- endif -%}
+      </div>
+    {%- endfor -%}
+
+    <div class="hero-bz__loader" aria-hidden="true">
+      <span class="hero-bz__loader-fill"></span>
+    </div>
+    <noscript>
+      <style>.hero-bz__loader { display: none; }</style>
+    </noscript>
+  </div>
+
+  {%- if section.blocks.size > 1 -%}
+    <div class="hero-bz__dots">
+      {%- for block in section.blocks -%}
+        <button
+          type="button"
+          class="hero-bz__dot{% if forloop.first %} is-active{% endif %}"
+          aria-label="Go to slide {{ forloop.index }}"
+          {% if forloop.first %}aria-current="true"{% endif %}
+          data-slide-index="{{ forloop.index0 }}"
+        >
+          <span class="hero-bz__dot-track"><span class="hero-bz__dot-fill"></span></span>
+        </button>
+      {%- endfor -%}
+      <button type="button" class="hero-bz__pause visually-hidden" aria-pressed="false">Pause slideshow</button>
+    </div>
+  {%- endif -%}
+</div>
+
+<script>
+  (function () {
+    'use strict';
+
+    function initHero(hero) {
+      if (hero.dataset.heroBzReady) return;
+      hero.dataset.heroBzReady = 'true';
+
+      var slides = Array.prototype.slice.call(hero.querySelectorAll('.hero-bz__slide'));
+      var dots = Array.prototype.slice.call(hero.querySelectorAll('.hero-bz__dot'));
+      var pauseButton = hero.querySelector('.hero-bz__pause');
+      var speed = parseInt(hero.dataset.speed, 10) || 7000;
+      var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var canAutoplay = hero.dataset.autoplay === 'true' && !reducedMotion && slides.length > 1;
+      var index = 0;
+      var timer = null;
+      var userPaused = false;
+      var hovered = false;
+
+      function playing() {
+        return canAutoplay && !userPaused && !hovered;
+      }
+
+      // Restart the active dot's fill animation on every slide change
+      // (toggle class + reflow trick) so it stays in sync with the timer.
+      function render() {
+        slides.forEach(function (slide, i) {
+          slide.classList.toggle('is-active', i === index);
+        });
+        dots.forEach(function (dot, i) {
+          dot.classList.toggle('is-active', i === index);
+          if (i === index) {
+            dot.setAttribute('aria-current', 'true');
+          } else {
+            dot.removeAttribute('aria-current');
+          }
+        });
+        var dot = dots[index];
+        if (dot) {
+          dot.classList.remove('is-animating');
+          void dot.offsetWidth;
+          if (playing()) dot.classList.add('is-animating');
+        }
+      }
+
+      function stopTimer() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      function startTimer() {
+        stopTimer();
+        hero.classList.toggle('hero-bz--paused', !playing());
+        if (playing()) {
+          timer = setInterval(function () {
+            goTo(index + 1);
+          }, speed);
+        }
+      }
+
+      function goTo(next) {
+        index = (next + slides.length) % slides.length;
+        render();
+        startTimer();
+      }
+
+      function pause() {
+        stopTimer();
+        hero.classList.add('hero-bz--paused');
+      }
+
+      function resume() {
+        render();
+        startTimer();
+      }
+
+      dots.forEach(function (dot, i) {
+        dot.addEventListener('click', function () {
+          goTo(i); // switching slides resets the autoplay timer (autoplay kept)
+        });
+      });
+
+      // Loading bar: fade out once the first slide image is ready
+      // (8s safety timeout so it can never get stuck).
+      var loader = hero.querySelector('.hero-bz__loader');
+      if (loader) {
+        var hideLoader = function () {
+          hero.classList.add('is-loaded');
+        };
+        var firstImg = slides.length ? slides[0].querySelector('.hero-bz__img') : null;
+        if (firstImg && !firstImg.complete) {
+          firstImg.addEventListener('load', hideLoader, { once: true });
+          firstImg.addEventListener('error', hideLoader, { once: true });
+          setTimeout(hideLoader, 8000);
+        } else {
+          hideLoader();
+        }
+      }
+
+      if (pauseButton) {
+        pauseButton.addEventListener('click', function () {
+          userPaused = !userPaused;
+          pauseButton.textContent = userPaused ? 'Play slideshow' : 'Pause slideshow';
+          pauseButton.setAttribute('aria-pressed', userPaused ? 'true' : 'false');
+          if (userPaused) {
+            pause();
+          } else {
+            resume();
+          }
+        });
+      }
+
+      hero.addEventListener('mouseenter', function () {
+        hovered = true;
+        pause();
+      });
+      hero.addEventListener('mouseleave', function () {
+        hovered = false;
+        resume();
+      });
+      hero.addEventListener('focusin', function () {
+        hovered = true;
+        pause();
+      });
+      hero.addEventListener('focusout', function (event) {
+        if (!hero.contains(event.relatedTarget)) {
+          hovered = false;
+          resume();
+        }
+      });
+
+      render();
+      startTimer();
+    }
+
+    function initAll() {
+      document.querySelectorAll('.hero-bz').forEach(initHero);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAll);
+    } else {
+      initAll();
+    }
+
+    // Re-init when the section is re-rendered in the theme editor.
+    document.addEventListener('shopify:section:load', function (event) {
+      var hero = event.target.querySelector('.hero-bz');
+      if (hero) initHero(hero);
+    });
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Hero Slideshow",
+  "tag": "section",
+  "class": "section-hero-bz",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "autoplay",
+      "label": "Auto-rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 3,
+      "max": 10,
+      "step": 0.5,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 7
+    },
+    {
+      "type": "range",
+      "id": "mobile_height",
+      "min": 350,
+      "max": 750,
+      "step": 10,
+      "unit": "px",
+      "label": "Mobile hero height",
+      "default": 500
+    },
+    {
+      "type": "checkbox",
+      "id": "transparent_header",
+      "label": "Transparent header over hero",
+      "info": "Works when this is the first section on the homepage. Header turns solid on scroll.",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "text",
+      "id": "aria_label",
+      "label": "Carousel description",
+      "default": "Featured collections"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "slide",
+      "name": "Slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Slide image",
+          "info": "Headline is baked into the image. Desktop: 16:9 (e.g. 3200 × 1800)."
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Alt text (SEO) — describe the baked-in headline"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Slide link"
+        },
+        {
+          "type": "image_picker",
+          "id": "mobile_image",
+          "label": "Mobile image (optional)",
+          "info": "Swapped in below 750px. Leave blank to use the desktop image."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Slideshow",
+      "category": "Image",
+      "blocks": [
+        {
+          "type": "slide"
+        },
+        {
+          "type": "slide"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

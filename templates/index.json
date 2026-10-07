@@ -9,53 +9,23 @@
  */
 {
   "sections": {
-    "slideshow": {
-      "type": "slideshow",
+    "hero_slideshow": {
+      "type": "hero-slideshow",
       "blocks": {
         "slide_FRDhkn": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/4d4c808a8a85493daf9f6449984f02ef_tplv-tb4s082cfz-aigc_resize_2400_2400.webp",
-            "video_url": "",
-            "video_poster_url": "",
-            "image_overlay_opacity": 0,
-            "heading": "Handmade jewelry inspired by Tibetan culture",
-            "heading_size": "h0",
-            "subheading": "&nbsp; KAILASH WAY&nbsp;",
-            "heading_color": "#f1c18b",
-            "subheading_color": "#f1c18b",
-            "subheading_size": "h0",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
+            "image_alt": "Handmade jewelry inspired by Tibetan culture — KAILASH WAY",
+            "link": ""
           }
         },
         "slide_8feFP6": {
           "type": "slide",
           "settings": {
             "image": "shopify://shop_images/4190aae437b94616aac734cf5b2a6480_tplv-tb4s082cfz-aigc_resize_2400_2400_10580db3-3fb6-4d1e-958c-3d78911d0dcf.webp",
-            "video_url": "",
-            "video_poster_url": "",
-            "image_overlay_opacity": 0,
-            "heading": "Assembled by a professional macrame maker&nbsp;",
-            "heading_size": "h0",
-            "subheading": "KAILASH WAY",
-            "heading_color": "#F1C18B",
-            "subheading_color": "#F1C18B",
-            "subheading_size": "h1",
-            "button_label": "",
-            "link": "shopify://collections/bestsellers",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "middle-left",
-            "text_alignment": "center",
-            "text_alignment_mobile": "center",
-            "color_scheme": "scheme-1"
+            "image_alt": "Assembled by a professional macrame maker — KAILASH WAY",
+            "link": "shopify://collections/bestsellers"
           }
         }
       },
@@ -64,14 +34,11 @@
         "slide_8feFP6"
       ],
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "image_behavior": "none",
-        "show_text_below": false,
-        "accessibility_info": "Slideshow about our brand"
+        "autoplay": true,
+        "autoplay_speed": 7,
+        "mobile_height": 500,
+        "transparent_header": true,
+        "aria_label": "Slideshow about our brand"
       }
     },
     "discover": {
@@ -373,7 +340,7 @@
     }
   },
   "order": [
-    "slideshow",
+    "hero_slideshow",
     "discover",
     "featured_collection",
     "reviews_carousel",
