@@ -159,9 +159,12 @@
       transition: background-color 0.3s ease;
     }
 
-    /* Pull the page content up so the header group overlays the hero */
+    /* Pull the page content up so the header row overlays the hero
+       (announcement bar stays in flow above it). */
     .content-for-layout {
-      margin-top: calc(-1 * var(--header-group-height, var(--header-height)));
+      margin-top: calc(
+        -1 * var(--header-overlay-height, var(--header-group-height, var(--header-height)))
+      );
     }
 
     /* Opened dropdowns need a solid backdrop while the header is transparent,
@@ -665,6 +668,18 @@
         '--header-group-height',
         `${Math.round(height)}px`
       );
+      // Header ROW only (excludes the announcement bar). The hero overlay
+      // uses this so the hero starts below the announcement bar instead of
+      // sliding underneath it, on every breakpoint.
+      const headerMember = document.querySelector(
+        '.shopify-section-group-header-group.section-header'
+      );
+      if (headerMember) {
+        document.documentElement.style.setProperty(
+          '--header-overlay-height',
+          `${Math.round(headerMember.offsetHeight)}px`
+        );
+      }
     }
 
     setHeaderGroupHeight();

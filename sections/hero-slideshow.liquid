@@ -8,7 +8,10 @@
   - Transparent header: reuses the repo's existing header mechanism classes
     (.section-header, .scrolled-past-header, .header-wrapper,
     .shopify-section-group-header-group, .content-for-layout,
-    --header-group-height), gated on this section being first on the index.
+    --header-overlay-height), gated on this section being first on the index.
+    The hero slides up under the header ROW only (--header-overlay-height);
+    the announcement bar stays in flow above the hero, so the 16:9 box is
+    never hidden behind it on mobile, tablet or desktop.
 {%- endcomment -%}
 
 {%- liquid
@@ -246,7 +249,12 @@
   }
 
   .content-for-layout {
-    margin-top: calc(-1 * var(--header-group-height, var(--header-height)));
+    /* Slide up under the transparent header ROW only. The announcement bar
+       keeps its own solid style in flow above the hero, so the hero's 16:9
+       box starts below it on mobile, tablet and desktop alike. */
+    margin-top: calc(
+      -1 * var(--header-overlay-height, var(--header-group-height, var(--header-height)))
+    );
   }
 
   /* Dropdowns need a solid backdrop while the header is transparent. */
