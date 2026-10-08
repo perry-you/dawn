@@ -1,0 +1,321 @@
+{%- comment -%}
+  DAILY MANTRA — a single zen quote displayed beneath the homepage hero.
+  - Quote pool lives in the {%- liquid -%} block below. Each quote on its
+    own line. Add/replace quotes anytime; the section picks ONE per day
+    deterministically (day-of-year modulo pool size) so every visitor on
+    the same day sees the same quote, and Shopify CDN cache stays valid.
+  - Center-aligned card on a color_scheme background; serif quote stack
+    (Georgia / Songti SC) gives a meditative tone.
+  - Mobile quote font-size floors at 1.8rem per project hard rule.
+{%- endcomment -%}
+
+{%- liquid
+  # ----------------------------------------------------------------
+  # MANTRA POOL — one quote per line. Keep quotes on a single line.
+  # Lines starting with # are skipped. Update this list anytime;
+  # the section will automatically pick one quote per day.
+  # ----------------------------------------------------------------
+  capture pool_raw
+    The mountain does not negotiate with the wind that strikes its face. It stands. The storm does not last. The mountain does. That is the difference between noise and permanence.
+    Power is not the clenched fist that strikes the table. It is the open hand that does not need to close. The river parts the rock not by force but by refusal to stop.
+    The lion does not roar to prove that it holds strength within its chest. Silence is the proof. The herd recognizes the king before the king speaks a single word.
+    Fire does not apologize for the forest it transforms. It burns because burning is its nature. What rises from the ash is not destruction. It is a beginning that the fire made possible.
+    The oak does not ask permission from the storm to grow deeper roots. The storm is not an enemy. The storm is the reason the roots learned to reach the earth's core and hold.
+    Stillness is not the absence of power. It is power that has stopped performing for those who do not deserve the show. The mountain is still. The valley is afraid. Remember the difference.
+    The sword rests in the scabbard and does not explain why it stays sharp. A blade drawn at every insult becomes dull. A blade that waits cuts once and the cut is final.
+    A waterfall does not hesitate at the edge of the cliff. The edge is the point. The falling is the purpose. The pool below receives what the river had the courage to surrender.
+    The earth holds every city built upon its back without complaint or negotiation. It does not charge rent for the mountains. It does not invoice the rivers. Power holds without counting what it is owed.
+    The drum does not ask the hand to strike its skin. It waits, ready, hollow, carved from wood that once was a tree. The tree did not ask for thunder. It became the instrument that holds it.
+    A bolt of lightning does not negotiate with the sky about where it should land. It chooses. The ground receives. Neither apologizes. That is the architecture of power without permission requested.
+    The tree that bends in the storm is not broken by the wind that tries to uproot it. It is made wiser. The stiff tree falls. The bending tree remembers the storm as a teacher, not an enemy.
+    Power without stillness is noise that frightens the weak and amuses the strong. Power with stillness is presence that quiets the room before a single word is spoken. The mountain enters. The valley bows.
+    The mountain carries the snow on its peak without mentioning the weight to the valley below. It does not ask for help. It does not ask for recognition. The weight is not a burden. The weight is the altitude.
+    The eagle does not circle the sky so that the ground can admire its wingspan. It circles to see. What the ground calls power, the eagle calls vision. The height is not for display. The height is for clarity.
+    The river does not ask the rock for permission to pass through the canyon it carved. The canyon exists because the river insisted. The rock did not agree. The river did not need agreement.
+    A seed cracks the stone above it not by striking upward with force. By becoming. The root becomes the pressure. The pressure becomes the crack. The crack becomes the path. The path becomes the tree.
+    The wolf does not howl to ask the moon for permission to hunt in its light. The moon does not own the night. The wolf does not own the forest. Power is what moves without asking who owns the ground.
+    The mountain's shadow reaches the valley floor before the sun has fully set. The shadow does not ask the valley if it may rest there. It arrives because the sun moves. The valley receives because that is what valleys do.
+    The anchor does not apologize to the ship for holding it in place when the current pulls. That is its purpose. The ship does not resent the anchor. Without it, the ship would drift and never arrive anywhere at all.
+    The lamp does not know that it gives light to the room it stands in. That is why it gives. A lamp that knew would calculate. A lamp that calculates would dim itself to save the oil for tomorrow.
+    Enlightenment is not arriving at the end of the path that you have walked for a thousand years. It is the moment the path notices that it was never separate from the foot that walks upon its stones.
+    The mirror does not hold the face it reflects on its silver surface. The face passes. The mirror remains clear. Neither does the awakened mind hold what it sees. It remains clear and lets the world pass through.
+    A clear window is invisible to the person who looks through it at the garden beyond. So is a clear mind. You do not notice the absence of fog. You notice the flowers that were always there, suddenly seen.
+    The moon does not claim credit for the tide that rises in response to its pull. It simply shines. The ocean moves. The moon does not send a bill. The ocean does not send thanks. That is the nature of true influence.
+    Enlightenment is the stone realizing it was never separate from the mountain it broke away from. The separation was a story the stone told itself. The mountain told no such story. The mountain simply held the stone as long as it could.
+    The lotus does not reject the mud that feeds its root in the dark water below. It transforms it. The mud becomes the stem. The stem becomes the flower. The flower opens. The mud does not recognize itself in the petals.
+    A bell rings once and the sound spreads through the temple courtyard without effort. The listening continues after the bell has stopped. That is the teaching. The bell gives one word. The silence gives the rest.
+    The sky does not hold the clouds that pass through its infinite blue space above. It holds the space. The clouds come and go. The sky does not miss any of them. The sky does not hoard any of them. The sky remains.
+    Awakening is not the act of adding more light to a room that was already dim. It is the act of removing the curtain that was blocking the light that was always entering through the window you forgot you had.
+    The river does not know that it will reach the sea at the end of its long winding journey. It flows anyway. Knowing the destination was never the requirement. Moving was. The sea receives what the river did not plan.
+    Clarity is not the ability to see more things in the distance with sharper eyes. It is needing to see fewer things. The sage does not have more vision. The sage has less fog. Less fog is more path than any telescope can offer.
+    The lamp and the sun share one quality that neither of them discusses with the other. They do not choose who receives their light. The lamp does not ask for a name. The sun does not ask for gratitude. They shine.
+    An open hand holds more than a closed fist will ever understand or contain. The fist holds what it grabbed. The open hand holds the space for what arrives. What arrives is always more than what was grabbed by force.
+    The wind does not know where it is going after it passes through the prayer flags on the pass. It knows it is going. That is enough. Direction is not the requirement for movement. Movement is the requirement for direction.
+    Enlightenment is the moment the wave realizes it was never separate from the ocean beneath it. The wave was the ocean rising. The ocean was the wave falling. Neither began. Neither ended. Both were always the same water.
+    The mountain does not need to be seen by the traveler's eyes to exist on the map. Neither does truth. The truth does not require an audience to remain true. The mountain does not require a witness to remain a mountain.
+    A still pond reflects the moon perfectly on its surface without trying to hold the reflection. Not by effort. By being still. The moment the pond stirs, the moon shatters. The pond does not lose the moon. The moon loses the pond.
+    The path does not walk you toward the destination you imagine at the end of your journey. You walk the path. Then you forget the path. Then you forget the walking. Then you arrive at the place you never left.
+    Light does not argue with the darkness that has occupied the room for a thousand years. It does not present evidence. It does not debate. It simply enters through the crack in the door and the darkness rearranges itself around it.
+    The eagle does not check if the wind is ready to hold its wings before it leaps from the cliff edge. It leaps. The wind catches what was already falling with faith. Faith is not the wind. Faith is the leap.
+    Confidence is not the ability to know the answer before the question is asked of you. It is the inability to fear the question. The mountain does not fear the climber's question about which path leads to the summit.
+    The mountain does not compare its height to the neighboring peak across the valley floor. It simply stands. The neighboring peak does the same. Neither mentions the other. Both touch the same sky. The sky does not rank them.
+    A tree does not ask the forest if it belongs among the older and taller trees around it. It grows where its root was planted. The forest does not vote on membership. The tree is the forest. The forest is the tree.
+    The river does not second-guess the sea as its final destination at the end of its path. It moves toward it. The sea does not send an invitation. The river does not wait for one. The meeting is inevitable because the current is certain.
+    The sun does not ask the flower if it is ready to open its petals to the morning light. It shines. The flower opens. Neither coordinated. Neither waited. The sun's confidence is that it does not need permission to give.
+    Confidence is the arrow that does not look back at the bow that launched it into the sky. The bow is behind. The target is ahead. The arrow does not wonder if the string was tight enough. It flies because that is what arrows do.
+    The lion does not check the herd's opinion about whether it deserves to walk through the grass they are grazing on. It walks. The herd parts. Not because the lion argued its case. Because the lion's presence is the argument.
+    A stone does not need to explain to the river why it does not roll downstream with the current. It holds. The river goes around. The stone does not feel left behind. The stone feels like a stone. That is explanation enough.
+    The candle does not doubt the warmth of its flame because the wind outside the window is cold and persistent. It burns. The wind may come. The candle may flicker. But the candle does not extinguish itself to avoid the wind's arrival.
+    Confidence is the mountain that does not flinch when the thunderstorm arrives at its peak in the night. The storm is loud. The mountain is not impressed. The storm passes. The mountain is still there. So are you.
+    The eagle does not ask the sky for permission to soar through its blue expanse on a morning in spring. The sky does not own the air. The eagle does not own the wings. Both belong to the same act of rising without asking.
+    The oak does not envy the bamboo's flexibility when the storm bends them both to the ground. It trusts its own roots. The bamboo bends. The oak holds. Both survive. Neither would survive if it tried to be the other.
+    A river does not ask if the path it carves through the canyon wall is the correct one. The path forms around the river. The river is the path. Asking would imply the river is separate from the canyon. It is not. It never was.
+    The drum does not need approval from the audience to resonate when the hand strikes its skin. It resonates. That is what drums do. A drum that waits for approval before vibrating is wood. Not a drum. The strike is permission enough.
+    The moon does not doubt the value of its light because it is borrowed from the sun that set hours ago. It shines. The borrower is not lesser than the lender. The moon's confidence is that borrowed light still illuminates the path.
+    Confidence is not the absence of fear in the chest before the climb begins at dawn. It is walking with fear as a companion, not as a master. Fear walks behind. You walk ahead. Fear does not set the pace. You do.
+    The peak does not ask the valley for validation of its height or the quality of its view at sunrise. The peak does not need the valley's agreement. The valley does not need the peak's opinion. Both exist. Neither ranks the other.
+    A flame does not wonder if it is warm enough to heat the room it has been placed in by the hand. It burns. Burning is what flames do. The room warms. If the room does not warm, the flame does not dim itself in shame. It burns hotter.
+    The stone does not question its place in the wall that the mason built with his hands last summer. It holds. The wall stands because the stone does not ask to be elsewhere. Confidence is holding your position without needing to understand the architect's plan.
+    The sun does not choose who it will warm with its light on a cold morning in the valley below. It warms everything. The field and the weed receive the same light. The sun does not distinguish. That is the nature of true kindness.
+    A seed does not doubt the soil it has been planted in by the gardener's hand in the spring. It grows into it. The soil does not need to prove its worth to the seed. The seed does not need to prove its worth to the soil. Both give.
+    The dawn does not negotiate with the night about how many hours of darkness it is owed. It arrives. The night does not argue. The night has never won an argument with the dawn. The dawn does not argue. It simply comes.
+    Spring does not ask winter's permission to melt the ice that has held the river in its grip. It melts what was frozen. Winter does not consent. Spring does not need consent. The ice becomes water because that is what warmth does.
+    The flower does not question the color it was given by the soil and the sun and the rain combined. It blooms. Red or white or yellow. The color is not a choice. The blooming is. Every flower blooms the only way it knows how.
+    A river brings life to the field it passes through on its way to the sea it will never see. It does not ask the field if it deserves the water. It gives because it is passing. Passing is giving when you carry what others need.
+    The bird does not sing for an audience that has purchased a ticket to hear its morning song. It sings because it is morning. The morning is the audience. The branches are the theater. The song is not a performance. It is a report.
+    The sun touches the snow on the south face of the mountain and the snow becomes water without resistance. That is kindness. Not soft. Not gentle. Inevitable. Kindness is warmth that does not ask the cold if it may transform it.
+    A new day does not hold yesterday's mistakes against the person who wakes to see its light. The day is new. Yesterday is a closed ledger. The morning does not audit the past. It offers light. What you do with the light is today's entry.
+    The earth does not stop growing the crop because one seed in the row failed to germinate in the spring. It grows the rest. The failed seed is not punished. It is composted. The earth does not waste grief on what did not rise. It grows what did.
+    The lamp does not wonder if its flame is enough to light the entire room it has been placed in. It shines what it has. The room is not fully lit. The corner where the lamp stands is. That is enough for the person who stands in that corner.
+    A flower opens its petals toward the light without knowing if anyone will walk by to see it in bloom. It blooms anyway. The blooming is not for the walker. The blooming is for the flower. The walker is a bonus, not a reason.
+    The wind carries pollen from the eastern field to the western field and asks for nothing in return from either. The eastern field does not miss the pollen. The western field does not owe the wind a debt. The wind gives because it is moving.
+    The mountain does not keep the sunrise for itself when the light arrives at its peak before the valley. It lets it pass. The light reaches the valley. The mountain does not charge a toll. Letting light pass is the mountain's way of being generous.
+    Rain does not choose the dry field over the wet field when the cloud opens its hands above the land. It falls where it falls. The dry field receives what it needed. The wet field receives what it did not. Rain does not discriminate.
+    The tree does not regret the leaves it lost to the autumn wind that stripped its branches bare. It prepares for new ones. The fallen leaf is not a failure. It is compost for the root. The root feeds the branch that grows the new leaf in spring.
+    A path appears in the grass where many feet have walked with hope toward the temple on the hill. Hope made the path. Not a map. Not a compass. The feet that walked with doubt made a different path that ended at a different door.
+    The stars do not dim their light because the moon is full and bright and commanding the sky's attention. They share the sky. The moon does not ask them to dim. The stars do not ask the moon to share. Both shine. The sky is large enough.
+    The soil does not refuse the seed that the bird dropped from its beak as it flew over the field. It grows what is given. The soil does not ask who planted the seed. The soil does not ask what kind of tree it will become. It grows it.
+    Dawn returns to the valley every morning without being asked to come by the villagers who sleep below. That is faithfulness. Not a promise made. A pattern kept. The dawn does not need a contract. The dawn needs only to arrive. And it does.
+    The ocean does not count the waves that roll across its surface on a windy afternoon in the monsoon. It makes them. Counting would slow the making. The ocean is not a banker. The ocean is a maker. Making does not require counting.
+    The tree does not hoard the fruit it has grown on its branches through the long summer of patient sunlight. It drops it. The fruit feeds the ground. The ground feeds the root. The root grows more fruit. Hoarding interrupts the cycle. Dropping continues it.
+    A river does not measure the volume of water it gives to the sea at the end of its winding journey. It gives everything. The sea does not send a receipt. The river does not keep a ledger. Giving everything means there is nothing left to measure.
+    The sun does not ration its light across the hemisphere it touches on its daily arc across the sky. There is always more. The sun does not run out. The sun does not check its reserves. The sun does not have a reserves account. It has a furnace.
+    The field does not keep one harvest stored in its barn as proof that it can produce grain in the season. It prepares for the next. The stored harvest rots. The planted seed multiplies. Abundance is not what you kept. Abundance is what you planted again.
+    The mountain gives gold and stone to the miner who arrives at its base with a pickaxe and a dream equally. It does not distinguish. The gold goes to the one who digs. The stone goes to the one who digs. The mountain gives what is there. Digging finds it.
+    Abundance is the tree that drops seeds onto the forest floor it will never see grow into saplings in its lifetime. It drops them anyway. The tree does not need to see the harvest. The tree needs to drop the seed. The forest handles the rest.
+    The sky does not hold back the rain from the cloud that has gathered enough courage to let go of its weight. It lets it fall. The cloud does not negotiate with the ground. The ground does not negotiate with the cloud. The rain is the agreement.
+    The hive does not worry about running out of honey when the season turns and the worker bees bring less in. It builds another cell. Worry does not build cells. Building builds cells. The hive that builds in the lean season survives the lean season.
+    The river does not count the stones it passes on its way through the canyon it has carved over centuries. It carries what it can. The stones it cannot carry, it leaves. Abundance is not carrying everything. Abundance is carrying what you can without resentment.
+    The earth does not save its minerals in a vault for a future generation that might need them more urgently. It offers them to the root that reaches down in the dark. The root does not know it is mining. The root is simply growing toward what it needs.
+    Abundance is not the state of having more than you need stored in a room you never enter. It is needing less and giving the rest to the one who needs more than you do. The river that gives everything to the sea is not empty. It is the sea.
+    The flower does not count the petals on its crown before it opens them to the sun in the morning dew. It blooms fully. The petal count does not change the blooming. The blooming is not a performance evaluated by the number of petals the flower managed to grow.
+    The cloud does not hold its rain for a better field that it might pass over later in its journey westward. It rains where it is. The field below may not be the best field. But it is the field that is here. Abundance does not wait for better.
+    The harvest does not ask the farmer to prove that he deserves the grain that has grown in his field. It simply comes. The grain does not audit the farmer's character. The grain responds to the planting. Planting is the proof. Harvesting is the result.
+    The spring at the foot of the mountain does not calculate how much water it should give to the traveler's cup. It overflows. The cup fills. The excess runs past. The spring does not stop flowing because the cup is full. The spring does not know about cups.
+    The forest does not plant a single tree and wait to see if it survives before planting the next one. It plants ten thousand. Some die. Some thrive. The forest does not mourn the ones that died. The forest is too busy growing the ones that thrived.
+    The moon does not save its silver light for the special nights when the sky is clear and the stars are bright. Every night is enough. Cloudy nights the moon shines behind the clouds. The clouds do not block the moon. They diffuse it. Diffusion is still giving.
+    The sea does not keep one fish in a protected corner of its depth as a specimen to preserve the species. It holds the space for millions. The space is the abundance. Not the fish. The fish come because the space is large enough and the water is deep enough.
+    Abundance is the mountain that gives stone to every hand that reaches toward its base without asking what the hand will build. A temple or a wall. The mountain does not ask. The stone is given. What the hand builds with it is the hand's story, not the mountain's.
+  endcapture
+
+  # Split raw pool on newlines, trim each line, drop blank / comment lines.
+  assign pool_lines = pool_raw | newline_to_br | split: '<br />'
+  assign mantra_pool_string = ''
+  for line in pool_lines
+    assign trimmed = line | strip
+    if trimmed != '' and trimmed != blank
+      assign first_char = trimmed | slice: 0
+      if first_char != '#'
+        assign mantra_pool_string = mantra_pool_string | append: '|||' | append: trimmed
+      endif
+    endif
+  endfor
+
+  assign mantra_pool_string = mantra_pool_string | remove_first: '|||'
+  assign mantra_pool = mantra_pool_string | split: '|||'
+  assign mantra_count = mantra_pool | size
+
+  # Day-of-year seed — same quote for all visitors on the same day.
+  # Second seed (day-of-year * 7) shifts the rotation so changing the
+  # pool size doesn't reset the daily sequence visually.
+  assign day_of_year = 'now' | date: '%j' | plus: 0
+  if mantra_count > 0
+    assign today_index = day_of_year | modulo: mantra_count
+    assign today_mantra = mantra_pool[today_index]
+  else
+    assign today_mantra = ''
+  endif
+-%}
+
+{{ 'section-daily-mantra.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="daily-mantra color-{{ section.settings.color_scheme }} gradient isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+  <div class="daily-mantra__inner section-{{ section.id }}-padding">
+    {%- if section.settings.eyebrow != blank -%}
+      <p
+        class="daily-mantra__eyebrow{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 1;"
+        {% endif %}
+      >
+        {{ section.settings.eyebrow | escape }}
+      </p>
+    {%- endif -%}
+
+    {%- if section.settings.show_divider -%}
+      <div
+        class="daily-mantra__divider{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        aria-hidden="true"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 2;"
+        {% endif %}
+      >
+        <span class="daily-mantra__divider-mark">{{ section.settings.divider_mark }}</span>
+      </div>
+    {%- endif -%}
+
+    {%- if today_mantra != blank -%}
+      <blockquote
+        class="daily-mantra__quote rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {{ section.shopify_attributes }}
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 3;"
+        {% endif %}
+      >
+        <p>{{ today_mantra | escape }}</p>
+      </blockquote>
+    {%- endif -%}
+
+    {%- if section.settings.attribution != blank -%}
+      <p
+        class="daily-mantra__attribution{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 4;"
+        {% endif %}
+      >
+        {{ section.settings.attribution | escape }}
+      </p>
+    {%- endif -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Daily Mantra",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "paragraph",
+      "content": "The quote pool is built into sections/daily-mantra.liquid (look for the MANTRA POOL block at the top of the file). Add one quote per line; the section picks one quote per day automatically — no manual daily update needed."
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow label",
+      "default": "DAILY MANTRA",
+      "info": "Small uppercase label above the quote."
+    },
+    {
+      "type": "text",
+      "id": "attribution",
+      "label": "Attribution (optional)",
+      "default": "— Kailash Way Daily Reflection",
+      "info": "Source or sign-off line beneath the quote. Leave blank to hide."
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_divider",
+      "label": "Show decorative divider",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "divider_mark",
+      "label": "Divider mark",
+      "default": "❖",
+      "info": "A small glyph centered in the divider line."
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Make section full width",
+      "default": true
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Section padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 56
+    }
+  ],
+  "presets": [
+    {
+      "name": "Daily Mantra",
+      "settings": {
+        "eyebrow": "DAILY MANTRA",
+        "attribution": "— Kailash Way Daily Reflection",
+        "show_divider": true,
+        "divider_mark": "❖",
+        "full_width": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    }
+  ]
+}
+{% endschema %}

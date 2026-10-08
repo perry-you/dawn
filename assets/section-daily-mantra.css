@@ -1,0 +1,105 @@
+/* ============================================================
+   DAILY MANTRA — zen quote block beneath the homepage hero.
+   Units: rem (1rem = 10px baseline, per project convention).
+   ============================================================ */
+
+.daily-mantra {
+  position: relative;
+  text-align: center;
+}
+
+.daily-mantra__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.4rem;
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+/* Eyebrow label — "DAILY MANTRA" */
+.daily-mantra__eyebrow {
+  margin: 0;
+  font-size: 1.2rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: rgba(var(--color-foreground), 0.7);
+}
+
+/* Decorative divider — center lotus/diamond glyph */
+.daily-mantra__divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  width: 100%;
+  max-width: 36rem;
+  color: rgba(var(--color-foreground), 0.35);
+}
+
+.daily-mantra__divider::before,
+.daily-mantra__divider::after {
+  content: '';
+  flex: 1 1 auto;
+  height: 0.1rem;
+  background: currentColor;
+}
+
+.daily-mantra__divider-mark {
+  flex: 0 0 auto;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Mantra quote body — serif stack for zen tone */
+.daily-mantra__quote {
+  margin: 0;
+  font-family: 'Georgia', 'Times New Roman', 'Songti SC', 'STSong', serif;
+  font-size: 3rem;
+  line-height: 1.4;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  color: var(--color-foreground);
+}
+
+/* Attribution line — e.g. "— Lao Tzu" */
+.daily-mantra__attribution {
+  margin: 0;
+  font-size: 1.4rem;
+  letter-spacing: 0.08em;
+  font-weight: 400;
+  color: rgba(var(--color-foreground), 0.65);
+}
+
+/* ---------- Responsive (≤599px) ---------- */
+@media screen and (max-width: 599px) {
+  .daily-mantra__inner {
+    gap: 1.8rem;
+  }
+
+  .daily-mantra__eyebrow {
+    font-size: 1rem;
+    letter-spacing: 0.28em;
+  }
+
+  /* Project hard rule: mobile titles use 1.8rem to prevent line breaks.
+     Quote is title-sized, so we mirror that floor. */
+  .daily-mantra__quote {
+    font-size: 1.8rem;
+    line-height: 1.5;
+  }
+
+  .daily-mantra__attribution {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .daily-mantra * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

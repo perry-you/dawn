@@ -40,6 +40,19 @@
         "aria_label": "Slideshow about our brand"
       }
     },
+    "daily_mantra": {
+      "type": "daily-mantra",
+      "settings": {
+        "eyebrow": "DAILY MANTRA",
+        "attribution": "— Kailash Way Daily Reflection",
+        "show_divider": true,
+        "divider_mark": "❖",
+        "full_width": true,
+        "color_scheme": "scheme-1",
+        "padding_top": 56,
+        "padding_bottom": 56
+      }
+    },
     "discover": {
       "type": "discover-section",
       "blocks": {
@@ -340,6 +353,7 @@
   },
   "order": [
     "hero_slideshow",
+    "daily_mantra",
     "discover",
     "featured_collection",
     "reviews_carousel",
