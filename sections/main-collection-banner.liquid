@@ -48,7 +48,7 @@
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
     {%- comment -%} 面包屑 {%- endcomment -%}
     <nav class="collection-hero__breadcrumb" aria-label="breadcrumb">
-      <a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t | default: 'Home' }}</a>
+      <a href="{{ routes.root_url }}">Home</a>
       <span aria-hidden="true"> / </span>
       <span>{{ collection.title | escape }}</span>
     </nav>
