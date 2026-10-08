@@ -84,18 +84,20 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    text-align: center;
     gap: 0.6rem;
     min-width: 0;
   }
   .nd-info-{{ section.id }} h3 {
-    font-size: 4.8rem;
+    font-size: 2.4rem;
     margin: 0;
     font-weight: 500;
     line-height: 1.2;
   }
   @media screen and (max-width: 749px) {
     .nd-info-{{ section.id }} h3 {
-      font-size: 2.4rem;
+      font-size: 1.8rem;
     }
   }
   @media screen and (max-width: 599px) {
@@ -103,20 +105,37 @@
       grid-template-columns: 1fr;
     }
     .nd-info-{{ section.id }} h3 {
-      font-size: 2rem;
+      font-size: 1.6rem;
     }
   }
+  .nd-info-{{ section.id }} .nd-price-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+  }
   .nd-info-{{ section.id }} .nd-price {
-    font-size: 4.2rem;
+    font-size: 2.1rem;
+  }
+  .nd-info-{{ section.id }} .nd-compare {
+    font-size: 1.4rem;
+    text-decoration: line-through;
+    opacity: 0.6;
   }
   @media screen and (max-width: 749px) {
     .nd-info-{{ section.id }} .nd-price {
-      font-size: 2.1rem;
+      font-size: 1.6rem;
+    }
+    .nd-info-{{ section.id }} .nd-compare {
+      font-size: 1.1rem;
     }
   }
   @media screen and (max-width: 599px) {
     .nd-info-{{ section.id }} .nd-price {
-      font-size: 1.8rem;
+      font-size: 1.4rem;
+    }
+    .nd-info-{{ section.id }} .nd-compare {
+      font-size: 1rem;
     }
   }
 
@@ -227,7 +246,10 @@
           </div>
           <div class="nd-info-{{ section.id }}">
             <h3 id="nd-title-prod-{{ section.id }}"></h3>
-            <span class="nd-price" id="nd-price-{{ section.id }}"></span>
+            <div class="nd-price-row">
+              <span class="nd-price" id="nd-price-{{ section.id }}"></span>
+              <span class="nd-compare" id="nd-compare-{{ section.id }}" style="display:none;"></span>
+            </div>
           </div>
         </div>
       </a>
@@ -300,6 +322,7 @@
       {
         "title": {{ product.title | json }},
         "price": {{ product.price | money | json }},
+        "compareAtPrice": {%- if product.compare_at_price > product.price -%}{{ product.compare_at_price | money | json }}{%- else -%}null{%- endif -%},
         "url": {{ product.url | json }},
         "mainSrc": {%- if product.featured_media -%}{{ product.featured_media | image_url: width: 800 | json }}{%- else -%}""{%- endif -%},
         "mainSrcset": {{ main_srcset | strip | json }},
@@ -321,6 +344,7 @@
     var subImg = document.getElementById('nd-sub-img-' + sectionId);
     var titleEl = document.getElementById('nd-title-prod-' + sectionId);
     var priceEl = document.getElementById('nd-price-' + sectionId);
+    var compareEl = document.getElementById('nd-compare-' + sectionId);
     var masterLink = document.getElementById('nd-master-link-' + sectionId);
 
     if (!dataEl || !list) return;
@@ -356,6 +380,12 @@
 
       titleEl.textContent = p.title || '';
       priceEl.textContent = p.price || '';
+      if (p.compareAtPrice && compareEl) {
+        compareEl.textContent = p.compareAtPrice;
+        compareEl.style.display = '';
+      } else if (compareEl) {
+        compareEl.style.display = 'none';
+      }
 
       if (p.url && masterLink) {
         masterLink.href = p.url;
