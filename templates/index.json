@@ -54,19 +54,6 @@
         "padding_bottom": 56
       }
     },
-    "new_drops_9fFkpz": {
-      "type": "new-drops",
-      "name": "New Drops",
-      "settings": {
-        "collection": "new-arrivals",
-        "title": "&nbsp;New Arrivals&nbsp;",
-        "heading_alignment": "center",
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -92,6 +79,19 @@
         "quick_add": "none",
         "columns_mobile": "2",
         "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "new_drops_9fFkpz": {
+      "type": "new-drops",
+      "name": "New Drops",
+      "settings": {
+        "collection": "new-arrivals",
+        "title": "&nbsp;New Arrivals&nbsp;",
+        "heading_alignment": "center",
+        "color_scheme": "scheme-1",
+        "show_view_all": false,
         "padding_top": 44,
         "padding_bottom": 36
       }
@@ -387,8 +387,8 @@
   "order": [
     "hero_slideshow",
     "daily_mantra_NVwxHN",
-    "new_drops_9fFkpz",
     "featured_collection",
+    "new_drops_9fFkpz",
     "discover",
     "reviews_carousel",
     "about_kailash_9EyPHp",
