@@ -67,7 +67,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    align-items: start;
+    align-items: stretch;
   }
   .nd-sub-image-{{ section.id }} {
     width: 100%;
@@ -247,8 +247,8 @@
           <div class="nd-info-{{ section.id }}">
             <h3 id="nd-title-prod-{{ section.id }}"></h3>
             <div class="nd-price-row">
-              <span class="nd-price" id="nd-price-{{ section.id }}"></span>
               <span class="nd-compare" id="nd-compare-{{ section.id }}" style="display:none;"></span>
+              <span class="nd-price" id="nd-price-{{ section.id }}"></span>
             </div>
           </div>
         </div>
