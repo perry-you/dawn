@@ -40,12 +40,15 @@
   }
 
   /* ===== Image column ===== */
+  /* Dawn .media > * is absolutely positioned (base.css), so the container
+     must carry its own height via aspect-ratio or the image collapses to 0. */
   .about-kailash__media {
     position: relative;
   }
   .about-kailash__media .media {
     border-radius: 0.8rem;
     overflow: hidden;
+    aspect-ratio: 4/3;
   }
   .about-kailash__media .media img {
     width: 100%;
@@ -110,12 +113,9 @@
     font-weight: 500;
   }
 
-  /* ===== CTA ===== */
+  /* ===== CTA (mirrors featured-collection view-all) ===== */
   .about-kailash__cta {
-    margin-top: 0.8rem;
-  }
-  .about-kailash__cta .button {
-    display: inline-block;
+    margin-top: 3.2rem;
   }
 
   /* ===== Trust badges row ===== */
@@ -236,23 +236,21 @@
           {% endfor %}
         </div>
       {% endif %}
-
-      {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
-        <div
-          class="about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-          {% if settings.animations_reveal_on_scroll %}
-            data-cascade
-            style="--animation-order: 4;"
-          {% endif %}
-        >
-          <a href="{{ section.settings.cta_link }}" class="button button--{{ section.settings.cta_style }}"{% if section.settings.cta_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
-            {{ section.settings.cta_label }}
-          </a>
-        </div>
-      {% endif %}
     </div>
 
   </div>
+
+  {% comment %} === CTA button (mirrors featured-collection view-all) === {% endcomment %}
+  {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+    <div class="center about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <a
+        href="{{ section.settings.cta_link }}"
+        class="{% if section.settings.cta_style == 'link' %}link underlined-link{% elsif section.settings.cta_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+      >
+        {{ section.settings.cta_label }}
+      </a>
+    </div>
+  {% endif %}
 
   {% comment %} === Trust badges === {% endcomment %}
   {% if section.settings.show_trust %}
@@ -335,11 +333,11 @@
       "id": "cta_style",
       "label": "CTA style",
       "options": [
-        { "value": "primary", "label": "Primary" },
-        { "value": "secondary", "label": "Secondary" },
-        { "value": "tertiary", "label": "Tertiary" }
+        { "value": "link", "label": "Link" },
+        { "value": "solid", "label": "Solid button" },
+        { "value": "secondary", "label": "Outline button" }
       ],
-      "default": "primary"
+      "default": "secondary"
     },
     {
       "type": "header",
@@ -403,12 +401,12 @@
       "name": "About Kailash Way",
       "settings": {
         "heading": "About Kailash Way",
-        "description": "<p>A journey from the snow peaks of Tibet to your daily life — handcrafted spiritual jewelry rooted in ancient traditions.</p>",
-        "story": "<p><strong>Kailash Way is more than jewelry — it is a path.</strong></p><p>Born from years of travel through Tibet's vast snow plateaus and deep respect for its living traditions, each piece in our collection carries an intention: protection, clarity, connection.</p><p>We work directly with artisans across Tibet and Nepal, preserving crafts that have been passed down for generations while bringing their quiet power into your daily life.</p>",
-        "values": "❖ : Authenticity\n🌱 : Sustainability\n⚡ : Intention\n🧭 : Clarity",
+        "description": "<p>Mount Kailash rises from the high plateau of western Tibet. For thousands of years, pilgrims have walked the kora — because the path itself is the practice.</p>",
+        "story": "<p><strong>Every path has a beginning. Yours begins where you stand.</strong></p><p>Kailash Way isn't a company that sells spirituality. It's a record of a path, made portable. Every piece carries the mountain, the maker, and the meaning — but the walk is yours.</p><p>Spiritual jewelry and ritual objects sourced and crafted across Tibet, Nepal, and beyond. Malas, red threads, gemstones, and small tokens that serve as reminders of where you are on your own road.</p>",
+        "values": "⚡ : Powerful\n☀️ : Enlightened\n⛰️ : Confident\n❤️ : Positive\n🌿 : Abundant",
         "cta_label": "Walk Your Own Way",
-        "cta_link": "/pages/about",
-        "cta_style": "primary",
+        "cta_link": "/pages/about-kailash-way",
+        "cta_style": "secondary",
         "show_trust": true,
         "layout": "image_first",
         "full_width": false,
