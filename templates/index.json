@@ -40,11 +40,12 @@
         "aria_label": "Slideshow about our brand"
       }
     },
-    "daily_mantra": {
+    "daily_mantra_NVwxHN": {
       "type": "daily-mantra",
+      "name": "Daily Mantra",
       "settings": {
         "eyebrow": "DAILY MANTRA",
-        "attribution": "— Kailash Way Daily Reflection",
+        "attribution": "",
         "show_divider": true,
         "divider_mark": "❖",
         "full_width": true,
@@ -190,7 +191,7 @@
       "settings": {
         "collection": "bestsellers",
         "products_to_show": 8,
-        "title": "PROTECT YOURSELF WITH THE KAILASH WAY BESTSELLERS",
+        "title": "BESTSELLERS",
         "heading_size": "h1",
         "heading_alignment": "center",
         "description": "",
@@ -353,7 +354,7 @@
   },
   "order": [
     "hero_slideshow",
-    "daily_mantra",
+    "daily_mantra_NVwxHN",
     "discover",
     "featured_collection",
     "reviews_carousel",
