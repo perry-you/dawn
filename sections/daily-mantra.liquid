@@ -185,16 +185,16 @@ Abundance is the mountain that gives stone to every hand that reaches toward its
     {%- endif -%}
 
     {%- if today_mantra != blank -%}
-      <blockquote
-        class="daily-mantra__quote rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+      <div
+        class="daily-mantra__quote{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
         {{ section.shopify_attributes }}
         {% if settings.animations_reveal_on_scroll %}
           data-cascade
           style="--animation-order: 3;"
         {% endif %}
       >
-        <p>{{ today_mantra | escape }}</p>
-      </blockquote>
+        {{ today_mantra | escape }}
+      </div>
     {%- endif -%}
 
     {%- if section.settings.attribution != blank -%}
