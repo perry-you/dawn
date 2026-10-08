@@ -5,6 +5,10 @@
   .collection-hero-{{ section.id }} {
     text-align: center;
   }
+  .collection-hero-{{ section.id }} .collection-hero__inner {
+    flex-direction: column !important;
+    align-items: center !important;
+  }
   .collection-hero-{{ section.id }} .collection-hero__breadcrumb {
     font-size: 1.2rem;
     color: rgba(var(--color-foreground), 0.6);
@@ -27,11 +31,19 @@
   .collection-hero-{{ section.id }} .collection-hero__image-container {
     width: 100%;
     margin: 0 0 2rem;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
   }
   .collection-hero-{{ section.id }} .collection-hero__image-container img {
     width: 100%;
     height: auto;
     display: block;
+  }
+  @media screen and (max-width: 749px) {
+    .collection-hero-{{ section.id }} .collection-hero__image-container {
+      height: auto;
+    }
   }
   .collection-hero-{{ section.id }} .collection-hero__description {
     max-width: 80rem;
