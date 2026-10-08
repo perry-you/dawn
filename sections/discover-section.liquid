@@ -4,7 +4,7 @@
   Customizable via Theme Editor schema
 {% endcomment %}
 
-<section class="discover-section{% if section.settings.full_width == false %} page-width{% endif %}" {% if section.settings.heading != blank %}aria-labelledby="discover-heading-{{ section.id }}"{% endif %}>
+<section class="discover-section{% unless section.settings.full_width %} page-width{% endunless %}" {% if section.settings.heading != blank %}aria-labelledby="discover-heading-{{ section.id }}"{% endif %}>
   <div class="discover-header collection__title title-wrapper title-wrapper--no-top-margin" style="text-align: center;">
     {% if section.settings.heading != blank %}
       <h2 id="discover-heading-{{ section.id }}" class="title inline-richtext h1">{{ section.settings.heading }}</h2>
@@ -140,8 +140,6 @@
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 2rem 1.6rem;
-  max-width: 98rem;
-  margin: 0 auto;
 }
 
 .discover-card {
