@@ -240,18 +240,6 @@
 
   </div>
 
-  {% comment %} === CTA button (mirrors featured-collection view-all) === {% endcomment %}
-  {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
-    <div class="center about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <a
-        href="{{ section.settings.cta_link }}"
-        class="{% if section.settings.cta_style == 'link' %}link underlined-link{% elsif section.settings.cta_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
-      >
-        {{ section.settings.cta_label }}
-      </a>
-    </div>
-  {% endif %}
-
   {% comment %} === Trust badges === {% endcomment %}
   {% if section.settings.show_trust %}
     <div class="about-kailash__trust">
@@ -271,6 +259,18 @@
         <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Sustainable Sourcing
       </div>
+    </div>
+  {% endif %}
+
+  {% comment %} === CTA button (mirrors featured-collection view-all) === {% endcomment %}
+  {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+    <div class="center about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <a
+        href="{{ section.settings.cta_link }}"
+        class="{% if section.settings.cta_style == 'link' %}link underlined-link{% elsif section.settings.cta_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+      >
+        {{ section.settings.cta_label }}
+      </a>
     </div>
   {% endif %}
 
