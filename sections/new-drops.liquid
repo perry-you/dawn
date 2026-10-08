@@ -65,20 +65,14 @@
   }
   .nd-info-row-{{ section.id }} {
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
     align-items: start;
   }
   .nd-sub-image-{{ section.id }} {
-    width: 8rem;
+    width: 100%;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    flex-shrink: 0;
-  }
-  @media screen and (max-width: 599px) {
-    .nd-sub-image-{{ section.id }} {
-      width: 6rem;
-    }
   }
   .nd-sub-image-{{ section.id }} img {
     width: 100%;
@@ -90,22 +84,40 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.4rem;
+    gap: 0.6rem;
     min-width: 0;
   }
   .nd-info-{{ section.id }} h3 {
-    font-size: 1.6rem;
+    font-size: 4.8rem;
     margin: 0;
     font-weight: 500;
-    line-height: 1.3;
+    line-height: 1.2;
+  }
+  @media screen and (max-width: 749px) {
+    .nd-info-{{ section.id }} h3 {
+      font-size: 2.4rem;
+    }
   }
   @media screen and (max-width: 599px) {
+    .nd-info-row-{{ section.id }} {
+      grid-template-columns: 1fr;
+    }
     .nd-info-{{ section.id }} h3 {
-      font-size: 1.4rem;
+      font-size: 2rem;
     }
   }
   .nd-info-{{ section.id }} .nd-price {
-    font-size: 1.4rem;
+    font-size: 4.2rem;
+  }
+  @media screen and (max-width: 749px) {
+    .nd-info-{{ section.id }} .nd-price {
+      font-size: 2.1rem;
+    }
+  }
+  @media screen and (max-width: 599px) {
+    .nd-info-{{ section.id }} .nd-price {
+      font-size: 1.8rem;
+    }
   }
 
   /* 右侧 2列3行 商品卡片网格 */
