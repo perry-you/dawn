@@ -2,56 +2,93 @@
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .collection-hero__title {
+  .collection-hero-{{ section.id }} {
     text-align: center;
   }
-  .collection-hero__description {
-    text-align: center;
+  .collection-hero-{{ section.id }} .collection-hero__breadcrumb {
+    font-size: 1.2rem;
+    color: rgba(var(--color-foreground), 0.6);
+    margin-bottom: 1rem;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__breadcrumb a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__breadcrumb a:hover {
+    text-decoration: underline;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__title {
+    margin: 0 0 2rem;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__image-container {
+    width: 100%;
+    margin: 0 0 2rem;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .collection-hero-{{ section.id }} .collection-hero__description {
+    max-width: 80rem;
     margin-inline: auto;
+    font-size: 1.5rem;
+    line-height: 1.6;
   }
-  .collection-hero__description p {
+  .collection-hero-{{ section.id }} .collection-hero__description p {
     text-align: center;
-  }
-
-  @media screen and (max-width: 749px) {
-    .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
-    }
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
+<div class="collection-hero color-{{ section.settings.color_scheme }} gradient collection-hero-{{ section.id }}">
   <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+    {%- comment -%} 面包屑 {%- endcomment -%}
+    <nav class="collection-hero__breadcrumb" aria-label="breadcrumb">
+      <a href="{{ routes.root_url }}">{{ 'general.breadcrumb.home' | t | default: 'Home' }}</a>
+      <span aria-hidden="true"> / </span>
+      <span>{{ collection.title | escape }}</span>
+    </nav>
 
-      {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
-      {%- endif -%}
-    </div>
+    {%- comment -%} 大标题 {%- endcomment -%}
+    <h1 class="collection-hero__title">
+      <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+      {{- collection.title | escape -}}
+    </h1>
 
+    {%- comment -%} 全宽集合图片 {%- endcomment -%}
     {%- if section.settings.show_collection_image and collection.image -%}
       <div class="collection-hero__image-container media gradient">
         <img
           srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if collection.image.width >= 375 -%}{{ collection.image | image_url: width: 375 }} 375w,{%- endif -%}
             {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+            {%- if collection.image.width >= 1100 -%}{{ collection.image | image_url: width: 1100 }} 1100w,{%- endif -%}
             {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {%- if collection.image.width >= 1780 -%}{{ collection.image | image_url: width: 1780 }} 1780w,{%- endif -%}
+            {%- if collection.image.width >= 2000 -%}{{ collection.image | image_url: width: 2000 }} 2000w,{%- endif -%}
+            {%- if collection.image.width >= 3000 -%}{{ collection.image | image_url: width: 3000 }} 3000w,{%- endif -%}
+            {%- if collection.image.width >= 3840 -%}{{ collection.image | image_url: width: 3840 }} 3840w,{%- endif -%}
             {{ collection.image | image_url }} {{ collection.image.width }}w
           "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
+          src="{{ collection.image | image_url: width: 1500 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width }}px, 100vw"
+          alt="{{ collection.image.alt | escape | default: collection.title | escape }}"
           width="{{ collection.image.width }}"
           height="{{ collection.image.height }}"
+          {% if settings.animations_reveal_on_scroll %}
+            class="scroll-trigger animate--fade-in"
+          {% endif %}
         >
       </div>
+    {%- endif -%}
+
+    {%- comment -%} 描述段落 {%- endcomment -%}
+    {%- if section.settings.show_collection_description -%}
+      <div class="collection-hero__description rte">{{ collection.description }}</div>
     {%- endif -%}
   </div>
 </div>
@@ -74,7 +111,7 @@
     {
       "type": "checkbox",
       "id": "show_collection_image",
-      "default": false,
+      "default": true,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
     },
     {
