@@ -78,41 +78,6 @@
     font-weight: 600;
   }
 
-  /* ===== Values list ===== */
-  .about-kailash__values {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.2rem;
-    margin-top: 0.4rem;
-  }
-  @media screen and (min-width: 500px) {
-    .about-kailash__values {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-  .about-kailash__value {
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    font-size: 1.4rem;
-    line-height: 1.5;
-  }
-  .about-kailash__value-icon {
-    flex-shrink: 0;
-    width: 2.8rem;
-    height: 2.8rem;
-    border-radius: 50%;
-    background: rgba(var(--color-foreground), 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    color: rgb(var(--color-foreground));
-  }
-  .about-kailash__value-text {
-    font-weight: 500;
-  }
-
   /* ===== CTA (mirrors featured-collection view-all) ===== */
   .about-kailash__cta {
     margin-top: 3.2rem;
@@ -221,19 +186,20 @@
         </div>
       {% endif %}
 
-      {% if section.settings.values != blank %}
-        <div class="about-kailash__values">
-          {% assign values_html = section.settings.values | strip %}
-          {% assign values_list = values_html | split: '|' %}
-          {% for item in values_list %}
-            {% assign parts = item | strip | split: ':' %}
-            {% if parts.size == 2 %}
-              <div class="about-kailash__value">
-                <span class="about-kailash__value-icon">{{ parts[0] | strip }}</span>
-                <span class="about-kailash__value-text">{{ parts[1] | strip }}</span>
-              </div>
-            {% endif %}
-          {% endfor %}
+      {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+        <div
+          class="about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 4;"
+          {% endif %}
+        >
+          <a
+            href="{{ section.settings.cta_link }}"
+            class="{% if section.settings.cta_style == 'link' %}link underlined-link{% elsif section.settings.cta_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
+          >
+            {{ section.settings.cta_label }}
+          </a>
         </div>
       {% endif %}
     </div>
@@ -259,18 +225,6 @@
         <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
         Sustainable Sourcing
       </div>
-    </div>
-  {% endif %}
-
-  {% comment %} === CTA button (mirrors featured-collection view-all) === {% endcomment %}
-  {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
-    <div class="center about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-      <a
-        href="{{ section.settings.cta_link }}"
-        class="{% if section.settings.cta_style == 'link' %}link underlined-link{% elsif section.settings.cta_style == 'solid' %}button{% else %}button button--secondary{% endif %}"
-      >
-        {{ section.settings.cta_label }}
-      </a>
     </div>
   {% endif %}
 
@@ -308,13 +262,6 @@
       "id": "story",
       "label": "Brand story",
       "default": "<p><strong>Every path has a beginning. Yours begins where you stand.</strong></p><p>Kailash Way isn't a company that sells spirituality. It's a record of a path, made portable. Every piece carries the mountain, the maker, and the meaning — but the walk is yours.</p><p>Spiritual jewelry and ritual objects sourced and crafted across Tibet, Nepal, and beyond. Malas, red threads, gemstones, and small tokens that serve as reminders of where you are on your own road.</p>"
-    },
-    {
-      "type": "textarea",
-      "id": "values",
-      "label": "Core values (icon : text, one per line, pipe-separated)",
-      "info": "Format: ⚡ : Powerful, ☀️ : Enlightened, ⛰️ : Confident, ❤️ : Positive, 🌿 : Abundant",
-      "default": "⚡ : Powerful\n☀️ : Enlightened\n⛰️ : Confident\n❤️ : Positive\n🌿 : Abundant"
     },
     {
       "type": "text",
@@ -403,7 +350,6 @@
         "heading": "About Kailash Way",
         "description": "<p>Mount Kailash rises from the high plateau of western Tibet. For thousands of years, pilgrims have walked the kora — because the path itself is the practice.</p>",
         "story": "<p><strong>Every path has a beginning. Yours begins where you stand.</strong></p><p>Kailash Way isn't a company that sells spirituality. It's a record of a path, made portable. Every piece carries the mountain, the maker, and the meaning — but the walk is yours.</p><p>Spiritual jewelry and ritual objects sourced and crafted across Tibet, Nepal, and beyond. Malas, red threads, gemstones, and small tokens that serve as reminders of where you are on your own road.</p>",
-        "values": "⚡ : Powerful\n☀️ : Enlightened\n⛰️ : Confident\n❤️ : Positive\n🌿 : Abundant",
         "cta_label": "Walk Your Own Way",
         "cta_link": "/pages/about-kailash-way",
         "cta_style": "secondary",
