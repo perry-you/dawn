@@ -25,20 +25,6 @@
     border-radius: 1.2rem;
     margin-bottom: 3.2rem;
   }
-  .blog-hero h1 {
-    font-size: clamp(2rem, 4vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    color: var(--brand-text-main, #2D2A26);
-    margin-bottom: 1.2rem;
-  }
-  .blog-hero__sub {
-    font-size: 1.5rem;
-    color: #6B6460;
-    max-width: 70ch;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
 
   /* 标签筛选栏 */
   .blog-filter-bar {
@@ -134,12 +120,15 @@
 {% comment %}
   ===== 板块1: Hero 标题区（所有博客页都显示） =====
 {% endcomment %}
-    <div class="blog-hero">
-      <h1 class="title--primary">{{ blog.title | escape }}</h1>
+    <div class="blog-hero collection__title title-wrapper title-wrapper--no-top-margin" style="text-align: center;">
       {%- if current_tag == nil and paginate.current_offset == 0 -%}
-        <p class="blog-hero__sub">Your guide to spiritual jewelry, crystal meanings, and sacred symbols from traditions around the world.</p>
+        <h2 class="title inline-richtext h1">{{ blog.title }}</h2>
+        <div class="collection__description body rte">Your guide to spiritual jewelry, crystal meanings, and sacred symbols from traditions around the world.</div>
       {%- elsif current_tag -%}
-        <p class="blog-hero__sub">Browsing: {{ current_tag | replace: '-', ' ' | capitalize }}</p>
+        <h2 class="title inline-richtext h1">{{ current_tag | replace: '-', ' ' | capitalize }}</h2>
+        <div class="collection__description body rte">Browsing articles tagged with "{{ current_tag | replace: '-', ' ' | capitalize }}"</div>
+      {%- else -%}
+        <h2 class="title inline-richtext h1">{{ blog.title }}</h2>
       {%- endif -%}
     </div>
 {% comment %}
