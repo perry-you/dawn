@@ -5,12 +5,12 @@
 {% endcomment %}
 
 <section class="discover-section{% if section.settings.full_width == false %} page-width{% endif %}" {% if section.settings.heading != blank %}aria-labelledby="discover-heading-{{ section.id }}"{% endif %}>
-  <div class="discover-header">
+  <div class="discover-header collection__title title-wrapper title-wrapper--no-top-margin" style="text-align: center;">
     {% if section.settings.heading != blank %}
-      <h2 id="discover-heading-{{ section.id }}" class="discover-title h1">{{ section.settings.heading | escape }}</h2>
+      <h2 id="discover-heading-{{ section.id }}" class="title inline-richtext h1">{{ section.settings.heading }}</h2>
     {% endif %}
     {% if section.settings.subheading != blank %}
-      <div class="discover-subtitle">{{ section.settings.subheading }}</div>
+      <div class="collection__description body rte">{{ section.settings.subheading }}</div>
     {% endif %}
   </div>
 
@@ -136,22 +136,6 @@
 
 .discover-header { margin-bottom: 3.6rem; }
 
-.discover-title {
-  font-size: 2.4rem;
-  font-weight: 700;
-  letter-spacing: -0.05rem;
-  margin: 0rem 0 1rem;
-  font-family: var(--font-heading-family);
-}
-
-.discover-subtitle {
-  font-size: 1.8rem;
-  color: #5a534a;
-  max-width: 52rem;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
 .discover-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -246,9 +230,6 @@
   .discover-section {
     padding: 3.2rem 1.2rem;
   }
-  .discover-title {
-    font-size: 1.8rem;
-  }
   .discover-grid {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.6rem 0.8rem;
@@ -259,9 +240,6 @@
   }
   .discover-card__label {
     font-size: 1.2rem;
-  }
-  .discover-subtitle {
-    font-size: 0.8rem;
   }
 }
 
