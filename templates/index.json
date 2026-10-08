@@ -54,25 +54,6 @@
         "padding_bottom": 56
       }
     },
-    "about_kailash": {
-      "type": "about-kailash",
-      "name": "About Kailash Way",
-      "settings": {
-        "heading": "About Kailash Way",
-        "description": "<p>A journey from the snow peaks of Tibet to your daily life — handcrafted spiritual jewelry rooted in ancient traditions.</p>",
-        "story": "<p><strong>Kailash Way is more than jewelry — it is a path.</strong></p><p>Born from years of travel through Tibet's vast snow plateaus and deep respect for its living traditions, each piece in our collection carries an intention: protection, clarity, connection.</p><p>We work directly with artisans across Tibet and Nepal, preserving crafts that have been passed down for generations while bringing their quiet power into your daily life.</p>",
-        "values": "❖ : Authenticity\n🌱 : Sustainability\n⚡ : Intention\n🧭 : Clarity",
-        "cta_label": "Learn Our Story",
-        "cta_link": "/pages/about",
-        "cta_style": "primary",
-        "show_trust": true,
-        "layout": "image_first",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 64,
-        "padding_bottom": 64
-      }
-    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -369,6 +350,25 @@
         "padding_top": 40,
         "padding_bottom": 40
       }
+    },
+    "about_kailash_9EyPHp": {
+      "type": "about-kailash",
+      "name": "About Kailash Way",
+      "settings": {
+        "heading": "About Kailash Way",
+        "description": "<p>A journey from the snow peaks of Tibet to your daily life — handcrafted spiritual jewelry rooted in ancient traditions.</p>",
+        "story": "<p><strong>Kailash Way is more than jewelry — it is a path.</strong></p><p>Born from years of travel through Tibet's vast snow plateaus and deep respect for its living traditions, each piece in our collection carries an intention: protection, clarity, connection.</p><p>We work directly with artisans across Tibet and Nepal, preserving crafts that have been passed down for generations while bringing their quiet power into your daily life.</p>",
+        "values": "❖ : Authenticity\n🌱 : Sustainability\n⚡ : Intention\n🧭 : Clarity",
+        "cta_label": "Learn Our Story",
+        "cta_link": "/pages/about",
+        "cta_style": "primary",
+        "show_trust": true,
+        "layout": "image_first",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
@@ -377,7 +377,7 @@
     "featured_collection",
     "discover",
     "reviews_carousel",
-    "about_kailash",
+    "about_kailash_9EyPHp",
     "featured_blog_tx7bzd",
     "as_featured_on"
   ]
