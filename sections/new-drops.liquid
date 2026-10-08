@@ -327,8 +327,8 @@
         "mainSrc": {%- if product.featured_media -%}{{ product.featured_media | image_url: width: 800 | json }}{%- else -%}""{%- endif -%},
         "mainSrcset": {{ main_srcset | strip | json }},
         "mainAlt": {{ product.featured_media.alt | default: product.title | json }},
-        "subSrc": {%- if product.media[1] -%}{{ product.media[1] | image_url: width: 400 | json }}{%- elsif product.featured_media -%}{{ product.featured_media | image_url: width: 400 | json }}{%- else -%}""{%- endif -%},
-        "subAlt": {%- if product.media[1] -%}{{ product.media[1].alt | default: product.title | json }}{%- else -%}{{ product.featured_media.alt | default: product.title | json }}{%- endif -%}
+        "subSrc": {%- if product.featured_media -%}{{ product.featured_media | image_url: width: 400 | json }}{%- else -%}""{%- endif -%},
+        "subAlt": {{ product.featured_media.alt | default: product.title | json }}
       }{%- unless forloop.last -%},{%- endunless -%}
     {%- endfor -%}
   {%- endif -%}
