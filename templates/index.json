@@ -54,6 +54,35 @@
         "padding_bottom": 56
       }
     },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "bestsellers",
+        "products_to_show": 8,
+        "title": "&nbsp;PROTECT YOURSELF WITH THE KAILASH WAY BESTSELLERS",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "square",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
     "discover": {
       "type": "discover-section",
       "blocks": {
@@ -184,35 +213,6 @@
         "heading": "Discover What Moves You",
         "subheading": "<p>Browse our collection by category to discover intentional items that fit your lifestyle.</p>",
         "full_width": false
-      }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "bestsellers",
-        "products_to_show": 8,
-        "title": "BESTSELLERS",
-        "heading_size": "h1",
-        "heading_alignment": "center",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
       }
     },
     "reviews_carousel": {
@@ -355,8 +355,8 @@
   "order": [
     "hero_slideshow",
     "daily_mantra_NVwxHN",
-    "discover",
     "featured_collection",
+    "discover",
     "reviews_carousel",
     "featured_blog_tx7bzd",
     "as_featured_on"
