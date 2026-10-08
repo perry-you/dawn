@@ -30,7 +30,7 @@
             <img
               src="{{ img_140 }}"
               srcset="{{ img_100 }} 100w, {{ img_120 }} 120w, {{ img_140 }} 140w, {{ img_240 }} 240w"
-              sizes="(max-width: 600px) 100px, (max-width: 900px) 120px, 140px"
+              sizes="(max-width: 599px) 120px, (max-width: 899px) 140px, 160px"
               alt="{{ block.settings.label | default: 'Category image' | escape }}"
               width="140"
               height="140"
@@ -167,8 +167,9 @@
 
 .discover-card__img {
   position: relative;
-  width: 14rem;
-  height: 14rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 16rem;
   border-radius: 50%;
   overflow: hidden;
   background: rgba(var(--color-foreground), 0.04);
@@ -221,8 +222,7 @@
     grid-template-columns: repeat(4, 1fr);
   }
   .discover-card__img {
-    width: 12rem;
-    height: 12rem;
+    max-width: 14rem;
   }
 }
 
@@ -235,8 +235,7 @@
     gap: 1.6rem 0.8rem;
   }
   .discover-card__img {
-    width: 10rem;
-    height: 10rem;
+    max-width: 12rem;
   }
   .discover-card__label {
     font-size: 1.2rem;
