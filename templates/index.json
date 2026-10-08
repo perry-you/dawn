@@ -296,7 +296,7 @@
       "settings": {
         "blog": "the-path",
         "post_limit": 3,
-        "heading": "LATEST FROM THE PATH",
+        "heading": "BLOG",
         "heading_size": "h1",
         "heading_alignment": "center",
         "columns_desktop": 3,
