@@ -1,0 +1,422 @@
+{%- comment -%}
+  About Kailash Way — homepage brand-intro section.
+  Positioned between Discover and Featured Collection.
+  Pattern mirrors Dawn's featured-collection heading (collection__title wrapper,
+  title h1, body rte description) + two-column image/text grid + trust-badge row.
+{%- endcomment -%}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  /* ===== Grid: image (45%) | text (55%) ===== */
+  .about-kailash__grid {
+    display: grid;
+    gap: 4.8rem;
+    grid-template-columns: 1fr;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 750px) {
+    .about-kailash__grid {
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 6.4rem;
+    }
+    .about-kailash__grid--reverse {
+      direction: rtl;
+    }
+    .about-kailash__grid--reverse > * {
+      direction: ltr;
+    }
+  }
+
+  /* ===== Image column ===== */
+  .about-kailash__media {
+    position: relative;
+  }
+  .about-kailash__media .media {
+    border-radius: 0.8rem;
+    overflow: hidden;
+  }
+  .about-kailash__media .media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* ===== Text column ===== */
+  .about-kailash__content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .about-kailash__content .rte {
+    font-size: 1.6rem;
+    line-height: 1.7;
+    color: rgb(var(--color-foreground));
+  }
+  .about-kailash__content .rte p {
+    margin: 0 0 1.6rem;
+  }
+  .about-kailash__content .rte p:last-child {
+    margin-bottom: 0;
+  }
+  .about-kailash__content .rte strong {
+    font-weight: 600;
+  }
+
+  /* ===== Values list ===== */
+  .about-kailash__values {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+    margin-top: 0.4rem;
+  }
+  @media screen and (min-width: 500px) {
+    .about-kailash__values {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+  .about-kailash__value {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    font-size: 1.4rem;
+    line-height: 1.5;
+  }
+  .about-kailash__value-icon {
+    flex-shrink: 0;
+    width: 2.8rem;
+    height: 2.8rem;
+    border-radius: 50%;
+    background: rgba(var(--color-foreground), 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: rgb(var(--color-foreground));
+  }
+  .about-kailash__value-text {
+    font-weight: 500;
+  }
+
+  /* ===== CTA ===== */
+  .about-kailash__cta {
+    margin-top: 0.8rem;
+  }
+  .about-kailash__cta .button {
+    display: inline-block;
+  }
+
+  /* ===== Trust badges row ===== */
+  .about-kailash__trust {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem 2.4rem;
+    margin-top: 4rem;
+    padding-top: 2.8rem;
+    border-top: 1px solid rgba(var(--color-foreground), 0.08);
+  }
+  @media screen and (min-width: 500px) {
+    .about-kailash__trust {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  .about-kailash__trust-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: rgba(var(--color-foreground), 0.8);
+  }
+  .about-kailash__trust-icon {
+    flex-shrink: 0;
+    width: 2rem;
+    height: 2rem;
+  }
+
+  /* ===== Mobile tweaks ===== */
+  @media screen and (max-width: 749px) {
+    .about-kailash__grid {
+      gap: 3.2rem;
+    }
+    .about-kailash__media .media {
+      aspect-ratio: 4/3;
+    }
+    .about-kailash__trust {
+      margin-top: 2.8rem;
+      padding-top: 2rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .about-kailash__media .media img { transition: none; }
+  }
+{%- endstyle -%}
+
+<section class="about-kailash section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }} isolate{% unless section.settings.full_width %} page-width{% endunless %}">
+
+  {% comment %} === Heading === {% endcomment %}
+  {% if section.settings.heading != blank %}
+    <div class="collection__title title-wrapper title-wrapper--no-top-margin" style="text-align: center;">
+      <h2 class="title inline-richtext h1">{{ section.settings.heading }}</h2>
+      {% if section.settings.description != blank %}
+        <div class="collection__description body rte">{{ section.settings.description }}</div>
+      {% endif %}
+    </div>
+  {% endif %}
+
+  {% comment %} === Two-column grid === {% endcomment %}
+  <div class="about-kailash__grid{% if section.settings.layout == 'text_first' %} about-kailash__grid--reverse{% endif %}">
+
+    {% comment %} -- Image column -- {% endcomment %}
+    <div class="about-kailash__media">
+      <div
+        class="media{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}"
+        {% if settings.animations_reveal_on_scroll %}
+          data-cascade
+          style="--animation-order: 1;"
+        {% endif %}
+      >
+        {% if section.settings.image != blank %}
+          {%- assign widths = '330, 660, 990, 1320, 1650, 1980' -%}
+          {%- capture sizes -%}
+            (min-width: {{ settings.page_width }}px) calc({{ settings.page_width | minus: 100 | divided_by: 2 }}px - 3.2rem),
+            (min-width: 750px) calc((100vw - 130px) / 2 - 3.2rem),
+            100vw
+          {%- endcapture -%}
+          {{
+            section.settings.image
+            | image_url: width: 1980
+            | image_tag: sizes: sizes, widths: widths, loading: 'lazy'
+          }}
+        {% else %}
+          {{ 'mountains' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    </div>
+
+    {% comment %} -- Text column -- {% endcomment %}
+    <div class="about-kailash__content">
+      {% if section.settings.story != blank %}
+        <div
+          class="rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 2;"
+          {% endif %}
+        >
+          {{ section.settings.story }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.values != blank %}
+        <div class="about-kailash__values">
+          {% assign values_html = section.settings.values | strip %}
+          {% assign values_list = values_html | split: '|' %}
+          {% for item in values_list %}
+            {% assign parts = item | strip | split: ':' %}
+            {% if parts.size == 2 %}
+              <div class="about-kailash__value">
+                <span class="about-kailash__value-icon">{{ parts[0] | strip }}</span>
+                <span class="about-kailash__value-text">{{ parts[1] | strip }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.cta_label != blank and section.settings.cta_link != blank %}
+        <div
+          class="about-kailash__cta{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+          {% if settings.animations_reveal_on_scroll %}
+            data-cascade
+            style="--animation-order: 4;"
+          {% endif %}
+        >
+          <a href="{{ section.settings.cta_link }}" class="button button--{{ section.settings.cta_style }}"{% if section.settings.cta_link contains '://' %} target="_blank" rel="noopener noreferrer"{% endif %}>
+            {{ section.settings.cta_label }}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+
+  {% comment %} === Trust badges === {% endcomment %}
+  {% if section.settings.show_trust %}
+    <div class="about-kailash__trust">
+      <div class="about-kailash__trust-item">
+        <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Authentic Tibetan Roots
+      </div>
+      <div class="about-kailash__trust-item">
+        <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        Handcrafted with Intention
+      </div>
+      <div class="about-kailash__trust-item">
+        <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Fast Worldwide Shipping
+      </div>
+      <div class="about-kailash__trust-item">
+        <svg class="about-kailash__trust-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        Ethically Sourced
+      </div>
+    </div>
+  {% endif %}
+
+</section>
+
+{% schema %}
+{
+  "name": "About Kailash Way",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "About Kailash Way"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Subheading",
+      "default": "<p>A journey from the snow peaks of Tibet to your daily life — handcrafted spiritual jewelry rooted in ancient traditions.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image (founder or Tibetan plateau)"
+    },
+    {
+      "type": "richtext",
+      "id": "story",
+      "label": "Brand story",
+      "default": "<p><strong>Kailash Way is more than jewelry — it is a path.</strong></p><p>Born from years of travel through Tibet's vast snow plateaus and deep respect for its living traditions, each piece in our collection carries an intention: protection, clarity, connection.</p><p>We work directly with artisans across Tibet and Nepal, preserving crafts that have been passed down for generations while bringing their quiet power into your daily life.</p>"
+    },
+    {
+      "type": "textarea",
+      "id": "values",
+      "label": "Core values (icon : text, one per line, pipe-separated)",
+      "info": "Format: ❖ : Authenticity, 🌱 : Sustainability, ⚡ : Intention, 🧭 : Clarity",
+      "default": "❖ : Authenticity\n🌱 : Sustainability\n⚡ : Intention\n🧭 : Clarity"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Learn Our Story"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link",
+      "default": "/pages/about"
+    },
+    {
+      "type": "select",
+      "id": "cta_style",
+      "label": "CTA style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "tertiary", "label": "Tertiary" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "header",
+      "content": "Trust badges"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_trust",
+      "label": "Show trust badges",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "image_first", "label": "Image first (left)" },
+        { "value": "text_first", "label": "Text first (left)" }
+      ],
+      "default": "image_first"
+    },
+    {
+      "type": "checkbox",
+      "id": "full_width",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 64
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 64
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Kailash Way",
+      "settings": {
+        "heading": "About Kailash Way",
+        "description": "<p>A journey from the snow peaks of Tibet to your daily life — handcrafted spiritual jewelry rooted in ancient traditions.</p>",
+        "story": "<p><strong>Kailash Way is more than jewelry — it is a path.</strong></p><p>Born from years of travel through Tibet's vast snow plateaus and deep respect for its living traditions, each piece in our collection carries an intention: protection, clarity, connection.</p><p>We work directly with artisans across Tibet and Nepal, preserving crafts that have been passed down for generations while bringing their quiet power into your daily life.</p>",
+        "values": "❖ : Authenticity\n🌱 : Sustainability\n⚡ : Intention\n🧭 : Clarity",
+        "cta_label": "Learn Our Story",
+        "cta_link": "/pages/about",
+        "cta_style": "primary",
+        "show_trust": true,
+        "layout": "image_first",
+        "full_width": false,
+        "color_scheme": "scheme-1",
+        "padding_top": 64,
+        "padding_bottom": 64
+      }
+    }
+  ]
+}
+{% endschema %}
