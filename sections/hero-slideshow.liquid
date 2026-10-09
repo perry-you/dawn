@@ -218,6 +218,19 @@
     border-bottom-color: transparent;
     --color-foreground: 255,255,255;
     transition: background-color 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    /* Let clicks pass through the header's empty space to the hero link below.
+       Interactive elements re-enable pointer-events:auto below. */
+    pointer-events: none;
+  }
+
+  /* Interactive elements within the transparent header stay clickable. */
+  .section-header:not(.scrolled-past-header) .header-wrapper a,
+  .section-header:not(.scrolled-past-header) .header-wrapper button,
+  .section-header:not(.scrolled-past-header) .header-wrapper summary,
+  .section-header:not(.scrolled-past-header) .header-wrapper details,
+  .section-header:not(.scrolled-past-header) .header-wrapper input,
+  .section-header:not(.scrolled-past-header) .header-wrapper label {
+    pointer-events: auto;
   }
 
   .section-header:not(.scrolled-past-header) .header-wrapper--border-bottom {
@@ -269,6 +282,7 @@
   .section-header:not(.scrolled-past-header) .search-modal__content {
     background-color: rgb(var(--color-background));
     --color-foreground: 45, 42, 38;
+    pointer-events: auto;
   }
 
   /* Hide the country/currency selector while the header floats over the
