@@ -376,7 +376,9 @@
           {{ 'hero-apparel-1' | placeholder_svg_tag: 'hero-bz__img placeholder-svg' }}
         {%- endif -%}
         {%- if block.settings.link != blank -%}
-          <a class="hero-bz__link" href="{{ block.settings.link }}" aria-label="{{ slide_alt | escape }}"></a>
+          <a class="hero-bz__link" href="{{ block.settings.link }}">
+            <span class="visually-hidden">{{ slide_alt | escape }}</span>
+          </a>
         {%- endif -%}
       </div>
     {%- endfor -%}
