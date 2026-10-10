@@ -223,13 +223,12 @@
     pointer-events: none;
   }
 
-  /* Interactive elements within the transparent header stay clickable. */
-  .section-header:not(.scrolled-past-header) .header-wrapper a,
-  .section-header:not(.scrolled-past-header) .header-wrapper button,
-  .section-header:not(.scrolled-past-header) .header-wrapper summary,
-  .section-header:not(.scrolled-past-header) .header-wrapper details,
-  .section-header:not(.scrolled-past-header) .header-wrapper input,
-  .section-header:not(.scrolled-past-header) .header-wrapper label {
+  /* Re-enable the whole header bar content (logo, menu, icons) so hover
+     dropdowns keep working — hover-open listens on ancestors like
+     <li>/<nav>/<header-menu>, not just on <summary>, so re-enabling only
+     a/button/summary broke it. Nav takes priority; only the header's own
+     padding/gaps still pass clicks through to the hero link. */
+  .section-header:not(.scrolled-past-header) .header-wrapper .header > * {
     pointer-events: auto;
   }
 
