@@ -202,7 +202,7 @@
           "type": "shopify://apps/judge-me-reviews/blocks/cards_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
           "settings": {
             "show_sample_reviews": false,
-            "reviews_selection": "all",
+            "reviews_selection": "product_reviews",
             "products": [],
             "filter_pinned": false,
             "filter_featured": false,
@@ -210,7 +210,7 @@
             "star_rating": "all",
             "show_review_media": true,
             "display_order": "media_first",
-            "no_image_fallback": "review_text_only",
+            "no_image_fallback": "product_image",
             "max_reviews": 20,
             "review_length": "medium",
             "text_size": "medium",
