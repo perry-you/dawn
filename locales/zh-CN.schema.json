@@ -2562,7 +2562,27 @@
           }
         },
         "description": {
-          "name": "描述"
+          "name": "描述",
+          "settings": {
+            "max_width": {
+              "label": "最大宽度"
+            },
+            "alignment": {
+              "label": "对齐方式",
+              "options__1": {
+                "label": "靠左"
+              },
+              "options__2": {
+                "label": "居中"
+              },
+              "options__3": {
+                "label": "靠右"
+              }
+            },
+            "padding": {
+              "label": "内边距"
+            }
+          }
         },
         "share": {
           "name": "分享",

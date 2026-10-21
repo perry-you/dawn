@@ -697,7 +697,11 @@
         {%- if product.description != blank and description_blocks.size > 0 -%}
           <div class="grid__item product__description-wrapper">
             {%- for block in description_blocks -%}
-              <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
+              <div
+                class="product__description rte quick-add-hidden"
+                style="max-width: {{ block.settings.max_width }}px; padding: {{ block.settings.padding }}px;{% if block.settings.alignment == 'center' %} margin-left: auto; margin-right: auto;{% elsif block.settings.alignment == 'right' %} margin-left: auto;{% endif %}"
+                {{ block.shopify_attributes }}
+              >
                 {{ product.description }}
               </div>
             {%- endfor -%}
@@ -975,7 +979,49 @@
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "range",
+          "id": "max_width",
+          "label": "t:sections.main-product.blocks.description.settings.max_width.label",
+          "min": 400,
+          "max": 1600,
+          "step": 20,
+          "unit": "px",
+          "default": 1200
+        },
+        {
+          "type": "select",
+          "id": "alignment",
+          "label": "t:sections.main-product.blocks.description.settings.alignment.label",
+          "options": [
+            {
+              "value": "left",
+              "label": "t:sections.main-product.blocks.description.settings.alignment.options__1.label"
+            },
+            {
+              "value": "center",
+              "label": "t:sections.main-product.blocks.description.settings.alignment.options__2.label"
+            },
+            {
+              "value": "right",
+              "label": "t:sections.main-product.blocks.description.settings.alignment.options__3.label"
+            }
+          ],
+          "default": "left"
+        },
+        {
+          "type": "range",
+          "id": "padding",
+          "label": "t:sections.main-product.blocks.description.settings.padding.label",
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px",
+          "default": 20
+        }
+      ]
     },
     {
       "type": "share",

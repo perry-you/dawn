@@ -2013,7 +2013,27 @@
           "name": "Pickup availability"
         },
         "description": {
-          "name": "Description"
+          "name": "Description",
+          "settings": {
+            "max_width": {
+              "label": "Maximum width"
+            },
+            "alignment": {
+              "label": "Alignment",
+              "options__1": {
+                "label": "Left"
+              },
+              "options__2": {
+                "label": "Center"
+              },
+              "options__3": {
+                "label": "Right"
+              }
+            },
+            "padding": {
+              "label": "Padding"
+            }
+          }
         },
         "sku": {
           "name": "SKU",
