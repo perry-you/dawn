@@ -3772,6 +3772,13 @@ a:not(.button):not(.underlined-link):hover {
   color: var(--brand-footer-text);
 }
 
+/* 页脚内输入框 / 国家选择框：背景与页脚背景保持一致 */
+.footer .field__input,
+.footer .select__select,
+.footer .localization-form__select {
+  background-color: var(--brand-footer-bg);
+}
+
 /* 页脚内浮动标签（视觉 placeholder）：深底上用米白 */
 .footer .field__label {
   color: var(--brand-footer-text);

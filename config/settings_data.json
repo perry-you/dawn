@@ -132,11 +132,11 @@
     "color_primary": "#B8956A",
     "color_secondary": "#8A9A7B",
     "color_accent": "#7B6B8D",
-    "color_bg_page": "#F5F1EA",
+    "color_bg_page": "#FFFFFF",
     "color_text_main": "#2D2A26",
     "color_text_light": "#6B6357",
     "color_border": "#E8E2D5",
-    "color_footer_bg": "#2D2A26",
+    "color_footer_bg": "#1F6B6B",
     "color_footer_text": "#F5F1EA",
     "sections": {
       "main-password-header": {
