@@ -3785,6 +3785,14 @@ a:not(.button):not(.underlined-link):hover {
   color: var(--brand-footer-text);
 }
 
+/* 页脚底部版权与政策链接：白色（覆盖 .caption 的浅灰褐规则） */
+.footer__content-bottom,
+.footer__content-bottom a,
+.footer__copyright,
+.footer__copyright a {
+  color: #ffffff;
+}
+
 /* --- 标签（badge）--- */
 .badge {
   border-radius: var(--radius-md);
