@@ -3775,7 +3775,8 @@ a:not(.button):not(.underlined-link):hover {
 /* 页脚内输入框 / 国家选择框：背景与页脚背景保持一致 */
 .footer .field__input,
 .footer .select__select,
-.footer .localization-form__select {
+.footer .localization-form__select,
+.footer .disclosure__button.localization-form__select {
   background-color: var(--brand-footer-bg);
 }
 
